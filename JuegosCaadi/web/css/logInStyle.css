@@ -7,14 +7,13 @@ html, body{
     height: 100%;
 }
 
-hgroup{
-    height: 150px, width: 100%;
+.banner{
+    height: 50px; width: 100%;
     font-family: Helvetica, Arial, sans-serif;
     background-color: white;
     border-top: 1px solid #CCC;
     border-bottom: 5px solid #A0935F;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-left: 85px;
     margin-top: 10.9em;
 }
 
