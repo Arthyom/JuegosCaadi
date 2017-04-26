@@ -1,0 +1,47 @@
+
+#main{
+    height: 100%;
+}
+
+.banner{
+    height: 150px, width: 100%;
+    font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+    background-color: white;
+    border-top: 1px solid #CCC;
+    border-bottom: 5px solid #A0935F;
+    padding: 25px;
+    margin-top: 12.299em;
+}
+
+.imageBanner{
+    width: 100%;
+    position: absolute;
+    top: 5px;
+    left: 565px;
+}
+
+.formulario{
+    font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+    text-color: #A0935F;
+    background-color: #f8f8f8;
+    padding: 1em;
+    margin: 15em 0 10em 33.2em;
+    width: 240px;
+
+    border-top: 2px solid #A0935F;
+    border-bottom: 2px solid #A0935F;
+    border-radius: 20px !important;
+}
+
+div h3{
+    color: black;
+    font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+}
+
+.footer{
+  text-decoration-color: black;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e7e7e7;
+  padding-top: 20px;
+  font-size: 11px !important;
+}
