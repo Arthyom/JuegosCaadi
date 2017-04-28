@@ -40,12 +40,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Estudiante` (
   `idEstudiante` INT NOT NULL,
   `Estudiante_Nombre` VARCHAR(45) NOT NULL,
   `Estudiante_Apellidos` VARCHAR(50) NULL,
-  `Estudiante_Semestre` TINYINT GENERATED ALWAYS AS () VIRTUAL,
-  `Estudiante_NivelIngles` TINYINT GENERATED ALWAYS AS (),
-  `Estudiante_Carrera` VARCHAR(30) GENERATED ALWAYS AS (),
-  `` VARCHAR(45) GENERATED ALWAYS AS (),
-  `` VARCHAR(45) GENERATED ALWAYS AS () VIRTUAL,
-  `` VARCHAR(45) GENERATED ALWAYS AS () VIRTUAL,
+  `Estudiante_Semestre` TINYINT ,
+  `Estudiante_NivelIngles` TINYINT ,
+  `Estudiante_Carrera` VARCHAR(30) ,
   PRIMARY KEY (`idEstudiante`),
   UNIQUE INDEX `idEstudiante_UNIQUE` (`idEstudiante` ASC))
 ENGINE = InnoDB;
