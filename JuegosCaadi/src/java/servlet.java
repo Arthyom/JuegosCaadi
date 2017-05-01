@@ -82,19 +82,37 @@ public class servlet extends HttpServlet {
         String usuario = request.getParameter("txtUSER");
         String password = request.getParameter("txtPASSWORD");
 
-        PrintWriter out = response.getWriter();
-        try {
-            boolean access;
-            access = searchUser(usuario,password);
-
-            if( access ){
-                out.println("ACEPTADO");
-            }else
-                out.println("NO ACEPTADO");
-
-        } catch (SQLException ex) {
-            Logger.getLogger(servlet.class.getName()).log(Level.SEVERE, null, ex);
+        conexion.linkDB login = new conexion.linkDB();
+        String user = login.logIn(usuario, password);        
+        boolean correct = false;
+        
+        String direccionamiento;
+        if( user.equals("Admin") ){
+            direccionamiento = "/private/homeAdministratorView.html";
+            response.sendRedirect(direccionamiento);
+            correct = true;
         }
+        else if( user.equals("Profesor") ){
+            direccionamiento = "/private/homeProfessorView.html";
+            response.sendRedirect(direccionamiento);
+            correct = true;
+        }
+        else if( user.equals("Alumno") ){
+            direccionamiento = "/private/homeStudentsEnglishView.html";
+            response.sendRedirect(direccionamiento);
+            correct = true;
+        }
+        else if( user == "" || user == null ){
+            direccionamiento = "/private/logInView.html";
+            response.sendRedirect(direccionamiento);
+            correct = false;
+        }
+        
+        if( correct )
+            System.out.println("USUARIO CORRECTO");
+        else
+            System.out.println("USUARIO INCORRECTO");
+
     }
 
     /**
@@ -107,18 +125,14 @@ public class servlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    public boolean searchUser(String user, String password) throws SQLException{
+/*    public String verificationUser(String usr, String pwd) throws SQLException{
          conexion.linkDB login = new conexion.linkDB();
-         String searchUser = login.searchUser(user, password);
-         boolean access = false;
-
-         if( searchUser != "ERROR" ){
-             if( searchUser == user && searchUser == password ){
-                access = true;
-             }else{
-                access = false;
-             }
-          }
-         return access;
-    }
+         String user = login.conect(usr, pwd);
+         
+         if( user.equals("Admin") ){
+            return "Admin";
+         }
+        
+         return user;
+    }*/
 }

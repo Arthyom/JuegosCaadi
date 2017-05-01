@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/walter/MEGAsync/DevProjects/Java/JuegosCaadi/JuegosCaadi/web/homeAdministratorView.html</file>
             <file>file:/home/walter/MEGAsync/DevProjects/Java/JuegosCaadi/JuegosCaadi/web/logInView.html</file>
+            <file>file:/home/walter/MEGAsync/DevProjects/Java/JuegosCaadi/JuegosCaadi/src/java/conexion/linkDB.java</file>
             <file>file:/home/walter/MEGAsync/DevProjects/Java/JuegosCaadi/JuegosCaadi/src/java/servlet.java</file>
-            <file>file:/home/walter/MEGAsync/DevProjects/Java/JuegosCaadi/JuegosCaadi/src/java/linkDB.java</file>
+            <file>file:/home/walter/MEGAsync/DevProjects/Java/JuegosCaadi/JuegosCaadi/web/css/logInStyle.css</file>
         </group>
     </open-files>
 </project-private>
