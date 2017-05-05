@@ -17,8 +17,8 @@ public class Logic_TablaAdministrador {
     propiedades de la clase juegos, publicas todas
     y relacionadas uno a uno con los Campos de la base de datos
 */
-    int IdUsuario;
-    int NivelIngels;
+   public int IdUsuario;
+   public int NivelIngels;
 
     
 

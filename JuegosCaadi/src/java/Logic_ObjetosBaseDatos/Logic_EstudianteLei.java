@@ -18,10 +18,10 @@ public class Logic_EstudianteLei {
     propiedades de la clase estudiantelei, publicas todas
     y relacionadas uno a uno con los Campos de la base de datos
 */
-    int     Semestre;
-    int     NivelIngles;
-    double  Calificacion;
-    int     IdUsuario;
+   public int     Semestre;
+   public int     NivelIngles;
+   public double  Calificacion;
+   public int     IdUsuario;
 
     public Logic_EstudianteLei() {
     }
