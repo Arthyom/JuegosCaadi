@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="../css/logInStyle.css">
 
 <header>
     <div id="main">
         <div class="banner">
             <div class="imageBanner">
-              <img src="images/escudo.png" alt="Escudo UG" width="221" height="188" title="Escudo de la Universidad de Guanajuato">          
+              <img src="../images/escudo-login.jpg" alt="Escudo UG" width="221" height="188" title="Escudo de la Universidad de Guanajuato">          
         </div>
     </div>
 </header>

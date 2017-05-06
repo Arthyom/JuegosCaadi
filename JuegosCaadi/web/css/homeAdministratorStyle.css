@@ -10,7 +10,6 @@ html, body{
 
 .banner{
     height: 50px;
-    font-family: Gandhi Serif;
     background-color: white;
     border-bottom: 5px solid #b5a36a;
     padding-left: 60%;
@@ -51,8 +50,8 @@ ul, ol {
     font-family: Gandhi Serif;
     font-size: 20px;
     font-weight: 100;
-    color: #FFFFFF;
-    background-color: #254167;
+    color: #254167;
+    background-color: #FFFFFF;
     font-size: 22px !important;
 }
 
@@ -71,10 +70,11 @@ ul, ol {
     color: #b5a36a;
 
     text-decoration: none;
-    padding: 9.5px 30px;
+    padding: 8px 30px;
     margin: 0.5em 0em 0em 0em;
     display: block;
     align-content: center;
+    font-size: 18px;
 }
 
 .nav .reportes, .inicio {
@@ -82,10 +82,11 @@ ul, ol {
     color: #b5a36a;
 
     text-decoration: none;
-    padding: 9.5px 30px;
+    padding: 8px 30px;
     margin: 0.5em 0em 0em 0em;
     display: block;
     align-content: center;
+    font-size: 18px;
 }
 
 .nav .sigout {
@@ -95,21 +96,23 @@ ul, ol {
     color: #b5a36a;
 
     text-decoration: none;
-    padding: 9.5px 30px;
+    padding: 8px 30px;
     margin: 0.5em 0em 0em 0em;
     display: block;
     align-content: center;
+    font-size: 18px;
 }
 
 .nav .juegos, .materias, .estudiantes, .usuarios {
-    background-color: #b5a36a;
+    background-color: #254167;
     color: white;
 
     text-decoration: none;
-    padding: 9.5px 30px;
+    padding: 8px 30px;
     margin: 0.1em 0em 0em 0em;
     display: block;
     align-content: center;
+    font-size: 18px;
 }
 
 .nav > li {
@@ -118,7 +121,7 @@ ul, ol {
 
 .nav li a:hover {
     background-color: rgb(229, 229, 229);
-    color: #A0935F;
+    color: #b5a36a;
 }
 
 .nav ul {

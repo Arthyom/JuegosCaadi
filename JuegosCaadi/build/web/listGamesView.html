@@ -12,35 +12,37 @@
 	    <div class="banner">
 	        <div class="imageBanner">
 	          <img src="images/escudo.jpg" alt="Escudo UG" width="112" height="42" title="Escudo de la Universidad de Guanajuato">  
-	 	    </div>
+	 	</div>
 
-		 	  <div class="header">
-					<ul class="nav">
-						<li><a href="homeAdministratorView.html" class="inicio"> Home </a></li>
-						<li><a href="" class="administrar"> Manage </a>
-							<ul>
-								<li><a href="adminJuegos.html" class="juegos"> Games</a></li>
-								<li><a href="" class="materias"> Subjects </a></li>
-								<li><a href="" class="estudiantes"> Students </a></li>
-								<li><a href="" class="usuarios"> Users </a></li>
-							</ul>
-						</li>
-						<li><a href="" class="reportes"> Reports  </li></a>
-						<li><a href="logInView.html" class="sigout"> Log out </a></li>
-					</ul>
-			  </div>
-
+                <div class="header">
+                    <ul class="nav">
+                        <li><a href="homeAdministratorView.html" class="inicio"> Home </a></li>
+                        <li><a href="" class="administrar"> Manage </a>
+                            <ul>
+                                <li><a href="listGamesView.html" class="juegos"> Games</a></li>
+                                <li><a href="" class="materias"> Subjects </a></li>
+                                <li><a href="" class="estudiantes"> Students </a></li>
+                                <li><a href="" class="usuarios"> Users </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="" class="reportes"> Reports </a></li>
+                        <li><a href="logInView.html" class="sigout"> Log out </a></li>
+                    </ul>
+                </div>
 	    </div>
 <!--CAMBIAR EL id Y class DE LOS DOS DIV PARA PODER HACER SUS PROPIOS ESTILOS -->
- 	    <div class="header2">
-	    	<ul class="nav2">
-	    		<li><a href="" class="consult"> Consult </a></li>
-	    		<li><a href="" class="insert"> Insert </a></li>
-		    	<li><a href="" class="modify"> Modify </a> </li>
-		    	<li><a href="" class="delete"> Delete </a></li>
-	    	</ul>
-	    </div>
 
+                <form action="listGamesControler" method="post">
+                    <div class="header2">
+                        <ul class="nav2">
+                            <li> <button class="list"> List </button> </li>
+                            <li> <a class="insert"> Insert </a> </li>
+                            <li> <a class="modify"> Modify </a> </li>
+                            <li> <a class="delete"> Delete </a> </li>
+                        </ul>
+                    </div>
+                </form>
+<!--
 		<div class="showGames">
 			<h3 class="textGame"> NOMBRE: <br>
 				Ruleta <br><br>
@@ -67,18 +69,16 @@
 			</h3>
 			<img src="images/game2.jpg" alt="Juego 2" width="221" height="323" title="Segundo juego de prueba">
 		</div>
-
+-->
     </div>
     </body>
 
     <footer>
-        <small>
-           <h3 class="footerText" align="center"> Department of Multidisciplinary Studies of Yuriria <br>
-                              Suburb Yacatitas, C.P. 38940 <br>
-                              Yuriria, Gto., Mexico <br>
-                              Tel: +52 (445) 458 90 40. Exts: 1703, 1709, 1706 y 1718. <br>
-                              dem@ugto.mx
-           </h3>
-        </small>
+        <h3 class="footerText" align="center"> Department of Multidisciplinary Studies of Yuriria <br>
+                           Suburb Yacatitas, C.P. 38940 <br>
+                           Yuriria, Gto., Mexico <br>
+                           Tel: +52 (445) 458 90 40. Exts: 1703, 1709, 1706 y 1718. <br>
+                           dem@ugto.mx
+        </h3>
     </footer>
 </html>
