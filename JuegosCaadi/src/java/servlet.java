@@ -1,4 +1,5 @@
 
+import ConnectionModel.ConnectionModel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,6 +15,7 @@ import conexion.linkDB;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import conexion.*;
 
 /**
  *
@@ -48,15 +50,7 @@ public class servlet extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+ 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -68,26 +62,19 @@ public class servlet extends HttpServlet {
         out.println("Tu contraseña es: "+password);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String usuario = request.getParameter("txtUSER");
         String password = request.getParameter("txtPASSWORD");
 
-        conexion.linkDB login = new conexion.linkDB();
-        String user = login.logIn(usuario, password);     
-        boolean correct = false;
+        // crear una conexion
         
+        linkDB login = new linkDB();     
+        String user = login.logIn(usuario, password);
+        boolean correct = false;
         String direccionamiento;
-        if( user.equals("Admin") ){
+        if( user != "" ){
             direccionamiento = "/private/homeAdministratorView.html";
             response.sendRedirect(direccionamiento);
             correct = true;
@@ -107,7 +94,6 @@ public class servlet extends HttpServlet {
             response.sendRedirect(direccionamiento);
             correct = false;
         }
-        
         if( correct )
             System.out.println("USUARIO CORRECTO");
         else

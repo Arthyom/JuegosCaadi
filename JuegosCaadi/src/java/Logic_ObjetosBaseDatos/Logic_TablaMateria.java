@@ -18,12 +18,12 @@ public class Logic_TablaMateria {
     propiedades de la clase Materia, publicas todas
     y relacionadas uno a uno con los Campos de la base de datos
 */
-    int         IdMateria;
-    int         IdEstudiante;
-    int         Creditos;
-    String      Nombre;
-    String      MateriaSiguiente;
-    String      MateriaPreRequisitos;
+public    int         IdMateria;
+public    int         IdEstudiante;
+public    int         Creditos;
+public    String      Nombre;
+public    String      MateriaSiguiente;
+public    String      MateriaPreRequisitos;
 
     public Logic_TablaMateria() {
     }

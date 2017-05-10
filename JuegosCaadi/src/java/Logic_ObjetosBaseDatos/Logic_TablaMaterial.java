@@ -17,11 +17,11 @@ public class Logic_TablaMaterial {
     propiedades de la clase material, publicas todas
     y relacionadas uno a uno con los Campos de la base de datos
 */
-    int         IdMaterial;
-    String      Nombre;
-    String      Clase;
-    int         Existencia;
-    int         Disponible;
-    String      Habilidad;
+public    int         IdMaterial;
+public    String      Nombre;
+public    String      Clase;
+public    int         Existencia;
+public    int         Disponible;
+public    String      Habilidad;
     
 }

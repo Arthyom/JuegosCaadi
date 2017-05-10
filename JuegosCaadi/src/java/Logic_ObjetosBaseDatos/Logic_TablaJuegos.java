@@ -12,16 +12,17 @@
 package Logic_ObjetosBaseDatos;
 
 
-public class Logic_TablaJuegos {
+public class Logic_TablaJuegos extends Logic_TablaMaterial {
     
     /* propiedades de la clase juegos, publicas todas
        y relacionadas uno a uno con los Campos de la base de datos
     */
-    public int      IdMaterial;
+    
     public String   Idioma;
     public String   EnlaceDigital;
     public String   InstruccionesUso;
     public String   Descripcion;
+    public String   MaterialAdicional;
     
     public int      NumeroParticipantes;
     public String   TiempoSugerido;

@@ -13,9 +13,9 @@ import java.sql.Statement;
  */
 
 public class linkDB {
-    public String url = "jdbc:mysql://localhost:3306/example";
+    public String url = "jdbc:mysql://localhost/mydb";
     public String user = "root";
-    public String pw = "UtnCboV1";
+    public String pw = "";
     public Connection connection;
 
     public linkDB(){}
@@ -28,7 +28,9 @@ public class linkDB {
             if( connection != null ){
                 System.out.println("¡LA CONEXION SE HIZO EN EL METODO CONECT!");
                 Statement queryStart = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                ResultSet bdQuery = queryStart.executeQuery("SELECT *FROM usuarios");
+                ResultSet bdQuery = queryStart.executeQuery("SELECT * FROM Usuario;");
+                
+               
                 
                 String usuario = "";
                 String pass = "";
@@ -36,8 +38,8 @@ public class linkDB {
                 boolean retorno = false;
 
                 while( bdQuery.next() && !retorno ){
-                    usuario = bdQuery.getString(1);
-                    pass = bdQuery.getString(2);
+                    usuario = bdQuery.getString(3);
+                    pass = bdQuery.getString(6);
                     
                     if( usuario.equals(usr) && pass.equals(password) ){
                         out = usuario;
@@ -66,7 +68,7 @@ public class linkDB {
             if( connection != null ){
                 System.out.println("¡LA CONEXION SE HIZO EN EL METODO CONECT!");
                 Statement queryStart = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                ResultSet bdQuery = queryStart.executeQuery("SELECT *FROM juegos");
+                ResultSet bdQuery = queryStart.executeQuery("SELECT *FROM Juego;");
                 
                 return bdQuery;
             }
