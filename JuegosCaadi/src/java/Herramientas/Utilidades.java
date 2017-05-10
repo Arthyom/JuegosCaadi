@@ -17,6 +17,7 @@ import java.sql.Statement;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ConnectionModel.*;
+import java.io.*;
 
 public class Utilidades {
     
@@ -241,6 +242,18 @@ public class Utilidades {
         jn.EtiquetasVocabulario = req.getParameter("EtiquetasVocabulario");
         
         return jn;
+    }
+    
+    public static void InicarDb () 
+    {
+        // conseguir rutas
+        String RutaBsDtsSqlScript = "";
+        String RutaInsrtSqlScript = "";
+        String RutaUsersSqlScript = "";
+        
+        // crear lectores 
+        FileReader LectorBaseDatos = FileReader ();
+        
     }
     
     
