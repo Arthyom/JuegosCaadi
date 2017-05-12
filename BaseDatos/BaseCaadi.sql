@@ -224,6 +224,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`EstudianteLei_Crea_Material` (
   `EstudianteLei_Usuario_idUsuario` INT NOT NULL,
   `Material_idMaterial` INT NOT NULL,
+  `Periodo_Creacion` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`EstudianteLei_Usuario_idUsuario`, `Material_idMaterial`),
   INDEX `fk_EstudianteLei_has_Material_Material1_idx` (`Material_idMaterial` ASC),
   INDEX `fk_EstudianteLei_has_Material_EstudianteLei1_idx` (`EstudianteLei_Usuario_idUsuario` ASC),
@@ -270,13 +271,12 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Profesor_Imparte_Materia` (
   `Profesor_Usuario_idUsuario` INT NOT NULL,
   `Materia_idMateria` INT NOT NULL,
-  `Materia_Estudiante_idEstudiante` INT NOT NULL,
   `DiasMateria` VARCHAR(45) NULL,
   `NumeroAlumnos` INT NULL,
   `Horario` VARCHAR(45) NULL,
   `MaterialDisponible` VARCHAR(45) NULL,
-  PRIMARY KEY (`Profesor_Usuario_idUsuario`, `Materia_idMateria`, `Materia_Estudiante_idEstudiante`),
-  INDEX `fk_Profesor_has_Materia_Materia1_idx` (`Materia_idMateria` ASC, `Materia_Estudiante_idEstudiante` ASC),
+  PRIMARY KEY (`Profesor_Usuario_idUsuario`, `Materia_idMateria`),
+  INDEX `fk_Profesor_has_Materia_Materia1_idx` (`Materia_idMateria` ASC),
   INDEX `fk_Profesor_has_Materia_Profesor1_idx` (`Profesor_Usuario_idUsuario` ASC),
   CONSTRAINT `fk_Profesor_has_Materia_Profesor1`
     FOREIGN KEY (`Profesor_Usuario_idUsuario`)
@@ -284,8 +284,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Profesor_Imparte_Materia` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Profesor_has_Materia_Materia1`
-    FOREIGN KEY (`Materia_idMateria` , `Materia_Estudiante_idEstudiante`)
-    REFERENCES `mydb`.`Materia` (`idMateria` , `Estudiante_idEstudiante`)
+    FOREIGN KEY (`Materia_idMateria`)
+    REFERENCES `mydb`.`Materia` (`idMateria`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -295,21 +295,18 @@ ENGINE = InnoDB;
 -- Table `mydb`.`EstudianteLei_Cursan_Materia`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`EstudianteLei_Cursan_Materia` (
-  `EstudianteLei_Usuario_idUsuario` INT NOT NULL AUTO_INCREMENT,
   `Materia_idMateria` INT NOT NULL,
-  `Materia_Estudiante_idEstudiante` INT NOT NULL,
-  PRIMARY KEY (`EstudianteLei_Usuario_idUsuario`, `Materia_idMateria`, `Materia_Estudiante_idEstudiante`),
-  INDEX `fk_EstudianteLei_has_Materia_Materia1_idx` (`Materia_idMateria` ASC, `Materia_Estudiante_idEstudiante` ASC),
-  INDEX `fk_EstudianteLei_has_Materia_EstudianteLei1_idx` (`EstudianteLei_Usuario_idUsuario` ASC),
-  UNIQUE INDEX `EstudianteLei_Usuario_idUsuario_UNIQUE` (`EstudianteLei_Usuario_idUsuario` ASC),
-  CONSTRAINT `fk_EstudianteLei_has_Materia_EstudianteLei1`
-    FOREIGN KEY (`EstudianteLei_Usuario_idUsuario`)
-    REFERENCES `mydb`.`EstudianteLei` (`Usuario_idUsuario`)
+  `EstudianteLei_Cursa_Materia` INT NOT NULL,
+  PRIMARY KEY (`Materia_idMateria`, `EstudianteLei_Cursa_Materia`),
+  INDEX `fk_EstudianteLei_has_Mareria_idx` (`EstudianteLei_Cursa_Materia` ASC),
+  CONSTRAINT `fk_EstudianteLei_has_Materia_Materia1`
+    FOREIGN KEY (`Materia_idMateria`)
+    REFERENCES `mydb`.`Materia` (`idMateria`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_EstudianteLei_has_Materia_Materia1`
-    FOREIGN KEY (`Materia_idMateria` , `Materia_Estudiante_idEstudiante`)
-    REFERENCES `mydb`.`Materia` (`idMateria` , `Estudiante_idEstudiante`)
+  CONSTRAINT `fk_EstudianteLei_has_Mareria`
+    FOREIGN KEY (`EstudianteLei_Cursa_Materia`)
+    REFERENCES `mydb`.`EstudianteLei` (`Usuario_idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -321,18 +318,39 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Estudiante_Cursa_Materia` (
   `Estudiante_idEstudiante` INT NOT NULL,
   `Materia_idMateria` INT NOT NULL,
-  `Materia_Estudiante_idEstudiante` INT NOT NULL,
-  PRIMARY KEY (`Estudiante_idEstudiante`, `Materia_idMateria`, `Materia_Estudiante_idEstudiante`),
-  INDEX `fk_Estudiante_has_Materia_Materia1_idx` (`Materia_idMateria` ASC, `Materia_Estudiante_idEstudiante` ASC),
+  PRIMARY KEY (`Estudiante_idEstudiante`, `Materia_idMateria`),
   INDEX `fk_Estudiante_has_Materia_Estudiante1_idx` (`Estudiante_idEstudiante` ASC),
+  INDEX `fk_Estudiante_has_Materia_Materia1_idx` (`Materia_idMateria` ASC),
   CONSTRAINT `fk_Estudiante_has_Materia_Estudiante1`
     FOREIGN KEY (`Estudiante_idEstudiante`)
     REFERENCES `mydb`.`Estudiante` (`idEstudiante`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Estudiante_has_Materia_Materia1`
-    FOREIGN KEY (`Materia_idMateria` , `Materia_Estudiante_idEstudiante`)
-    REFERENCES `mydb`.`Materia` (`idMateria` , `Estudiante_idEstudiante`)
+    FOREIGN KEY (`Materia_idMateria`)
+    REFERENCES `mydb`.`Materia` (`idMateria`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Materia_Define_Material`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Materia_Define_Material` (
+  `Material_idMaterial` INT NOT NULL,
+  `Materia_idMateria` INT NOT NULL,
+  PRIMARY KEY (`Material_idMaterial`, `Materia_idMateria`),
+  INDEX `fk_Material_has_Materia_Materia1_idx` (`Materia_idMateria` ASC),
+  INDEX `fk_Material_has_Materia_Material1_idx` (`Material_idMaterial` ASC),
+  CONSTRAINT `fk_Material_has_Materia_Material1`
+    FOREIGN KEY (`Material_idMaterial`)
+    REFERENCES `mydb`.`Material` (`idMaterial`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Material_has_Materia_Materia1`
+    FOREIGN KEY (`Materia_idMateria`)
+    REFERENCES `mydb`.`Materia` (`idMateria`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -68,7 +68,7 @@ public class linkDB {
             if( connection != null ){
                 System.out.println("¡LA CONEXION SE HIZO EN EL METODO CONECT!");
                 Statement queryStart = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                ResultSet bdQuery = queryStart.executeQuery("SELECT *FROM Juego;");
+                ResultSet bdQuery = queryStart.executeQuery("SELECT * FROM Juego;");
                 
                 return bdQuery;
             }

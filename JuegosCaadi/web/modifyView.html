@@ -49,6 +49,7 @@ and open the template in the editor.
     </div>
         
         <div class="mainContainer">
+            <form action="ActualizarJuegoServlet" method="post">
             <div class="objetsContainer">
                 <h3 class="indication" align="center" > DATOS DEL JUEGO A MODIFICAR</h3>
                 <h5 id="num" > ID. </h5>
@@ -72,12 +73,14 @@ and open the template in the editor.
                 <h5 id="time"> Vocabulario </h5>
                 <input type="text" class="vocabulario" name="EtiquetasVocabulario" value="" size="25" />
                 <h5 id="time"> Material adicional </h5>
-                <input type="text" class="materialAdicional" name="txtTime" value="" size="25" />
+                <input type="text" class="materialAdicional" name="MaterialAdicional" value="" size="25" />
                 <h5 id="time"> Instrucciones de uso </h5>
                 <textarea class="instructions" name="InstruccionesUso" rows="4" cols="25" > </textarea>
                 <h5 id="description"> Descripcion </h5>
-                <textarea class="description" name="txtDescription" rows="4" cols="25" > </textarea>
+                <textarea class="description" name="Description" rows="4" cols="25" > </textarea>
+                <input type="submit" value="borrar">
             </div>
+            </form>
         </div>
     </body>
     

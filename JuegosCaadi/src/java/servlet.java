@@ -65,6 +65,8 @@ public class servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Herramientas.Utilidades.InicarDb();
+        
         String usuario = request.getParameter("txtUSER");
         String password = request.getParameter("txtPASSWORD");
 
@@ -75,7 +77,7 @@ public class servlet extends HttpServlet {
         boolean correct = false;
         String direccionamiento;
         if( user != "" ){
-            direccionamiento = "/private/homeAdministratorView.html";
+            direccionamiento = "/private/modifyView.html";
             response.sendRedirect(direccionamiento);
             correct = true;
         }

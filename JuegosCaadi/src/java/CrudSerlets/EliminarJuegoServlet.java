@@ -5,26 +5,25 @@
  */
 package CrudSerlets;
 
+import ConnectionModel.ConnectionModel;
+import Logic_ObjetosBaseDatos.Logic_TablaJuegos;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import ConnectionModel.ConnectionModel;
-import Logic_ObjetosBaseDatos.*;
-import Herramientas.*;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author frodo
  */
-@WebServlet(name = "InsertJuegoServlet", urlPatterns = {"/InsertJuegoServlet"})
-public class InsertJuegoServlet extends HttpServlet {
+@WebServlet(name = "EliminarJuegoServlet", urlPatterns = {"/EliminarJuegoServlet"})
+public class EliminarJuegoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,58 +42,49 @@ public class InsertJuegoServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet InsertJuegoServlet</title>");            
+            out.println("<title>Servlet EliminarJuegoServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet InsertJuegoServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EliminarJuegoServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
-
+ 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       // processRequest(request, response);
     }
 
-
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // processRequest(request, response);
-       
-       // crear una nueva conexion
-       
        
         try 
         {
-           ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
-            Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
-            
-            try
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
+            Logic_TablaJuegos j1 = new Logic_TablaJuegos();
+            j1.IdMaterial = Integer.parseInt( request.getParameter("IdMaterial"));
+            try 
             {
-            cn.connection.setAutoCommit(false);
-            Utilidades.Insert(jn, cn, "Juego");
-            cn.connection.commit();
+                cn.connection.setAutoCommit(false);
+                Herramientas.Utilidades.Delete(j1, cn, "Juego");
+                cn.connection.commit();
             }
             catch (SQLException ex) {
                 cn.connection.rollback();
-            Logger.getLogger(InsertJuegoServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-            
+                Logger.getLogger(EliminarJuegoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }   
         } catch (SQLException ex) {
-            Logger.getLogger(InsertJuegoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            
+            Logger.getLogger(EliminarJuegoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+   
     @Override
     public String getServletInfo() {
         return "Short description";
