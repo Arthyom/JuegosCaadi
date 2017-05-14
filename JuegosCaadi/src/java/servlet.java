@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import conexion.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -71,31 +72,32 @@ public class servlet extends HttpServlet {
         String password = request.getParameter("txtPASSWORD");
 
         // crear una conexion
-        
-        linkDB login = new linkDB();     
-        String user = login.logIn(usuario, password);
+        linkDB login = new linkDB();
+        String tipoUsuario = login.logIn(usuario, password);
         boolean correct = false;
-        String direccionamiento;
-        if( user != "" ){
-            direccionamiento = "/private/modifyView.html";
-            response.sendRedirect(direccionamiento);
-            correct = true;
+        String direccionamiento = "/private/logInView.html";
+
+        switch (tipoUsuario) {
+            case "administrador":
+                direccionamiento = "/private/homeAdministratorView.html";
+                correct = true;
+                break;
+            case "profesor":
+                direccionamiento = "/private/homeProfessorView.html";
+                correct = true;
+                break;
+            case "EstudianteLei":
+                direccionamiento = "/private/homeStudentsEnglishView.html";
+                correct = true;
+                break;
+            case "":
+                correct = false;
+                break;
+            default:                
         }
-        else if( user.equals("Profesor") ){
-            direccionamiento = "/private/homeProfessorView.html";
-            response.sendRedirect(direccionamiento);
-            correct = true;
-        }
-        else if( user.equals("Alumno") ){
-            direccionamiento = "/private/homeStudentsEnglishView.html";
-            response.sendRedirect(direccionamiento);
-            correct = true;
-        }
-        else if( user == "" || user == null ){
-            direccionamiento = "/private/logInView.html";
-            response.sendRedirect(direccionamiento);
-            correct = false;
-        }
+
+        response.sendRedirect(direccionamiento);
+        
         if( correct )
             System.out.println("USUARIO CORRECTO");
         else

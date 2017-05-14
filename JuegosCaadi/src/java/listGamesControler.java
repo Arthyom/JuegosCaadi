@@ -81,6 +81,11 @@ public class listGamesControler extends HttpServlet {
         ResultSet juegos = consultSelect.select();
 
         PrintWriter out = response.getWriter();
+        out.println("<head>");
+        out.println("<link rel=\"stylesheet\" href=\"../../web/css/selectStyle.css\">");
+        out.println("</head>");
+
+        out.println("<body>");
         out.println("<h1 align=\"center\"> Listado de juegos en CAADI: </h1>");
         out.println("<table border=3>");
         out.println("<tr>");
@@ -90,7 +95,7 @@ public class listGamesControler extends HttpServlet {
         out.println("<td> Duracion: </td>");
         out.println("<td align=\"center\"> Descripcion: </td>");
         out.println("</tr>");
-
+        
         int cont=1;
         try {
             while( juegos.next() ){
@@ -104,7 +109,8 @@ public class listGamesControler extends HttpServlet {
                 cont++;
             }
         out.println("</table>");
-            
+        out.println("</body>");
+        
         } catch (SQLException ex) {
             Logger.getLogger(listGamesControler.class.getName()).log(Level.SEVERE, null, ex);
         }
