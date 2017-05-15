@@ -77,7 +77,7 @@ public class listGamesControler extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        conexion.linkDB consultSelect = new conexion.linkDB();
+        conexion.loginModel consultSelect = new conexion.loginModel();
         ResultSet juegos = consultSelect.select();
 
         PrintWriter out = response.getWriter();

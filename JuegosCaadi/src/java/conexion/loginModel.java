@@ -12,13 +12,14 @@ import java.sql.Statement;
  * @author walter
  */
 
-public class linkDB {
+public class loginModel {
     public String url = "jdbc:mysql://localhost/mydb";
     public String user = "root";
-    public String pw = "UtnCboV1";
+    public String pw = "kike";
+    //public String pw = "UtnCboV1";
     public Connection connection;
 
-    public linkDB(){}
+    public loginModel(){}
 
     public String logIn(String usr, String password){
         try{
