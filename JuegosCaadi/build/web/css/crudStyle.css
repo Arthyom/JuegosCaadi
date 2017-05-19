@@ -1,0 +1,118 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 14, 2017, 7:26:06 PM
+    Author     : walter
+*/
+
+.instrucciones{
+    background-color: rgb(242, 242, 242);
+    position: relative;
+    top: 20px;
+    left: 120px;
+    width: 1115px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.text{
+    padding: 10px 15px 10px 15px;
+}
+
+#tableGames{
+    background-color: white;
+    position: relative;
+    left: 120px;
+    top: 60px;
+    font-size: 19px;
+    border: 1px solid #254167;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+}
+
+#tableColumns{
+    background-color: #254167;
+    position: relative;
+    left: 120px;
+    top: 55px;
+    font-size: 19px;
+    border: 1px solid #254167;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+}
+
+#ID, #Nombre, #Habilidades, #Duracion, #Descripcion, #buttons{
+    background-color: #254167;
+    color: white;
+    height: 10px;
+    width: 121px;
+}
+
+tr, td{
+    background-color: white;
+    border: 0px;
+    padding: 5px 30px 5px 30px;
+}
+
+#btnInsert{
+    background-color: white;
+    color: green;
+    border: 1px solid green;
+    height: 30px;
+    width: 140px;
+    position: relative;
+    left: 120px;
+    top: 40px;
+    font-size: 17px;
+    border-radius: 5px !important;
+}
+
+#btnInsert:hover, #btnInsert:focus{
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+
+#btnModify{
+    background-color: white;
+    color: orange;
+    border: 1px solid orange;
+    border-radius: 5px !important;
+    height: 30px;
+    width: 140px;
+    font-size: 17px;
+    position: relative;
+    top: 40px;
+    left: 125px;
+    bottom: 3px;
+}
+
+.btnDelete{
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px !important;
+    height: 30px;
+    width: 140px;
+    font-size: 17px;
+    position: relative;
+    top: 40px;
+    left: 130px;
+    bottom: 3px;
+}
+
+.btnDelete:hover, .btnDelete:focus{
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+#btnModify:hover, .btnModify:focus{
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+}
+

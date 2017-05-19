@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Modificar un juego existente juego</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/crudStyle2.css">
+    </head>
+
+    <body>
+    <div id="main">
+	    <div class="banner">
+	        <div class="imageBanner">
+	          <img src="images/escudo.jpg" alt="Escudo UG" width="112" height="42" title="Escudo de la Universidad de Guanajuato">  
+	 	</div>
+
+                <div class="header">
+                    <ul class="nav">
+                        <li><a href="homeAdministratorView.html" class="inicio"> Home </a></li>
+                        <li><a href="" class="administrar"> Manage </a>
+                            <ul>
+                                <li><a href="listGamesView.html" class="juegos"> Games</a></li>
+                                <li><a href="" class="materias"> Subjects </a></li>
+                                <li><a href="" class="estudiantes"> Students </a></li>
+                                <li><a href="" class="usuarios"> Users </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="" class="reportes"> Reports </a></li>
+                        <li><a href="logInView.html" class="sigout"> Log out </a></li>
+                    </ul>
+                </div>
+	    </div>
+
+<!--                <form action="listGamesControler" method="post">
+                    <div class="header2">
+                        <ul class="nav2">
+                            <li> <button class="list"> List </button> </li>
+                            <li> <a class="insert"> Insert </a> </li>
+                            <li> <a class="modify"> Modify </a> </li>
+                            <li> <a class="delete"> Delete </a> </li>
+                        </ul>
+                    </div>
+                </form> -->
+    </div>
+        <form action="EliminarJuegoServlet" method="post">
+        <div class="mainContainerD">
+            <div class="objetsContainerD">
+                <h3 align="center" class="textDelete"> Escriba en la caja de texto, el ID del juego que desee eliminar </h3>
+                <input type="text" class="delete" name="IdMaterial" >
+                <input type="submit" value="borrar">
+            </div>
+        </div>
+        </form>
+    </body>
+    
+    <footer>
+        <h3 class="footerText" align="center"> Department of Multidisciplinary Studies of Yuriria <br>
+                           Suburb Yacatitas, C.P. 38940 <br>
+                           Yuriria, Gto., Mexico <br>
+                           Tel: +52 (445) 458 90 40. Exts: 1703, 1709, 1706 y 1718. <br>
+                           dem@ugto.mx
+        </h3>
+    </footer>
+    
+</html>

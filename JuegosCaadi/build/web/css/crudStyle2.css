@@ -1,19 +1,14 @@
-
 html, body{
     height: 100%;
     background-color: #FFFFFF;
 }
 
-#main{
-    height: 100%;
-}
-
 .banner{
     height: 50px;
-    font-family: Gandhi Serif;
     background-color: white;
-    border-bottom: 5px solid #A0935F;
+    border-bottom: 5px solid #b5a36a;
     padding-left: 60%;
+    margin-top: 0em;
 }
 
 .imageBanner{
@@ -34,6 +29,7 @@ html, body{
     padding-bottom: 0.1px;
     font-family: Gandhi Serif;
     background-color: white;
+    padding: 0px;
     margin: 0px;
 }
 
@@ -41,15 +37,11 @@ ul, ol {
     list-style: none;
 }
 
-.nav > li {
-    float: left;
-}
-
 .nav .administrar {
     background-color: white;
-    border-left: 1px solid #A0935F;
-    border-right: 1px solid #A0935F;
-    color: #A0935F;
+    border-left: 1px solid #b5a36a;
+    border-right: 1px solid #b5a36a;
+    color: #b5a36a;
 
     text-decoration: none;
     padding: 8px 30px;
@@ -61,7 +53,7 @@ ul, ol {
 
 .nav .reportes, .inicio {
     background-color: white;
-    color: #A0935F;
+    color: #b5a36a;
 
     text-decoration: none;
     padding: 8px 30px;
@@ -73,8 +65,9 @@ ul, ol {
 
 .nav .sigout {
     background-color: white;
-    border-left: 1px solid #A0935F;
-    color: #A0935F;
+    border-left: 1px solid #b5a36a;
+    border-right: 1px solid #b5a36a;
+    color: #b5a36a;
 
     text-decoration: none;
     padding: 8px 30px;
@@ -96,16 +89,19 @@ ul, ol {
     font-size: 18px;
 }
 
+.nav > li {
+    float: left;
+}
+
 .nav li a:hover {
     background-color: rgb(229, 229, 229);
-    padding: 8px 30px;
-    color: #A0935F;
+    color: #b5a36a;
 }
 
 .nav ul {
     display: none;
     position: absolute;
-    min-width: 30px;
+    min-width: 20px;
 }
 
 .nav li:hover ul {
@@ -122,80 +118,64 @@ ul, ol {
 }
 
 .nav li ul li ul {
-    right: -150px;
+    right: -100px;
     top: 0px;
 }
 
-/*SEGUNDA BARRA DE MENU*/
-.header2{
-    background-color: #254167;
-    height: 30px;
-    width: 420px;
+.mainContainer{
+    padding: 50px 200px 50px 300px;
     font-family: Gandhi Serif;
-    padding: 5px 21px 0px 21px;
-    margin: 40px 400px 40px 450px;
-    border: 2px solid #254167;
+    color: #7E7E7E;
+    background-color: rgb(242, 242, 242);
+    padding: 1em;
+    margin: 3em 0em 5em 30em;
+    position: relative;
+    width: 300px;
     border-radius: 10px !important;
 }
 
-ul, ol {
-    list-style: none;
-}
-
-.nav2 > li {
-    float: left;
-}
-
-/* SE MODIFICA CADA BOTON*/
-.insert, .modify, .delete{
-    background-color: #254167;
-    color: white;
-    border: 1px solid #254167;
-    
-    text-decoration: none;
-    width: 85px;
-    height: 10px;
-    padding: 5px 15px 5px 20px;
-    margin: 0em 0em 0em 0em;
-    font-size: 20px;
+.mainContainerD{
+    padding: 50px 200px 50px 300px;
+    font-family: Gandhi Serif;
+    color: #7E7E7E;
+    background-color: rgb(242, 242, 242);
+    padding: 1em;
+    margin: 3em 0em 22em 30em;
     position: relative;
-}
-
-.list{
-    background-color: #254167;
-    color: white;
-    border: 1px solid #254167;
-    
-    text-decoration: none;
-    width: 100px;
-    height: 15px;
-    padding: 5px 15px 25px 15px;
-    margin: 0em 0em 0em 0em;
-    font-size: 20px;
-    position: relative;
-}
-
-.list:hover, .insert:hover, .modify:hover, .delete:hover{
-    background: white;
-    color: #254167;
-}
-
-.showGames{
-    background-color: rgb(230, 230, 230);
-    border-right: 3px solid darkgray;
-    border-top: 3px solid darkgray;
-    border-bottom: 3px solid darkgray;
-    width: 1200px; height: 320px;
-    margin: 0px 100px 10px 80px;
+    width: 300px;
     border-radius: 10px !important;
 }
 
-.textGame{
-    background-color: none;
-    height: 303px;
-    position: absolute;
-    padding: 10px 10px 10px 231px;
+#num, #name, #skills, #time, #description{
+    font-size: 15px;
+    padding: 10px 2px 5px 2px;    
+}
 
+.delete, .num, .name, .skills, .time, .clase, .existencia, .disponible, .habilidad, .idioma, .numeroParticipantes, .vocabulario, .materialAdicional{
+    padding: 10px 2px 5px 2px;
+    border-radius: 5px !important;
+    border-top: white;
+    border-left: white;
+    color: black;
+    width: 300px;
+}
+
+.textDelete{
+    padding: 2px 2px 5px 2px;
+    margin:  0em 0em 1em 0em;
+}
+
+.description, .instructions{
+    padding: 10px 2px 5px 2px;
+    border-radius: 5px !important;
+    border-top: white;
+    border-left: white;
+    color: black;
+    width: 300px;
+}
+
+.num, .name, .skills, .time, .description{
+    padding: 2px 2px 5px 2px;
 }
 
 footer{
@@ -206,7 +186,6 @@ footer{
     padding-top: 20px;
     padding-bottom: 20px;
     font-size: 11px !important;
-    margin-top: 280px;
 }
 
 .footerText{
