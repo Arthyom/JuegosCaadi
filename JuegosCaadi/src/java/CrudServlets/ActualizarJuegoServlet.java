@@ -64,9 +64,9 @@ public class ActualizarJuegoServlet extends HttpServlet {
            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
             Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
             try{
-                cn.connection.setAutoCommit(false);
+               // cn.connection.setAutoCommit(false);
                 Utilidades.Update(jn, cn, "Juego");
-                cn.connection.commit();
+               // cn.connection.commit();
             }
             catch (SQLException ex) {
                 cn.connection.rollback();

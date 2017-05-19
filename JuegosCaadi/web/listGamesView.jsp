@@ -12,7 +12,7 @@
 <%@page import="ConnectionModel.ConnectionModel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%String pw = " ";%>
+<%String pw = "";%>
 <%-- <%String pw = "UtnCboV1";%> --%>
 
 ﻿<!DOCTYPE html>
@@ -92,6 +92,7 @@
             <!-- Contenedor del modal -->
             <div id="modalInsert" class="modalInsert">
 
+                <form action="InsertJuegoServlet" method="post">
               <!-- Contenido del modal -->
               <div class="modalInsert-content">
                 <div class="modalInsert-header" align="center">
@@ -175,11 +176,13 @@
                     </div>
                 </div>
               </div>
+                </form>
             </div>
 
 <!-- COMIENZA EL MODAL DONDE SE MUESTRA EL FORMULARIO PARA MODIFICAR UN NUEVO JUEGO -->
             <!-- Contenedor del modal -->
             <div id="modalModify" class="modalModify">
+                <form action="ActualizarJuegoServlet" method="post">
               <!-- Contenido del modal -->
               <div class="modalModify-content">
                 <div class="modalModify-header" align="center">
@@ -263,12 +266,14 @@
                     </div>
                 </div>
               </div>
+                </form>
             </div>
 
 <!-- COMIENZA EL MODAL DONDE SE MUESTRA EL FORMULARIO PARA ELIMINAR UN NUEVO JUEGO -->
             <!-- Contenedor del modal -->
             <div id="modalDelete" class="modalDelete">
               <!-- Contenido del modal -->
+              <form action="EliminarJuegoServlet" method="post">
               <div class="modalDelete-content">
                 <div class="modalDelete-header" align="center">
                     <span class="close" onclick="closeSpanDelete()">&times;</span>
@@ -279,12 +284,13 @@
                     <div class="mainContainer">
                         <div class="objetsContainer">
                             <p class="textDelete" > Type the ID game to delete it </p>
-                            <input type="text" class="deleteID">
+                            <input type="text" class="deleteID" name="IdMaterialBorrar" id="IdMaterialBorrar">
                             <button class="btnDeleteM"> Delete game </button>
                         </div>
                     </div>
                 </div>
               </div>
+              </form>
             </div>
             
 <!-- Codigo JavaScript para abrir el modal y poder insertar un nuevo juego.

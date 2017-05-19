@@ -67,7 +67,7 @@ public class Utilidades {
     
     public static boolean Insert    ( Logic_EstudianteLei NuevoEstudianteLei,       ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
     {
-        String Sql = "INSERT INTO"+ TablaDestino + 
+        String Sql = "INSERT INTO "+ TablaDestino + 
                 " VALUES (" + 
                     NuevoEstudianteLei.IdUsuario + ","+ 
                     NuevoEstudianteLei.Calificacion + ", "+
@@ -90,6 +90,9 @@ public class Utilidades {
         Insert( (Logic_TablaMaterial) NuevoJuego , NuevaConexion, "Material");
         NuevaConexion.Open("jdbc:mysql://localhost/mydb", "root", pw);
         String Sql = "INSERT INTO "+ TablaDestino + 
+                " (Juego_Idioma,Juego_EnlaceDigital,Juego_InstruccionesUso,Juego_Descripcion,"
+                + "Juego_MaterialAdicional,Juego_NumeroParticipantes,Juego_TiempoSugerido,Juego_EtiquetasTemas" +
+                "Juego_EtiquetasVocabulario,idMaterial) "+
                 " VALUES ('" + 
                     NuevoJuego.Idioma + "','"+ 
                     NuevoJuego.EnlaceDigital + "','"+ 
@@ -114,7 +117,9 @@ public class Utilidades {
     
     public static boolean Insert    ( Logic_TablaMaterial NuevoMaterial,       ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
     {
-        String Sql = "INSERT INTO "+ TablaDestino + 
+        String Sql = "INSERT INTO "+ TablaDestino + " (idMaterial, Material_Nombre,Material_Clase,"
+                + "Material_Existencia,Material_Disponible,Material_Habilidad )"+
+                
                 " VALUES (" + 
                     NuevoMaterial.IdMaterial + ",'"+ 
                     NuevoMaterial.Nombre + "','"+ 
@@ -183,7 +188,7 @@ public class Utilidades {
     public static boolean Delete    ( Logic_TablaMaterial MaterialDeseado,  ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
     {
         
-        NuevaConexion.Open("jdbc:mysql://localhost/mydb", "root", pw);
+        NuevaConexion.Open("jdbc:mysql://localhost/mydb", "root", "");
         String Sql = "DELETE FROM "+ TablaDestino + " WHERE IdMaterial = " +  MaterialDeseado.IdMaterial;
         Statement consulta = NuevaConexion.connection.createStatement();
         Boolean estado = consulta.execute(Sql);
