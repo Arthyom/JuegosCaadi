@@ -1,0 +1,94 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 14, 2017, 7:26:06 PM
+    Author     : walter
+*/
+
+.instrucciones{
+    background-color: rgb(242, 242, 242);
+    position: relative;
+    top: 20px;
+    left: 120px;
+    width: 1115px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.text{
+    padding: 10px 15px 10px 15px;
+}
+
+#btnInsert{
+    background-color: white;
+    color: green;
+    border: 1px solid green;
+    height: 30px;
+    width: 140px;
+    position: relative;
+    left: 120px;
+    top: 40px;
+    font-size: 17px;
+    border-radius: 5px !important;
+}
+
+#btnInsert:hover{
+    background-color: green;
+    color: white;
+}
+
+#tableGames{
+    background-color: white;
+    position: relative;
+    left: 120px;
+    top: 60px;
+    font-size: 19px;
+    border: 2px solid #254167;
+    border-radius: 8px !important;
+}
+
+tr, td{
+    background-color: white;
+    border: 0px;
+    padding: 5px 30px 5px 30px;
+}
+
+.btnDelete{
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px !important;
+    width: 50px;
+    height: 20px;
+    font-size: 13px;
+    position: relative;
+    left: 5px;
+    bottom: 3px;
+}
+
+.btnModify{
+    background-color: white;
+    color: orange;
+    border: 1px solid orange;
+    border-radius: 5px !important;
+    width: 50px;
+    height: 20px;
+    font-size: 13px;
+    position: relative;
+    left: 5px;
+    bottom: 3px;
+}
+
+.btnDelete:hover{
+    background-color: red;
+    color: white;
+}
+
+.btnModify:hover{
+    background-color: orange;
+    color: white;
+}
+

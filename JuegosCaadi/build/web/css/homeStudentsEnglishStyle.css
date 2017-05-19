@@ -1,0 +1,39 @@
+
+div{
+
+    font-family: Georgia, "Times New Roman",
+        Times, serif;
+
+    color: goldenrod;
+
+    background-color:white;
+
+
+    border: 2px solid #CCC;
+
+    padding: 1em;
+
+    margin: 13em 0 1em 38.2em;
+
+    width: 73px;
+
+}
+
+
+div img{
+
+    position: absolute;
+
+    top: 5px;
+
+    left: 565px;
+
+}
+
+
+div h6{
+
+    font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+
+    bottom: 8px;
+}
