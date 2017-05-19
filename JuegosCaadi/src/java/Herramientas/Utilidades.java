@@ -21,6 +21,10 @@ import java.io.*;
 
 public class Utilidades {
     
+    public static String pw = "kike";
+    //public static String pw = "UtnCboV1";
+    //public static String pw = "";
+
     /*
         autor : alfredo gonzalez gavina 
         Constructor por defentoc
@@ -84,7 +88,7 @@ public class Utilidades {
         // insertar un material uevo
         
         Insert( (Logic_TablaMaterial) NuevoJuego , NuevaConexion, "Material");
-        NuevaConexion.Open("jdbc:mysql://localhost/mydb", "root", "");
+        NuevaConexion.Open("jdbc:mysql://localhost/mydb", "root", pw);
         String Sql = "INSERT INTO "+ TablaDestino + 
                 " VALUES ('" + 
                     NuevoJuego.Idioma + "','"+ 
@@ -179,7 +183,7 @@ public class Utilidades {
     public static boolean Delete    ( Logic_TablaMaterial MaterialDeseado,  ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
     {
         
-        NuevaConexion.Open("jdbc:mysql://localhost/mydb", "root", "");
+        NuevaConexion.Open("jdbc:mysql://localhost/mydb", "root", pw);
         String Sql = "DELETE FROM "+ TablaDestino + " WHERE IdMaterial = " +  MaterialDeseado.IdMaterial;
         Statement consulta = NuevaConexion.connection.createStatement();
         Boolean estado = consulta.execute(Sql);
@@ -352,7 +356,7 @@ public class Utilidades {
             UsReader.close();
             
             // crear una nueva conexion 
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/sys","root", "");
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/sys","root", pw);
             
             Statement st =  cn.connection.createStatement();
             

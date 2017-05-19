@@ -14,7 +14,6 @@ html, body{
     background-color: white;
     border-bottom: 5px solid #A0935F;
     padding-left: 60%;
-    margin-top: 0em;
 }
 
 .imageBanner{
@@ -35,7 +34,6 @@ html, body{
     padding-bottom: 0.1px;
     font-family: Gandhi Serif;
     background-color: white;
-    padding: 0px;
     margin: 0px;
 }
 

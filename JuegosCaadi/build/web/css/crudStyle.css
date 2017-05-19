@@ -1,194 +1,118 @@
-html, body{
-    height: 100%;
-    background-color: #FFFFFF;
-}
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 14, 2017, 7:26:06 PM
+    Author     : walter
+*/
 
-.banner{
-    height: 50px;
-    background-color: white;
-    border-bottom: 5px solid #b5a36a;
-    padding-left: 60%;
-    margin-top: 0em;
-}
-
-.imageBanner{
-    padding-top: 0.3em;
-    left: 8%;
-    position: absolute;
-}
-
-*{
-    margin:0px;
-    padding:0px;
-}
-
-.header{
-    height: 50px;
-    width: 500px;
-    padding-top: 0.1px;
-    padding-bottom: 0.1px;
-    font-family: Gandhi Serif;
-    background-color: white;
-    padding: 0px;
-    margin: 0px;
-}
-
-ul, ol {
-    list-style: none;
-}
-
-.nav .administrar {
-    background-color: white;
-    border-left: 1px solid #b5a36a;
-    border-right: 1px solid #b5a36a;
-    color: #b5a36a;
-
-    text-decoration: none;
-    padding: 8px 30px;
-    margin: 0.5em 0em 0em 0em;
-    display: block;
-    align-content: center;
+.instrucciones{
+    background-color: rgb(242, 242, 242);
+    position: relative;
+    top: 20px;
+    left: 120px;
+    width: 1115px;
     font-size: 18px;
+    border-radius: 5px;
 }
 
-.nav .reportes, .inicio {
+.text{
+    padding: 10px 15px 10px 15px;
+}
+
+#tableGames{
     background-color: white;
-    color: #b5a36a;
-
-    text-decoration: none;
-    padding: 8px 30px;
-    margin: 0.5em 0em 0em 0em;
-    display: block;
-    align-content: center;
-    font-size: 18px;
+    position: relative;
+    left: 120px;
+    top: 60px;
+    font-size: 19px;
+    border: 1px solid #254167;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
 }
 
-.nav .sigout {
-    background-color: white;
-    border-left: 1px solid #b5a36a;
-    border-right: 1px solid #b5a36a;
-    color: #b5a36a;
-
-    text-decoration: none;
-    padding: 8px 30px;
-    margin: 0.5em 0em 0em 0em;
-    display: block;
-    align-content: center;
-    font-size: 18px;
+#tableColumns{
+    background-color: #254167;
+    position: relative;
+    left: 120px;
+    top: 55px;
+    font-size: 19px;
+    border: 1px solid #254167;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
 }
 
-.nav .juegos, .materias, .estudiantes, .usuarios {
+#ID, #Nombre, #Habilidades, #Duracion, #Descripcion, #buttons{
     background-color: #254167;
     color: white;
-
-    text-decoration: none;
-    padding: 8px 30px;
-    margin: 0.1em 0em 0em 0em;
-    display: block;
-    align-content: center;
-    font-size: 18px;
+    height: 10px;
+    width: 121px;
 }
 
-.nav > li {
-    float: left;
+tr, td{
+    background-color: white;
+    border: 0px;
+    padding: 5px 30px 5px 30px;
 }
 
-.nav li a:hover {
-    background-color: rgb(229, 229, 229);
-    color: #b5a36a;
-}
-
-.nav ul {
-    display: none;
-    position: absolute;
-    min-width: 20px;
-}
-
-.nav li:hover ul {
-    display: block;
-    background-color: none;
-}
-
-.nav li ul li {
+#btnInsert{
+    background-color: white;
+    color: green;
+    border: 1px solid green;
+    height: 30px;
+    width: 140px;
     position: relative;
-}
-
-.messages li ul li {
-    position: relative;
-}
-
-.nav li ul li ul {
-    right: -100px;
-    top: 0px;
-}
-
-.mainContainer{
-    padding: 50px 200px 50px 300px;
-    font-family: Gandhi Serif;
-    color: #7E7E7E;
-    background-color: rgb(242, 242, 242);
-    padding: 1em;
-    margin: 3em 0em 5em 30em;
-    position: relative;
-    width: 300px;
-    border-radius: 10px !important;
-}
-
-.mainContainerD{
-    padding: 50px 200px 50px 300px;
-    font-family: Gandhi Serif;
-    color: #7E7E7E;
-    background-color: rgb(242, 242, 242);
-    padding: 1em;
-    margin: 3em 0em 22em 30em;
-    position: relative;
-    width: 300px;
-    border-radius: 10px !important;
-}
-
-#num, #name, #skills, #time, #description{
-    font-size: 15px;
-    padding: 10px 2px 5px 2px;    
-}
-
-.delete, .num, .name, .skills, .time, .clase, .existencia, .disponible, .habilidad, .idioma, .numeroParticipantes, .vocabulario, .materialAdicional{
-    padding: 10px 2px 5px 2px;
+    left: 120px;
+    top: 40px;
+    font-size: 17px;
     border-radius: 5px !important;
-    border-top: white;
-    border-left: white;
-    color: black;
-    width: 300px;
 }
 
-.textDelete{
-    padding: 2px 2px 5px 2px;
-    margin:  0em 0em 1em 0em;
+#btnInsert:hover, #btnInsert:focus{
+    background-color: green;
+    color: white;
+    cursor: pointer;
 }
 
-.description, .instructions{
-    padding: 10px 2px 5px 2px;
+#btnModify{
+    background-color: white;
+    color: orange;
+    border: 1px solid orange;
     border-radius: 5px !important;
-    border-top: white;
-    border-left: white;
-    color: black;
-    width: 300px;
+    height: 30px;
+    width: 140px;
+    font-size: 17px;
+    position: relative;
+    top: 40px;
+    left: 125px;
+    bottom: 3px;
 }
 
-.num, .name, .skills, .time, .description{
-    padding: 2px 2px 5px 2px;
+.btnDelete{
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px !important;
+    height: 30px;
+    width: 140px;
+    font-size: 17px;
+    position: relative;
+    top: 40px;
+    left: 130px;
+    bottom: 3px;
 }
 
-footer{
-    width: 100%;
-    text-decoration-style: block;
-    background-color: rgb(229, 229, 229);
-    border-bottom: 1px solid #e7e7e7;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: 11px !important;
+.btnDelete:hover, .btnDelete:focus{
+    background-color: red;
+    color: white;
+    cursor: pointer;
 }
 
-.footerText{
-    color: black;
-    font-family: Gandhi Serif;
+#btnModify:hover, .btnModify:focus{
+    background-color: orange;
+    color: white;
+    cursor: pointer;
 }
+

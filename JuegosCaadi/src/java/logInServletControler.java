@@ -11,26 +11,27 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import conexion.linkDB;
+import conexion.loginModel;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import conexion.*;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author walter
  */
 @WebServlet(name = "servlet", urlPatterns = {"/servlet"})
-public class servlet extends HttpServlet {
+public class logInServletControler extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
+     * @param request logInServletControler request
+     * @param response logInServletControler response
+     * @throws ServletException if a logInServletControler-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -71,31 +72,32 @@ public class servlet extends HttpServlet {
         String password = request.getParameter("txtPASSWORD");
 
         // crear una conexion
-        
-        linkDB login = new linkDB();     
-        String user = login.logIn(usuario, password);
+        loginModel login = new loginModel();
+        String tipoUsuario = login.logIn(usuario, password);
         boolean correct = false;
-        String direccionamiento;
-        if( user != "" ){
-            direccionamiento = "/private/modifyView.html";
-            response.sendRedirect(direccionamiento);
-            correct = true;
+        String direccionamiento = "/private/logInView.html";
+
+        switch (tipoUsuario) {
+            case "administrador":
+                direccionamiento = "/private/homeAdministratorView.html";
+                correct = true;
+                break;
+            case "profesor":
+                direccionamiento = "/private/homeProfessorView.html";
+                correct = true;
+                break;
+            case "EstudianteLei":
+                direccionamiento = "/private/homeLEIStudentsView.html";
+                correct = true;
+                break;
+            case "":
+                correct = false;
+                break;
+            default:                
         }
-        else if( user.equals("Profesor") ){
-            direccionamiento = "/private/homeProfessorView.html";
-            response.sendRedirect(direccionamiento);
-            correct = true;
-        }
-        else if( user.equals("Alumno") ){
-            direccionamiento = "/private/homeStudentsEnglishView.html";
-            response.sendRedirect(direccionamiento);
-            correct = true;
-        }
-        else if( user == "" || user == null ){
-            direccionamiento = "/private/logInView.html";
-            response.sendRedirect(direccionamiento);
-            correct = false;
-        }
+
+        response.sendRedirect(direccionamiento);
+        
         if( correct )
             System.out.println("USUARIO CORRECTO");
         else
@@ -104,23 +106,12 @@ public class servlet extends HttpServlet {
     }
 
     /**
-     * Returns a short description of the servlet.
+     * Returns a short description of the logInServletControler.
      *
-     * @return a String containing servlet description
+     * @return a String containing logInServletControler description
      */
     @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-/*    public String verificationUser(String usr, String pwd) throws SQLException{
-         conexion.linkDB login = new conexion.linkDB();
-         String user = login.conect(usr, pwd);
-         
-         if( user.equals("Admin") ){
-            return "Admin";
-         }
-        
-         return user;
-    }*/
 }
