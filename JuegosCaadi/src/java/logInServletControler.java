@@ -87,7 +87,7 @@ public class logInServletControler extends HttpServlet {
                 correct = true;
                 break;
             case "EstudianteLei":
-                direccionamiento = "/private/homeStudentsEnglishView.html";
+                direccionamiento = "/private/homeLEIStudentsView.html";
                 correct = true;
                 break;
             case "":

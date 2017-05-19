@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CrudSerlets;
+package CrudServlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,6 +26,10 @@ import java.util.logging.Logger;
 @WebServlet(name = "InsertJuegoServlet", urlPatterns = {"/InsertJuegoServlet"})
 public class InsertJuegoServlet extends HttpServlet {
 
+    public String pw = "kike";
+    //public String pw = "UtnCboV1";
+    //public String pw = "";
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -70,7 +74,7 @@ public class InsertJuegoServlet extends HttpServlet {
        
         try 
         {
-           ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "UtnCboV1");
+           ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw);
             Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
             
             try

@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CrudSerlets;
+package CrudServlets;
 
 import ConnectionModel.ConnectionModel;
-import Herramientas.Utilidades;
 import Logic_ObjetosBaseDatos.Logic_TablaJuegos;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,10 +22,22 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author frodo
  */
-@WebServlet(name = "ActualizarJuegoServlet", urlPatterns = {"/ActualizarJuegoServlet"})
-public class ActualizarJuegoServlet extends HttpServlet {
+@WebServlet(name = "EliminarJuegoServlet", urlPatterns = {"/EliminarJuegoServlet"})
+public class EliminarJuegoServlet extends HttpServlet {
 
-
+    public String pw = "kike";
+    //public String pw = "UtnCboV1";
+    //public String pw = "";
+    
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -35,48 +46,49 @@ public class ActualizarJuegoServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ActualizarJuegoServlet</title>");            
+            out.println("<title>Servlet EliminarJuegoServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ActualizarJuegoServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EliminarJuegoServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
-
+ 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
- 
+       // processRequest(request, response);
     }
 
-
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+       
         try 
         {
-           ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
-            Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
-            try{
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw);
+            Logic_TablaJuegos j1 = new Logic_TablaJuegos();
+            j1.IdMaterial = Integer.parseInt( request.getParameter("IdMaterial"));
+            try 
+            {
                 cn.connection.setAutoCommit(false);
-                Utilidades.Update(jn, cn, "Juego");
+                Herramientas.Utilidades.Delete(j1, cn, "Juego");
                 cn.connection.commit();
             }
             catch (SQLException ex) {
                 cn.connection.rollback();
-            Logger.getLogger(InsertJuegoServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+                Logger.getLogger(EliminarJuegoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }   
         } catch (SQLException ex) {
-            Logger.getLogger(InsertJuegoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            
+            Logger.getLogger(EliminarJuegoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
     }
 
-
+   
     @Override
     public String getServletInfo() {
         return "Short description";
