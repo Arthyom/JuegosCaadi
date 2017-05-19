@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 @WebServlet(name = "InsertJuegoServlet", urlPatterns = {"/InsertJuegoServlet"})
 public class InsertJuegoServlet extends HttpServlet {
 
-    public String pw = "kike";
+    public String pw = "";
     //public String pw = "UtnCboV1";
     //public String pw = "";
     
@@ -74,19 +74,12 @@ public class InsertJuegoServlet extends HttpServlet {
        
         try 
         {
-           ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw);
+           ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
             Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
+             Utilidades.Insert(jn, cn, "Juego");
             
-            try
-            {
-            cn.connection.setAutoCommit(false);
-            Utilidades.Insert(jn, cn, "Juego");
-            cn.connection.commit();
-            }
-            catch (SQLException ex) {
-                cn.connection.rollback();
-            Logger.getLogger(InsertJuegoServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+           
+        
             
             
         } catch (SQLException ex) {

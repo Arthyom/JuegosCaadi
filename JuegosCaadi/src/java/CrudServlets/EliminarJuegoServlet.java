@@ -69,14 +69,14 @@ public class EliminarJuegoServlet extends HttpServlet {
        
         try 
         {
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw);
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
             Logic_TablaJuegos j1 = new Logic_TablaJuegos();
-            j1.IdMaterial = Integer.parseInt( request.getParameter("IdMaterial"));
+            j1.IdMaterial = Integer.parseInt( request.getParameter("IdMaterial"));          
             try 
             {
-                cn.connection.setAutoCommit(false);
-                Herramientas.Utilidades.Delete(j1, cn, "Juego");
-                cn.connection.commit();
+              cn.connection.setAutoCommit(false);
+              Herramientas.Utilidades.Delete(j1, cn, "Juego");
+              cn.connection.commit();
             }
             catch (SQLException ex) {
                 cn.connection.rollback();

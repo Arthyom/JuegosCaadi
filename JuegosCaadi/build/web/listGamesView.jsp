@@ -12,7 +12,7 @@
 <%@page import="ConnectionModel.ConnectionModel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%String pw = "kike";%>
+<%String pw = " ";%>
 <%-- <%String pw = "UtnCboV1";%> --%>
 
 ﻿<!DOCTYPE html>
@@ -59,7 +59,7 @@
             <button id="btnInsert" onclick="openInsert()"> Add new game </button>
             <button id="btnModify" onclick="openModify()"> Modify </button>
             <button class="btnDelete" onclick="openDelete()"> Delete </button>
-            <% ConnectionModel connect = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "UtnCboV1"); %>
+            <% ConnectionModel connect = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", ""); %>
             <% Statement querySelect = connect.connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); %>
             <% String query = "SELECT Material.idMaterial, Material.Material_Nombre, Material.Material_Habilidad, Juego.Juego_TiempoSugerido, Juego.Juego_Descripcion FROM Material INNER JOIN Juego ON Material.idMaterial = Juego.Material_idMaterial"; %>
             <% ResultSet selectGames = querySelect.executeQuery(query); %>
