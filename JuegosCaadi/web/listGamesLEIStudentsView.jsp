@@ -1,9 +1,8 @@
 <%-- 
-    Document   : HomeAdministratorView
-    Created on : May 14, 2017, 5:54:30 PM
-    Author     : walter
+    Document   : listGamesStudentsView
+    Created on : 18/05/2017, 07:00:35 PM
+    Author     : Iron-kike
 --%>
-
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.io.PrintWriter"%>
@@ -12,10 +11,13 @@
 <%@page import="ConnectionModel.ConnectionModel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%String pw = "kike";%>
+<%-- <%String pw = "UtnCboV1";%> --%>
+
 ﻿<!DOCTYPE html>
 <html>
     <head>
-        <title>Vista de Administradores</title>
+        <title> Administrador de juegos LEI </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/listGamesStyle.css">
@@ -28,18 +30,11 @@
 	        <div class="imageBanner">
 	          <img src="images/escudo.jpg" alt="Escudo UG" width="112" height="42" title="Escudo de la Universidad de Guanajuato">  
 	 	</div>
-
+                
                 <div class="header">
                     <ul class="nav">
-                        <li><a href="homeAdministratorView.html" class="inicio"> Home </a></li>
-                        <li><a href="" class="administrar"> Manage </a>
-                            <ul>
-                                <li><a href="listGamesView.html" class="juegos"> Games</a></li>
-                                <li><a href="" class="materias"> Subjects </a></li>
-                                <li><a href="" class="estudiantes"> Students </a></li>
-                                <li><a href="" class="usuarios"> Users </a></li>
-                            </ul>
-                        </li>
+                        <li><a href="homeLEIStudentsView.html" class="inicio"> Home </a></li>
+                        <li><a href="listGamesLEIStudentsView.jsp" class="administrar"> Games</a></li>
                         <li><a href="" class="reportes"> Reports </a></li>
                         <li><a href="logInView.html" class="sigout"> Log out </a></li>
                     </ul>
@@ -54,7 +49,7 @@
             </div>
 
             <button id="btnInsert" align="center"> Insert new game </button>
-            <% ConnectionModel connect = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "UtnCboV1"); %>
+            <% ConnectionModel connect = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw); %>
             <% Statement querySelect = connect.connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); %>
             <% String query = "SELECT Material.idMaterial, Material.Material_Nombre, Material.Material_Habilidad, Juego.Juego_TiempoSugerido, Juego.Juego_Descripcion FROM Material INNER JOIN Juego ON Material.idMaterial = Juego.Material_idMaterial"; %>
             <% ResultSet selectGames = querySelect.executeQuery(query); %>
@@ -78,7 +73,6 @@
                     <td> <%= selectGames.getString(4) %> </td>
                     <td> <%= selectGames.getString(5) %> </td>
                     <td> <input type="submit" class="btnModify" value="Modify">
-                         <input type="submit" class="btnDelete" value="Delete"> </td>
                 </tr>
             <% }%>
             </table>
