@@ -70,7 +70,7 @@ public class InsertJuegoServlet extends HttpServlet {
        
         try 
         {
-           ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
+           ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "UtnCboV1");
             Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
             
             try
