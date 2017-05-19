@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Nuevo juego</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/crudStyle2.css">
+    </head>
+
+    <body>
+    <div id="main">
+	    <div class="banner">
+	        <div class="imageBanner">
+	          <img src="images/escudo.jpg" alt="Escudo UG" width="112" height="42" title="Escudo de la Universidad de Guanajuato">  
+	 	</div>
+
+                <div class="header">
+                    <ul class="nav">
+                        <li><a href="homeAdministratorView.html" class="inicio"> Home </a></li>
+                        <li><a href="" class="administrar"> Manage </a>
+                            <ul>
+                                <li><a href="listGamesView.html" class="juegos"> Games</a></li>
+                                <li><a href="" class="materias"> Subjects </a></li>
+                                <li><a href="" class="estudiantes"> Students </a></li>
+                                <li><a href="" class="usuarios"> Users </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="" class="reportes"> Reports </a></li>
+                        <li><a href="logInView.html" class="sigout"> Log out </a></li>
+                    </ul>
+                </div>
+	    </div>
+
+<!--                <form action="listGamesControler" method="post">
+                    <div class="header2">
+                        <ul class="nav2">
+                            <li> <button class="list"> List </button> </li>
+                            <li> <a class="insert"> Insert </a> </li>
+                            <li> <a class="modify"> Modify </a> </li>
+                            <li> <a class="delete"> Delete </a> </li>
+                        </ul>
+                    </div>
+                </form> -->
+    </div>
+        
+        <form action="InsertJuegoServlet" method="post">
+        <div class="mainContainer">
+            <div class="objetsContainer">
+                <h3 class="indication" align="center" > DATOS DEL JUEGO A INSERTAR EN EL CATALOGO DEL CAADI</h3>
+                <h5 id="num" > ID. </h5>
+                <input type="text" class="num" name="IdMaterial" value="" size="25" />
+                <h5 id="name"> Nombre </h5>
+                <input type="text" class="name" name="Nombre" value="" size="25" />
+                <h5 id="skills"> Clase </h5>
+                <input type="text" class="clase" name="Clase" value="" size="25" />
+                <h5 id="skills"> Existencia </h5>
+                <input type="text" class="existencia" name="Existencia" value="" size="25" />
+                <h5 id="skills"> Disponible </h5>
+                <input type="text" class="disponible" name="Disponible" value="" size="25" />
+                <h5 id="skills"> Habilidades </h5>
+                <input type="text" class="habilidad" name="Habilidad" value="" size="25" />
+                <h5 id="skills"> Idioma </h5>
+                <input type="text" class="idioma" name="Idioma" value="" size="25" />
+                <h5 id="time"> Numero de participantes </h5>
+                <input type="text" class="numeroParticipantes" name="NumeroParticipantes" value="" size="25" />
+                <h5 id="time"> Tiempo sugerido </h5>
+                <input type="text" class="time" name="TiempoSugerido" value="" size="25" />
+                <h5 id="time"> Vocabulario </h5>
+                <input type="text" class="vocabulario" name="EtiquetasVocabulario" value="" size="25" />
+                <h5 id="time"> Material adicional </h5>
+                <input type="text" class="materialAdicional" name="MaterialAdicional" value="" size="25" />
+                <h5 id="time"> Instrucciones de uso </h5>
+                <textarea class="instructions" name="InstruccionesUso" rows="4" cols="25" > </textarea>
+                <h5 id="description"> Descripcion </h5>
+                <textarea class="description" name="Description" rows="4" cols="25" > </textarea>
+                <input type="submit" value="Insertar">
+            </div>
+        </div>
+        </form>
+            
+   
+        </body>
+    
+    
+        <footer>
+        <h3 class="footerText" align="center"> Department of Multidisciplinary Studies of Yuriria <br>
+                           Suburb Yacatitas, C.P. 38940 <br>
+                           Yuriria, Gto., Mexico <br>
+                           Tel: +52 (445) 458 90 40. Exts: 1703, 1709, 1706 y 1718. <br>
+                           dem@ugto.mx
+        </h3>
+    </footer>
+    
+</html>
