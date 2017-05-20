@@ -90,9 +90,8 @@
 
 <!-- COMIENZA EL MODAL DONDE SE MUESTRA EL FORMULARIO PARA INSERTAR UN NUEVO JUEGO -->
             <!-- Contenedor del modal -->
+            <form action="InsertJuegoServlet" method="post">
             <div id="modalInsert" class="modalInsert">
-
-                <form action="InsertJuegoServlet" method="post">
               <!-- Contenido del modal -->
               <div class="modalInsert-content">
                 <div class="modalInsert-header" align="center">
@@ -176,13 +175,13 @@
                     </div>
                 </div>
               </div>
-                </form>
             </div>
+            </form>
 
 <!-- COMIENZA EL MODAL DONDE SE MUESTRA EL FORMULARIO PARA MODIFICAR UN NUEVO JUEGO -->
             <!-- Contenedor del modal -->
+            <form action="UpdateJuegoServlet" method="post">
             <div id="modalModify" class="modalModify">
-                <form action="ActualizarJuegoServlet" method="post">
               <!-- Contenido del modal -->
               <div class="modalModify-content">
                 <div class="modalModify-header" align="center">
@@ -266,14 +265,14 @@
                     </div>
                 </div>
               </div>
-                </form>
             </div>
+            </form>
 
 <!-- COMIENZA EL MODAL DONDE SE MUESTRA EL FORMULARIO PARA ELIMINAR UN NUEVO JUEGO -->
             <!-- Contenedor del modal -->
+            <form action="EliminarJuegoServlet" method="post">
             <div id="modalDelete" class="modalDelete">
               <!-- Contenido del modal -->
-              <form action="EliminarJuegoServlet" method="post">
               <div class="modalDelete-content">
                 <div class="modalDelete-header" align="center">
                     <span class="close" onclick="closeSpanDelete()">&times;</span>
@@ -290,8 +289,8 @@
                     </div>
                 </div>
               </div>
-              </form>
             </div>
+           </form>
             
 <!-- Codigo JavaScript para abrir el modal y poder insertar un nuevo juego.
      Para ello, el formulario realiza la consulta correspondiente y redirecciona

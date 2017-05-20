@@ -68,20 +68,22 @@ public class InsertJuegoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        // processRequest(request, response);
-       
-       // crear una nueva conexion
-       
-       
+          
         try 
         {
-           ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
             Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
-             Utilidades.Insert(jn, cn, "Juego");
-            
-           
-        
-            
-            
+            try 
+            {
+               cn.connection.setAutoCommit(false);
+               Utilidades.Insert(jn, cn, "Juego");
+               cn.connection.commit();
+            }
+            catch ( Exception ex )
+            {     
+                cn.connection.rollback();
+            }
+             cn.connection.close();
         } catch (SQLException ex) {
             Logger.getLogger(InsertJuegoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

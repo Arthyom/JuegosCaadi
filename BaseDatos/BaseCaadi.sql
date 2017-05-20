@@ -92,7 +92,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Material` (
   `Material_Existencia` TINYINT NOT NULL,
   `Material_Disponible` TINYINT NOT NULL,
   `Material_Habilidad` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idMaterial`),
   UNIQUE INDEX `idMaterial_UNIQUE` (`idMaterial` ASC))
 ENGINE = InnoDB;
 

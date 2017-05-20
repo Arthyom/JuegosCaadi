@@ -83,16 +83,16 @@ public class Utilidades {
         return estado;
     }
     
-    public static boolean Insert    ( Logic_TablaJuegos NuevoJuego,       ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
+    public static boolean Insert    ( Logic_TablaJuegos NuevoJuego,                 ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
     {
         // insertar un material uevo
         
-        Insert( (Logic_TablaMaterial) NuevoJuego , NuevaConexion, "Material");
-        NuevaConexion.Open("jdbc:mysql://localhost/mydb", "root", pw);
-        String Sql = "INSERT INTO "+ TablaDestino + 
-                " (Juego_Idioma,Juego_EnlaceDigital,Juego_InstruccionesUso,Juego_Descripcion,"
-                + "Juego_MaterialAdicional,Juego_NumeroParticipantes,Juego_TiempoSugerido,Juego_EtiquetasTemas" +
-                "Juego_EtiquetasVocabulario,idMaterial) "+
+        Insert( (Logic_TablaMaterial) NuevoJuego , NuevaConexion, "Material");     
+        String Sql =  "INSERT INTO Juego ( "
+                +   "Juego_Idioma, Juego_EnlaceDigital, Juego_InstruccionesUso,"
+                +   "Juego_Descripcion, Juego_MaterialAdicional, Juego_NumeroParticipantes,"
+                +   "Juego_TiempoSugerido, Juego_EtiquetaTemas, Juego_EtiquetasVocabulario "
+                + ") "+
                 " VALUES ('" + 
                     NuevoJuego.Idioma + "','"+ 
                     NuevoJuego.EnlaceDigital + "','"+ 
@@ -102,26 +102,21 @@ public class Utilidades {
                     NuevoJuego.NumeroParticipantes + ",'"+ 
                     NuevoJuego.TiempoSugerido + "','"+ 
                     NuevoJuego.EtiquetasTemas + "','"+ 
-                    NuevoJuego.EtiquetasVocabulario + "',"+ 
-                    NuevoJuego.IdMaterial+
-                    
-                ");" ;
+                    NuevoJuego.EtiquetasVocabulario +
+                "');" ;
         
         Statement consulta = NuevaConexion.connection.createStatement();
         Boolean estado = consulta.execute(Sql);
         consulta.close();
-        NuevaConexion.Close();
-        
         return estado;
     }
     
-    public static boolean Insert    ( Logic_TablaMaterial NuevoMaterial,       ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
+    public static boolean Insert    ( Logic_TablaMaterial NuevoMaterial,            ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
     {
-        String Sql = "INSERT INTO "+ TablaDestino + " (idMaterial, Material_Nombre,Material_Clase,"
+        String Sql = "INSERT INTO "+ TablaDestino + " ( Material_Nombre,Material_Clase,"
                 + "Material_Existencia,Material_Disponible,Material_Habilidad )"+
                 
-                " VALUES (" + 
-                    NuevoMaterial.IdMaterial + ",'"+ 
+                " VALUES ('" + 
                     NuevoMaterial.Nombre + "','"+ 
                     NuevoMaterial.Clase + "',"+ 
                     NuevoMaterial.Existencia + ","+ 
@@ -132,8 +127,6 @@ public class Utilidades {
         Statement consulta = NuevaConexion.connection.createStatement();
         Boolean estado = consulta.execute(Sql);
         consulta.close();
-        NuevaConexion.Close();
-        
         return estado;
     }
     
@@ -170,31 +163,22 @@ public class Utilidades {
     }
     
     
-    public static boolean Delete    ( Logic_TablaJuegos JuegoDeseado,  ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
+    public static boolean Delete    ( Logic_TablaJuegos JuegoDeseado,                 ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
     {
-       
-        
         String Sql = "DELETE FROM "+ TablaDestino + " WHERE Material_idMaterial = " + JuegoDeseado.IdMaterial;
         Statement consulta = NuevaConexion.connection.createStatement();
         Boolean estado = consulta.execute(Sql);
-        consulta.close();
-        NuevaConexion.Close();
-        
-         Delete((Logic_TablaMaterial)JuegoDeseado, NuevaConexion, "Material");
-        
+        consulta.close();       
+        Delete((Logic_TablaMaterial)JuegoDeseado, NuevaConexion, "Material");
         return estado;
     }
     
-    public static boolean Delete    ( Logic_TablaMaterial MaterialDeseado,  ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
+    public static boolean Delete    ( Logic_TablaMaterial MaterialDeseado,            ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
     {
-        
-        NuevaConexion.Open("jdbc:mysql://localhost/mydb", "root", "");
         String Sql = "DELETE FROM "+ TablaDestino + " WHERE IdMaterial = " +  MaterialDeseado.IdMaterial;
         Statement consulta = NuevaConexion.connection.createStatement();
         Boolean estado = consulta.execute(Sql);
         consulta.close();
-        NuevaConexion.Close();
-        
         return estado;
     }
 
@@ -210,54 +194,44 @@ public class Utilidades {
                     nueva instancia de la clase conexion.
     */
     
-    public static boolean Update    ( Logic_TablaJuegos JuegoActual,         ConnectionModel NuevaConexion, String TablaDestino  ) throws SQLException
+    public static boolean Update    ( Logic_TablaJuegos JuegoActual,                   ConnectionModel NuevaConexion, String TablaDestino  ) throws SQLException
     {
         Update((Logic_TablaMaterial)JuegoActual, NuevaConexion, "Material");
-        
-       
         String Sql = "UPDATE " + TablaDestino + 
                 " SET " + 
-                   "Juego_Idioma = ' " + JuegoActual.Idioma + " ',"+ 
-                   "Juego_EnlaceDigital =' " + JuegoActual.EnlaceDigital + "',"+ 
-                   "Juego_InstruccionesUso = ' " + JuegoActual.InstruccionesUso + "',"+ 
-                   "Juego_Descripcion    =' " + JuegoActual.Descripcion + "',"+ 
-                   "Juego_MaterialAdicional =' " + JuegoActual.MaterialAdicional + "',"+ 
-                   "Juego_NumeroParticipantes = " +  JuegoActual.NumeroParticipantes + ","+ 
-                   "Juego_TiempoSugerido =' "+ JuegoActual.TiempoSugerido + "',"+ 
-                   "Juego_EtiquetaTemas =' "+ JuegoActual.EtiquetasTemas + "',"+ 
-                   "Juego_EtiquetasVocabulario = ' " + JuegoActual.EtiquetasVocabulario + "'"+ 
-                  // "Material_idMaterial"  + JuegoActual.IdMaterial+
+                   "Juego_Idioma                = ' " + JuegoActual.Idioma +                " ',"+ 
+                   "Juego_EnlaceDigital         = ' " + JuegoActual.EnlaceDigital +         " ',"+ 
+                   "Juego_InstruccionesUso      = ' " + JuegoActual.InstruccionesUso +      " ',"+ 
+                   "Juego_Descripcion           = ' " + JuegoActual.Descripcion +           " ',"+ 
+                   "Juego_MaterialAdicional     = ' " + JuegoActual.MaterialAdicional +     " ',"+ 
+                   "Juego_NumeroParticipantes   =   " +  JuegoActual.NumeroParticipantes +  "  ,"+ 
+                   "Juego_TiempoSugerido        = ' "+ JuegoActual.TiempoSugerido +         " ',"+ 
+                   "Juego_EtiquetaTemas         = ' "+ JuegoActual.EtiquetasTemas +         " ',"+ 
+                   "Juego_EtiquetasVocabulario  = ' "+ JuegoActual.EtiquetasVocabulario +   " ',"+ 
+                   "Material_idMaterial         =   "+ JuegoActual.IdMaterial+
                 " WHERE Material_idMaterial = " + JuegoActual.IdMaterial +";" ;
         
         Statement consulta = NuevaConexion.connection.createStatement();
         Boolean estado = consulta.execute(Sql);
         consulta.close();
-        NuevaConexion.Close();
-        
-        
-        
         return estado;
     }
     
- 
-    
-    public static boolean Update    ( Logic_TablaMaterial MaterialActual,         ConnectionModel NuevaConexion, String TablaDestino  ) throws SQLException
+    public static boolean Update    ( Logic_TablaMaterial MaterialActual,              ConnectionModel NuevaConexion, String TablaDestino  ) throws SQLException
     {
         String Sql = "UPDATE " + TablaDestino + 
                 " SET  " + 
-                    //"IdMaterial = "            +MaterialActual.IdMaterial + ","+ 
-                    "Material_Nombre     = ' " +MaterialActual.Nombre + "',"+ 
-                    "Material_Clase =      ' " +MaterialActual.Clase + "',"+ 
-                    "Material_Existencia = "   +MaterialActual.Existencia + ","+ 
-                    "Material_Disponible = "   +MaterialActual.Disponible + ","+ 
-                    "Material_Habilidad =  ' " +MaterialActual.Habilidad + "'"+ 
+                    "idMaterial          =   " +MaterialActual.IdMaterial + "    ,"+ 
+                    "Material_Nombre     = ' " +MaterialActual.Nombre       + " ',"+ 
+                    "Material_Clase =      ' " +MaterialActual.Clase        + " ',"+ 
+                    "Material_Existencia =   " +MaterialActual.Existencia   + "  ,"+ 
+                    "Material_Disponible =   " +MaterialActual.Disponible   + "  ,"+ 
+                    "Material_Habilidad =  ' " +MaterialActual.Habilidad    + " ' "+ 
                 "WHERE IdMaterial =" + MaterialActual.IdMaterial +";";
         
         Statement consulta = NuevaConexion.connection.createStatement();
         Boolean estado = consulta.execute(Sql);
         consulta.close();
-        NuevaConexion.Close();
-
         return estado;
     }
     
