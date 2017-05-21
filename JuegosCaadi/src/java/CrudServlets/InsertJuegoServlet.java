@@ -26,8 +26,8 @@ import java.util.logging.Logger;
 @WebServlet(name = "InsertJuegoServlet", urlPatterns = {"/InsertJuegoServlet"})
 public class InsertJuegoServlet extends HttpServlet {
 
-    public String pw = "";
-    //public String pw = "UtnCboV1";
+    //public String pw = "";
+    public String pw = "UtnCboV1";
     //public String pw = "";
     
     /**
@@ -68,10 +68,10 @@ public class InsertJuegoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        // processRequest(request, response);
-          
+
         try 
         {
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw);
             Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
             try 
             {
