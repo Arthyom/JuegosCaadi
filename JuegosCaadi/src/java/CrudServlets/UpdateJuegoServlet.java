@@ -61,10 +61,10 @@ public class UpdateJuegoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           
+
         try 
         {
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");          
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "UtnCboV1");
             Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
             cn.connection.setAutoCommit(false);
             try

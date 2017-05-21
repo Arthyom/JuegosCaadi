@@ -114,7 +114,7 @@
 }
 
 .modalInsert-header{
-    padding: 10px 16px;
+    padding: 5px 16px;
     background-color: green;
     color: white;
 }
@@ -124,7 +124,7 @@
 }
 
 .modalModify-header{
-    padding: 10px 16px;
+    padding: 5px 16px;
     background-color: orange;
     color: white;
 }
@@ -171,9 +171,7 @@
     width: 120px;
     height: 30px;
     font-size: 15px;
-    position: relative;
-    left: 5px;
-    bottom: 3px;
+    margin: 10px 0px 5px 0px;
 }
 
 .btnInsertGame:hover{
@@ -191,9 +189,7 @@
     width: 120px;
     height: 30px;
     font-size: 15px;
-    position: relative;
-    left: 5px;
-    bottom: 3px;
+    margin: 10px 0px 5px 0px;
 }
 
 .btnDeleteM{
@@ -204,10 +200,7 @@
     width: 100px;
     height: 30px;
     font-size: 15px;
-    position: absolute;
-    top: 137px;
-    left: 100px;
-    bottom: 1px;
+    margin: 5px 30px 5px 80px;
 }
 
 .btnDeleteM:hover{
@@ -229,3 +222,46 @@
     background-color: #254167;
     color: white;
 }
+
+.btnClose{
+    background-color: white;
+    color: green;
+    border: 1px solid green;
+    border-radius: 5px !important;
+    width: 120px;
+    height: 30px;
+    font-size: 15px;
+    position: relative;
+    left: 5px;
+    bottom: 3px;
+}
+
+/* Se da formato a los identificadores
+   de cada caja de texto */
+#num, #name, #class, #exist, #able, #skills, #lenguage,
+#numPart, #time, #vocabulary, #material, #instrucciones,
+#description{
+    font-size: 15px;
+    margin: 2px 0px 7px 0px;
+    font-family: Gandhi Serif;
+}
+
+/* Se da formato a las cajas de texto
+   para cada identificador */
+.num, .name, .clase, .existencia, .disponible, .habilidad,
+.idioma, .numeroParticipantes, .time, .vocabulario,
+.materialAdicional, .deleteID{
+    border-radius: 5px;
+    height: 25px;
+    border: 1px solid #7E7E7E;
+}
+
+.instructions, .description{
+    border-radius: 5px;
+    height: 70px;
+    border: 1px solid #7E7E7E;
+}
+
+
+
+

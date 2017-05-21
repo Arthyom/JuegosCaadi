@@ -1,8 +1,3 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
 /* 
     Created on : May 14, 2017, 7:26:06 PM
     Author     : walter
@@ -10,9 +5,7 @@ and open the template in the editor.
 
 .instrucciones{
     background-color: rgb(242, 242, 242);
-    position: relative;
-    top: 20px;
-    left: 120px;
+    margin: 10px 10px 2px 120px;
     width: 1115px;
     font-size: 18px;
     border-radius: 5px;
@@ -24,9 +17,7 @@ and open the template in the editor.
 
 #tableGames{
     background-color: white;
-    position: relative;
-    left: 120px;
-    top: 60px;
+    margin: 10px 2px 2px 120px;
     font-size: 19px;
     border: 1px solid #254167;
     border-bottom-left-radius: 8px !important;
@@ -35,20 +26,18 @@ and open the template in the editor.
 
 #tableColumns{
     background-color: #254167;
-    position: relative;
-    left: 120px;
-    top: 55px;
+    margin: 10px 2px 2px 120px;
     font-size: 19px;
     border: 1px solid #254167;
     border-top-left-radius: 8px !important;
     border-top-right-radius: 8px !important;
 }
 
-#ID, #Nombre, #Habilidades, #Duracion, #Descripcion, #buttons{
+#ID, #Nombre, #Habilidades, #Duracion, #Descripcion{
     background-color: #254167;
     color: white;
     height: 10px;
-    width: 121px;
+    width: 125px;
 }
 
 tr, td{
@@ -63,9 +52,7 @@ tr, td{
     border: 1px solid green;
     height: 30px;
     width: 140px;
-    position: relative;
-    left: 120px;
-    top: 40px;
+    margin: 10px 2px 2px 120px;
     font-size: 17px;
     border-radius: 5px !important;
 }
@@ -84,9 +71,7 @@ tr, td{
     height: 30px;
     width: 140px;
     font-size: 17px;
-    position: relative;
-    top: 40px;
-    left: 125px;
+    margin: 10px 2px 2px 3px;
     bottom: 3px;
 }
 
@@ -98,9 +83,7 @@ tr, td{
     height: 30px;
     width: 140px;
     font-size: 17px;
-    position: relative;
-    top: 40px;
-    left: 130px;
+    margin: 10px 2px 2px 3px;
     bottom: 3px;
 }
 
