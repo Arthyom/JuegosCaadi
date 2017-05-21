@@ -1,0 +1,215 @@
+
+html, body{
+    height: 100%;
+    background-color: #FFFFFF;
+}
+
+#main{
+    height: 100%;
+}
+
+.banner{
+    height: 50px;
+    font-family: Gandhi Serif;
+    background-color: white;
+    border-bottom: 5px solid #A0935F;
+    padding-left: 60%;
+}
+
+.imageBanner{
+    padding-top: 0.3em;
+    left: 8%;
+    position: absolute;
+}
+
+*{
+    margin:0px;
+    padding:0px;
+}
+
+.header{
+    height: 50px;
+    width: 500px;
+    padding-top: 0.1px;
+    padding-bottom: 0.1px;
+    font-family: Gandhi Serif;
+    background-color: white;
+    margin: 0px;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.nav > li {
+    float: left;
+}
+
+.nav .administrar {
+    background-color: white;
+    border-left: 1px solid #A0935F;
+    border-right: 1px solid #A0935F;
+    color: #A0935F;
+
+    text-decoration: none;
+    padding: 8px 30px;
+    margin: 0.5em 0em 0em 0em;
+    display: block;
+    align-content: center;
+    font-size: 18px;
+}
+
+.nav .reportes, .inicio {
+    background-color: white;
+    color: #A0935F;
+
+    text-decoration: none;
+    padding: 8px 30px;
+    margin: 0.5em 0em 0em 0em;
+    display: block;
+    align-content: center;
+    font-size: 18px;
+}
+
+.nav .sigout {
+    background-color: white;
+    border-left: 1px solid #A0935F;
+    color: #A0935F;
+
+    text-decoration: none;
+    padding: 8px 30px;
+    margin: 0.5em 0em 0em 0em;
+    display: block;
+    align-content: center;
+    font-size: 18px;
+}
+
+.nav .juegos, .materias, .estudiantes, .usuarios {
+    background-color: #254167;
+    color: white;
+
+    text-decoration: none;
+    padding: 8px 30px;
+    margin: 0.1em 0em 0em 0em;
+    display: block;
+    align-content: center;
+    font-size: 18px;
+}
+
+.nav li a:hover {
+    background-color: rgb(229, 229, 229);
+    padding: 8px 30px;
+    color: #A0935F;
+}
+
+.nav ul {
+    display: none;
+    position: absolute;
+    min-width: 30px;
+}
+
+.nav li:hover ul {
+    display: block;
+    background-color: none;
+}
+
+.nav li ul li {
+    position: relative;
+}
+
+.messages li ul li {
+    position: relative;
+}
+
+.nav li ul li ul {
+    right: -150px;
+    top: 0px;
+}
+
+/*SEGUNDA BARRA DE MENU*/
+.header2{
+    background-color: #254167;
+    height: 30px;
+    width: 420px;
+    font-family: Gandhi Serif;
+    padding: 5px 21px 0px 21px;
+    margin: 40px 400px 40px 450px;
+    border: 2px solid #254167;
+    border-radius: 10px !important;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.nav2 > li {
+    float: left;
+}
+
+/* SE MODIFICA CADA BOTON*/
+.insert, .modify, .delete{
+    background-color: #254167;
+    color: white;
+    border: 1px solid #254167;
+    
+    text-decoration: none;
+    width: 85px;
+    height: 10px;
+    padding: 5px 15px 5px 20px;
+    margin: 0em 0em 0em 0em;
+    font-size: 20px;
+    position: relative;
+}
+
+.list{
+    background-color: #254167;
+    color: white;
+    border: 1px solid #254167;
+    
+    text-decoration: none;
+    width: 100px;
+    height: 15px;
+    padding: 5px 15px 25px 15px;
+    margin: 0em 0em 0em 0em;
+    font-size: 20px;
+    position: relative;
+}
+
+.list:hover, .insert:hover, .modify:hover, .delete:hover{
+    background: white;
+    color: #254167;
+}
+
+.showGames{
+    background-color: rgb(230, 230, 230);
+    border-right: 3px solid darkgray;
+    border-top: 3px solid darkgray;
+    border-bottom: 3px solid darkgray;
+    width: 1200px; height: 320px;
+    margin: 0px 100px 10px 80px;
+    border-radius: 10px !important;
+}
+
+.textGame{
+    background-color: none;
+    height: 303px;
+    position: absolute;
+    padding: 10px 10px 10px 231px;
+
+}
+
+footer{
+    width: 100%;
+    text-decoration-style: block;
+    background-color: rgb(229, 229, 229);
+    border-bottom: 1px solid #e7e7e7;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 11px !important;
+    margin-top: 280px;
+}
+
+.footerText{
+    color: black;
+    font-family: Gandhi Serif;
+}

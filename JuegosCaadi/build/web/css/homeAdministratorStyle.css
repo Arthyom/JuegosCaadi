@@ -1,0 +1,164 @@
+
+html, body{
+    height: 100%;
+    background-color: #FFFFFF;
+}
+
+#main{
+    height: 100%;
+}
+
+.banner{
+    height: 50px;
+    background-color: white;
+    border-bottom: 5px solid #b5a36a;
+    padding-left: 60%;
+    margin-top: 0em;
+}
+
+.imageBanner{
+    padding-top: 0.3em;
+    left: 8%;
+    position: absolute;
+}
+
+*{
+    margin:0px;
+    padding:0px;
+}
+
+.header{
+    height: 50px;
+    width: 500px;
+    padding-top: 0.1px;
+    padding-bottom: 0.1px;
+    font-family: Gandhi Serif;
+    background-color: white;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.welcomeMessages{
+    padding: 15px;
+    margin: 40px 250px 25px;
+    border: 2px solid #254167;
+    border-radius: 25px;
+    font-family: Gandhi Serif;
+    font-size: 20px;
+    font-weight: 100;
+    color: #254167;
+    background-color: #FFFFFF;
+    font-size: 22px !important;
+}
+
+#imageBody{
+    height: 350px;
+    position: relative;
+    top: 20px;
+    padding-left: 390px;
+    padding-bottom: 45px;
+}
+
+.nav .administrar {
+    background-color: white;
+    border-left: 1px solid #b5a36a;
+    border-right: 1px solid #b5a36a;
+    color: #b5a36a;
+
+    text-decoration: none;
+    padding: 8px 30px;
+    margin: 0.5em 0em 0em 0em;
+    display: block;
+    align-content: center;
+    font-size: 18px;
+}
+
+.nav .reportes, .inicio {
+    background-color: white;
+    color: #b5a36a;
+
+    text-decoration: none;
+    padding: 8px 30px;
+    margin: 0.5em 0em 0em 0em;
+    display: block;
+    align-content: center;
+    font-size: 18px;
+}
+
+.nav .sigout {
+    background-color: white;
+    border-left: 1px solid #b5a36a;
+    border-right: 1px solid #b5a36a;
+    color: #b5a36a;
+
+    text-decoration: none;
+    padding: 8px 30px;
+    margin: 0.5em 0em 0em 0em;
+    display: block;
+    align-content: center;
+    font-size: 18px;
+}
+
+.nav .juegos, .materias, .estudiantes, .usuarios {
+    background-color: #254167;
+    color: white;
+
+    text-decoration: none;
+    padding: 8px 30px;
+    margin: 0.1em 0em 0em 0em;
+    display: block;
+    align-content: center;
+    font-size: 18px;
+}
+
+.nav > li {
+    float: left;
+}
+
+.nav li a:hover {
+    background-color: rgb(229, 229, 229);
+    color: #b5a36a;
+}
+
+.nav ul {
+    display: none;
+    position: absolute;
+    min-width: 20px;
+}
+
+.nav li:hover ul {
+    display: block;
+    background-color: none;
+}
+
+.nav li ul li {
+    position: relative;
+}
+
+.messages li ul li {
+    position: relative;
+}
+
+.nav li ul li ul {
+    right: -100px;
+    top: 0px;
+}
+
+footer{
+    width: 100%;
+    text-decoration-style: block;
+    background-color: rgb(229, 229, 229);
+    border-bottom: 1px solid #e7e7e7;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 11px !important;
+}
+
+.footerText{
+    color: black;
+    font-family: Gandhi Serif;
+}

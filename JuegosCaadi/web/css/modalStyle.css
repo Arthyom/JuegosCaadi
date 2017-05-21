@@ -1,0 +1,267 @@
+/* The Modal (background) */
+.modalInsert {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 50px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modalInsert-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 75%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.modalModify {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 50px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modalModify-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 75%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.modalDelete {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 50px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modalDelete-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modalInsert-header{
+    padding: 5px 16px;
+    background-color: green;
+    color: white;
+}
+
+.modalInsert-body {
+    padding: 20px 20px 20px 20px;
+}
+
+.modalModify-header{
+    padding: 5px 16px;
+    background-color: orange;
+    color: white;
+}
+
+.modalModify-body {
+    padding: 20px 20px 20px 20px;
+}
+
+.modalDelete-header{
+    padding: 10px 16px;
+    background-color: red;
+    color: white;
+}
+
+.modalDelete-body {
+    padding: 20px 20px 20px 20px;
+}
+
+.textDelete{
+    font-size: 17px;
+    position: relative;
+    left: 75px;
+    margin: 5px 5px 20px 5px;
+}
+
+.deleteID{
+    position: relative;
+    left: 75px;
+    margin: 5px 5px 20px 5px;    
+    border-radius: 3px;
+}
+
+.table{
+    border: 0px white;
+    position: relative;
+    left: 35px;
+}
+
+.btnInsertGame{
+    background-color: white;
+    color: green;
+    border: 1px solid green;
+    border-radius: 5px !important;
+    width: 120px;
+    height: 30px;
+    font-size: 15px;
+    margin: 10px 0px 5px 0px;
+}
+
+.btnInsertGame:hover{
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+    cursor: pointer;
+}
+
+.btnModifyGame{
+    background-color: white;
+    color: orange;
+    border: 1px solid orange;
+    border-radius: 5px !important;
+    width: 120px;
+    height: 30px;
+    font-size: 15px;
+    margin: 10px 0px 5px 0px;
+}
+
+.btnDeleteM{
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px !important;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    margin: 5px 30px 5px 80px;
+}
+
+.btnDeleteM:hover{
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+    cursor: pointer;
+}
+
+.btnModifyGame:hover{
+    background-color: orange;
+    color: white;
+    border: 1px solid orange;
+    cursor: pointer;
+}
+
+.modalInsert-footer{
+    padding: 2px 16px;
+    background-color: #254167;
+    color: white;
+}
+
+.btnClose{
+    background-color: white;
+    color: green;
+    border: 1px solid green;
+    border-radius: 5px !important;
+    width: 120px;
+    height: 30px;
+    font-size: 15px;
+    position: relative;
+    left: 5px;
+    bottom: 3px;
+}
+
+/* Se da formato a los identificadores
+   de cada caja de texto */
+#num, #name, #class, #exist, #able, #skills, #lenguage,
+#numPart, #time, #vocabulary, #material, #instrucciones,
+#description{
+    font-size: 15px;
+    margin: 2px 0px 7px 0px;
+    font-family: Gandhi Serif;
+}
+
+/* Se da formato a las cajas de texto
+   para cada identificador */
+.num, .name, .clase, .existencia, .disponible, .habilidad,
+.idioma, .numeroParticipantes, .time, .vocabulario,
+.materialAdicional, .deleteID{
+    border-radius: 5px;
+    height: 25px;
+    border: 1px solid #7E7E7E;
+}
+
+.instructions, .description{
+    border-radius: 5px;
+    height: 70px;
+    border: 1px solid #7E7E7E;
+}
+
+
+
+
