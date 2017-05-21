@@ -15,8 +15,8 @@ import java.sql.Statement;
 public class loginModel {
     public String url = "jdbc:mysql://localhost/mydb";
     public String user = "root";
-    //public String pw = "UtnCboV1";
-    public String pw = "";
+    public String pw = "UtnCboV1";
+    //public String pw = "";
     public Connection connection;
 
     public loginModel(){}

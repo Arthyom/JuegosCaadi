@@ -25,8 +25,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "EliminarJuegoServlet", urlPatterns = {"/EliminarJuegoServlet"})
 public class EliminarJuegoServlet extends HttpServlet {
 
-    public String pw = "kike";
-    //public String pw = "UtnCboV1";
+    //public String pw = "kike";
+    public String pw = "UtnCboV1";
     //public String pw = "";
     
     /**
@@ -66,10 +66,11 @@ public class EliminarJuegoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
+        String direccionamiento = "/private/listGamesView.jsp";
         try 
         {
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");      
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw);
             Logic_TablaJuegos j1 = new Logic_TablaJuegos();
             
             try 
@@ -79,6 +80,7 @@ public class EliminarJuegoServlet extends HttpServlet {
               Herramientas.Utilidades.Delete(j1, cn, "Juego");             
               cn.connection.commit();
               cn.connection.close();
+              response.sendRedirect(direccionamiento);
             }
             catch (SQLException ex) {                
                 cn.connection.rollback();
