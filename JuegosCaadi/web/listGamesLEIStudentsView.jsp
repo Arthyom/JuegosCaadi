@@ -52,30 +52,37 @@
             <button id="btnModify" align="center" onclick="openModify()"> Modify </button>
             <% ConnectionModel connect = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw); %>
             <% Statement querySelect = connect.connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); %>
-            <% String query = "SELECT Material.idMaterial, Material.Material_Nombre, Material.Material_Habilidad, Juego.Juego_TiempoSugerido, Juego.Juego_Descripcion FROM Material INNER JOIN Juego ON Material.idMaterial = Juego.Material_idMaterial"; %>
+            <% String query = "SELECT Material.idMaterial, Material.Material_Nombre, Juego.Juego_Idioma, Material.Material_Habilidad, Material.Material_Disponible, Juego.Juego_NumeroParticipantes, Juego.Juego_TiempoSugerido, Juego.Juego_EtiquetasVocabulario, Juego.Juego_Descripcion, Juego.Juego_InstruccionesUso FROM Material INNER JOIN Juego ON Material.idMaterial = Juego.Material_idMaterial;"; %>
             <% ResultSet selectGames = querySelect.executeQuery(query); %>
-
-            <table id="tableColumns">
-                <tr>
-                    <td align="left" id="ID"> ID </td>
-                    <td align="left" id="Nombre"> Nombre </td>
-                    <td align="center" id="Habilidades"> Habilidades </td>
-                    <td align="center" id="Duracion"> Duracion </td>
-                    <td align="center" id="Descripcion"> Descripcion </td>
-                </tr>
-            </table>
-
-            <table id="tableGames">
+            
             <% while( selectGames.next() ){ %>
-                <tr>
-                    <td align="center"> <%= selectGames.getString(1) %> </td>
-                    <td> <%= selectGames.getString(2) %> </td>
-                    <td> <%= selectGames.getString(3) %> </td>
-                    <td> <%= selectGames.getString(4) %> </td>
-                    <td> <%= selectGames.getString(5) %> </td>
-                </tr>
+                <table id="tableGames">
+                    <tr>
+                        <th rowspan="4" id="imageGame">
+                            <img src="images/noimage1.png" height="250" width="230">
+                        </th>
+                        <td align="left" id="ide"> ID: <%= selectGames.getString(1) %> </td>
+                        <td align="left" id="nameGame"> Name: <%= selectGames.getString(2) %> </td>
+                    </tr>
+                    <tr>
+                        <td align="left" id="lenguageGame"> Lenguage: <%= selectGames.getString(3) %> </td>
+                        <td align="left" id="skillsGame"> Skills: <%= selectGames.getString(4) %> </td>
+                    </tr>
+                    <tr>
+                        <td align="left" id="availableGame"> Games available: <%= selectGames.getString(5) %> </td>
+                        <td align="left" id="gamersNum"> Number of gamers: <%= selectGames.getString(6) %> </td>
+                    </tr>
+                        <td align="left" id="timeGame"> Suggested time: <%= selectGames.getString(7) %> </td>
+                        <td align="left" id="vocabularyGame"> Vocabulary: <%= selectGames.getString(8) %> </td>
+                    <tr> 
+                    <tr>
+                        <th colspan="3" align="left" id="descriptionGame"> Description: <%= selectGames.getString(9) %> </th>
+                    </tr>
+                    <tr>
+                        <th colspan="3" align="left" id="instructionsGame"> Instructions: <%= selectGames.getString(10) %> </th>
+                    </tr>
+                </table>
             <% }%>
-            </table>
             
 <!-- COMIENZA EL MODAL DONDE SE MUESTRA EL FORMULARIO PARA INSERTAR UN NUEVO JUEGO -->
             <!-- Contenedor del modal -->
