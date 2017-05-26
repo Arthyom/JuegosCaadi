@@ -25,7 +25,8 @@
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    border-radius: 10px !important;
 }
 
 .modalModify {
@@ -54,7 +55,8 @@
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    border-radius: 10px !important;
 }
 
 .modalDelete {
@@ -83,7 +85,8 @@
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    border-radius: 10px !important;
 }
 
 
@@ -117,6 +120,8 @@
     padding: 5px 16px;
     background-color: green;
     color: white;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
 }
 
 .modalInsert-body {
@@ -127,6 +132,8 @@
     padding: 5px 16px;
     background-color: orange;
     color: white;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
 }
 
 .modalModify-body {
@@ -137,6 +144,8 @@
     padding: 10px 16px;
     background-color: red;
     color: white;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
 }
 
 .modalDelete-body {
