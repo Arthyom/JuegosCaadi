@@ -9,9 +9,10 @@
     border: 1px solid green;
     height: 30px;
     width: 140px;
-    margin: 10px 2px 2px 120px;
+    margin: 20px 2px 0px 120px;
     font-size: 17px;
     border-radius: 5px !important;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 1px 10px 0 rgba(0,0,0,0.19);
 }
 
 #btnInsert:hover, #btnInsert:focus{
@@ -30,6 +31,7 @@
     font-size: 17px;
     margin: 10px 2px 2px 3px;
     bottom: 3px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 1px 10px 0 rgba(0,0,0,0.19);
 }
 
 .btnDelete{
@@ -42,6 +44,7 @@
     font-size: 17px;
     margin: 10px 2px 2px 3px;
     bottom: 3px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 1px 10px 0 rgba(0,0,0,0.19);
 }
 
 .btnDelete:hover, .btnDelete:focus{

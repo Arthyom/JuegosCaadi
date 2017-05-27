@@ -119,7 +119,7 @@
                                     <input type="text" class="existencia" name="Existencia" value="" size="25" placeholder=" Cantidad de juegos en existencia" />
                                 </td>
                                 <td>
-                                    <h5 id="able"> NUmero de juegos disponibles </h5>
+                                    <h5 id="able"> Numero de juegos disponibles </h5>
                                     <input type="text" class="disponible" name="Disponible" value="" size="25" placeholder="  Cantidad de juegos disponibles" />
                                 </td>
                                 <td>
