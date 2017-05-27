@@ -141,11 +141,12 @@ ul, ol {
 #tableGames{
     background-color: white;
     color: black;
-    margin: 10px 2px 2px 120px;
+    margin: 25px 2px 2px 120px;
     font-size: 19px;
-    border: 2px solid lightslategrey;
-    border-radius: 15px !important;
+    border: 1px solid lightgray;
+    border-radius: 8px !important;
     width: 1115px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 1px 10px 0 rgba(0,0,0,0.19);
 }
 
 #imageGame{

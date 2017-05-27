@@ -68,7 +68,7 @@
                 <table id="tableGames">
                     <tr>
                         <th rowspan="4" id="imageGame">
-                            <img src="images/noimage1.png" height="250" width="230">
+                            <img src="images/game2.jpg" height="250" width="230">
                         </th>
                         <td align="left" id="ide"> ID: <%= selectGames.getString(1) %> </td>
                         <td align="left" id="nameGame"> Name: <%= selectGames.getString(2) %> </td>
@@ -128,7 +128,7 @@
                                     <input type="text" class="existencia" name="Existencia" value="" size="25" placeholder=" Cantidad de juegos en existencia" />
                                 </td>
                                 <td>
-                                    <h5 id="able"> NUmero de juegos disponibles </h5>
+                                    <h5 id="able"> Numero de juegos disponibles </h5>
                                     <input type="text" class="disponible" name="Disponible" value="" size="25" placeholder="  Cantidad de juegos disponibles" />
                                 </td>
                                 <td>
