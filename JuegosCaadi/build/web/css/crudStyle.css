@@ -3,6 +3,33 @@
     Author     : walter
 */
 
+#txtSolicitar, #txtRequest{
+    border: 1px solid lightgray;
+    height: 30px;
+    width: 140px;
+    margin: 20px 2px 0px 120px;
+    font-size: 18px;
+    border-radius: 5px !important;    
+}
+
+#btnSolicitar, #btnAccept{
+    background-color: #428bca;
+    color: white;
+    border: 1px solid #428bca;
+    height: 30px;
+    width: 140px;
+    margin: 10px 2px 2px 3px;
+    font-size: 17px;
+    border-radius: 5px !important;
+}
+
+#btnAccept:hover, #btnSolicitar:hover,
+#btnAccept:focus #btnSolicitar:focus{
+    background: #3276b1;
+    color: white;
+    cursor: pointer;
+}
+
 #btnInsert{
     background-color: white;
     color: green;
@@ -12,7 +39,6 @@
     margin: 20px 2px 0px 120px;
     font-size: 17px;
     border-radius: 5px !important;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 1px 10px 0 rgba(0,0,0,0.19);
 }
 
 #btnInsert:hover, #btnInsert:focus{
@@ -31,7 +57,6 @@
     font-size: 17px;
     margin: 10px 2px 2px 3px;
     bottom: 3px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 1px 10px 0 rgba(0,0,0,0.19);
 }
 
 .btnDelete{
@@ -44,7 +69,6 @@
     font-size: 17px;
     margin: 10px 2px 2px 3px;
     bottom: 3px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 1px 10px 0 rgba(0,0,0,0.19);
 }
 
 .btnDelete:hover, .btnDelete:focus{

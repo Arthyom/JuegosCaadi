@@ -81,14 +81,21 @@
                         <td align="left" id="availableGame"> Games available: <%= selectGames.getString(5) %> </td>
                         <td align="left" id="gamersNum"> Number of gamers: <%= selectGames.getString(6) %> </td>
                     </tr>
+                    <tr>
                         <td align="left" id="timeGame"> Suggested time: <%= selectGames.getString(7) %> </td>
                         <td align="left" id="vocabularyGame"> Vocabulary: <%= selectGames.getString(8) %> </td>
-                    <tr> 
+                    </tr>
                     <tr>
                         <th colspan="3" align="left" id="descriptionGame"> Description: <%= selectGames.getString(9) %> </th>
                     </tr>
                     <tr>
                         <th colspan="3" align="left" id="instructionsGame"> Instructions: <%= selectGames.getString(10) %> </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <button id="btnModify" onclick="openModify()"> Modify </button>
+                            <button class="btnDelete" onclick="openDelete()"> Delete </button>
+                        </th>
                     </tr>
                 </table>
             <% }%>
