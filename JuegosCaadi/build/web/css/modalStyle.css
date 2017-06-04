@@ -1,19 +1,19 @@
-/* The Modal (background) */
+/* Fondo del modal y aspecto en general */
 .modalInsert {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 50px; /* Location of the box */
+    display: none; /* Se oculta por default */
+    position: fixed; /* Se mantiene en su lugar */
+    z-index: 1; /* Esta al frente de toda la pagina */
+    padding-top: 50px; /* padding superior */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
+    width: 100%; /* ancho del 100% */
+    height: 100%; /* altura del 100% */
+    overflow: auto; /* scroll activado si se requiere */
+    background-color: rgb(0,0,0); /* color fuera del modal*/
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
+/* Contenido del modal */
 .modalInsert-content{
     position: relative;
     background-color: #fefefe;
@@ -29,21 +29,24 @@
     border-radius: 10px !important;
 }
 
+/* La configuracion inicial para todos los modales es la misma.
+*/
 .modalModify {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 50px; /* Location of the box */
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content */
+/* La configuracion inicial para todos los modales es la misma.
+De su contenido igualmente*/
 .modalModify-content{
     position: relative;
     background-color: #fefefe;
@@ -59,21 +62,24 @@
     border-radius: 10px !important;
 }
 
+/* La configuracion inicial para todos los modales es la misma.
+*/
 .modalDelete {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 50px; /* Location of the box */
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 50px;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content */
+/* La configuracion inicial para todos los modales es la misma.
+    Igualmente de su contenido */
 .modalDelete-content{
     position: relative;
     background-color: #fefefe;
@@ -90,7 +96,7 @@
 }
 
 
-/* Add Animation */
+/* Animacion de entrada para todos los modales */
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0} 
     to {top:0; opacity:1}
@@ -101,33 +107,41 @@
     to {top:0; opacity:1}
 }
 
-/* The Close Button */
-.close {
+/* Cruz para cerrar cada uno de los modales */
+.close{
+    padding: 1px 10px 1px 10px; /*se le da forma de cuadrado*/
+    border-radius: 40px; /*se redondean las esquinas para formar un ciruclo*/
+    background-color: rgb(220,0,0);
     color: white;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
+/* efecto de cambio de color cuando el mouse esta sobre el boton */
 .close:hover,
 .close:focus {
-    color: #000;
+    color: white;
+    background-color: rgb(200,0,0);
     text-decoration: none;
     cursor: pointer;
 }
 
+/* header para cada modal y su configuracion */
 .modalInsert-header{
     padding: 5px 16px;
-    background-color: green;
+    background-color: #428bca;
     color: white;
     border-top-left-radius: 8px !important;
     border-top-right-radius: 8px !important;
 }
 
+/* cuerpo del modal y su configracion de padding */
 .modalInsert-body {
     padding: 20px 20px 20px 20px;
 }
 
+/* header para cada modal y su configuracion */
 .modalModify-header{
     padding: 5px 16px;
     background-color: orange;
@@ -136,10 +150,12 @@
     border-top-right-radius: 8px !important;
 }
 
+/* cuerpo del modal y su configracion de padding */
 .modalModify-body {
     padding: 20px 20px 20px 20px;
 }
 
+/* header para cada modal y su configuracion */
 .modalDelete-header{
     padding: 10px 16px;
     background-color: red;
@@ -148,10 +164,13 @@
     border-top-right-radius: 8px !important;
 }
 
+/* cuerpo del modal y su configracion de padding */
 .modalDelete-body {
     padding: 20px 20px 20px 20px;
 }
 
+/* Texto con indicacion dentro del modal para eliminar
+un juego. */
 .textDelete{
     font-size: 17px;
     position: relative;
@@ -159,6 +178,9 @@
     margin: 5px 5px 20px 5px;
 }
 
+/* Boton para recoger el id de la caja de texto y eliminar
+un juego
+*/
 .deleteID{
     position: relative;
     left: 75px;
@@ -166,16 +188,19 @@
     border-radius: 3px;
 }
 
+/* tabla que contiene el formulario para llenar los campos
+de cada juego o modificarlos */
 .table{
     border: 0px white;
     position: relative;
     left: 35px;
 }
 
+/* boton que abre un nuevo modal para insertar un juego */
 .btnInsertGame{
-    background-color: white;
-    color: green;
-    border: 1px solid green;
+    background-color: #428bca;
+    color: white;
+    border: 1px solid #428bca;
     border-radius: 5px !important;
     width: 120px;
     height: 30px;
@@ -183,13 +208,16 @@
     margin: 10px 0px 5px 0px;
 }
 
+/* efecto de cambio de color cuando el mouse esta sobre el boton */
 .btnInsertGame:hover{
-    background-color: green;
+    background-color: #3276b1;
     color: white;
-    border: 1px solid green;
+    border: 1px solid #3276b1;
     cursor: pointer;
 }
 
+/* boton que abre un modal con los datos de un juego para
+    poder modificarlos */
 .btnModifyGame{
     background-color: white;
     color: orange;
@@ -201,6 +229,8 @@
     margin: 10px 0px 5px 0px;
 }
 
+/* boton que abre un modal donde se introduce el id del juego
+a eliminar */
 .btnDeleteM{
     background-color: white;
     color: red;
@@ -212,6 +242,7 @@
     margin: 5px 30px 5px 80px;
 }
 
+/* efecto de cambio de color cuando el mouse esta sobre el boton */
 .btnDeleteM:hover{
     background-color: red;
     color: white;
@@ -219,30 +250,12 @@
     cursor: pointer;
 }
 
+/* efecto de cambio de color cuando el mouse esta sobre el boton */
 .btnModifyGame:hover{
     background-color: orange;
     color: white;
     border: 1px solid orange;
     cursor: pointer;
-}
-
-.modalInsert-footer{
-    padding: 2px 16px;
-    background-color: #254167;
-    color: white;
-}
-
-.btnClose{
-    background-color: white;
-    color: green;
-    border: 1px solid green;
-    border-radius: 5px !important;
-    width: 120px;
-    height: 30px;
-    font-size: 15px;
-    position: relative;
-    left: 5px;
-    bottom: 3px;
 }
 
 /* Se da formato a los identificadores
@@ -265,6 +278,8 @@
     border: 1px solid #7E7E7E;
 }
 
+/* Se da formato a las cajas de texto
+   para cada identificador */
 .instructions, .description{
     border-radius: 5px;
     height: 70px;

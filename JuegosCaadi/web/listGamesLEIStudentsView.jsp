@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="css/listGamesStyle.css">
         <link rel="stylesheet" href="css/crudStyle.css">
         <link rel="stylesheet" href="css/modalStyle.css">
+        <script type="text/javascript" src="js/modal.js"> </script>
     </head>
 
     <body>
@@ -44,12 +45,11 @@
 
             <div class="instrucciones">
                 <p class="text"> A continuacion se muestra un listado de los juegos incluidos en el catalogo
-                    del CAADI.
+                    del CAADI. Tienes la opcion de insertar un nuevo juego y modificar un juego existente.
                 </p>
+                <button id="btnInsert" align="center" onclick="openInsert()"> Insert new game </button>
             </div>
 
-            <button id="btnInsert" align="center" onclick="openInsert()"> Insert new game </button>
-            <button id="btnModify" align="center" onclick="openModify()"> Modify </button>
             <% ConnectionModel connect = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw); %>
             <% Statement querySelect = connect.connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); %>
             <% String query = "SELECT Material.idMaterial, Material.Material_Nombre, Juego.Juego_Idioma, Material.Material_Habilidad, Material.Material_Disponible, Juego.Juego_NumeroParticipantes, Juego.Juego_TiempoSugerido, Juego.Juego_EtiquetasVocabulario, Juego.Juego_Descripcion, Juego.Juego_InstruccionesUso FROM Material INNER JOIN Juego ON Material.idMaterial = Juego.Material_idMaterial;"; %>
@@ -76,11 +76,19 @@
                         <td align="left" id="vocabularyGame"> Vocabulary: <%= selectGames.getString(8) %> </td>
                     <tr> 
                     <tr>
-                        <th colspan="3" align="left" id="descriptionGame"> Description: <%= selectGames.getString(9) %> </th>
+                        <td colspan="3" align="left" id="descriptionGame"> Description: <%= selectGames.getString(9) %> </td>
                     </tr>
                     <tr>
-                        <th colspan="3" align="left" id="instructionsGame"> Instructions: <%= selectGames.getString(10) %> </th>
+                        <td colspan="3" align="left" id="instructionsGame"> Instructions: <%= selectGames.getString(10) %> </td>
                     </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button id="btnModify" align="center" onclick="openModify()"> Modify </button>
+                        </td>
+                    </tr>
+
                 </table>
             <% }%>
             
@@ -91,8 +99,8 @@
               <!-- Contenido del modal -->
               <div class="modalInsert-content">
                 <div class="modalInsert-header" align="center">
-                  <span class="close" onclick="closeSpanInsert()">&times;</span>
-                  <h2> Add the values of the games to insert </h2>
+                  <span class="close" onclick="closeSpan1()">&times;</span>
+                  <h2> Llena todos los campos con los valores permitidos </h2>
                 </div>
                 <div class="modalInsert-body">
                 <!-- Comienza el formulario para agregar un nuevo juego -->
@@ -181,7 +189,7 @@
               <!-- Contenido del modal -->
               <div class="modalModify-content">
                 <div class="modalModify-header" align="center">
-                    <span class="close" onclick="closeSpanModify()">&times;</span>
+                    <span class="close" onclick="closeSpan2()">&times;</span>
                   <h2> Modify the values of the games</h2>
                 </div>
                 <div class="modalModify-body">
@@ -263,40 +271,7 @@
               </div>
             </div>
             </form>
-            
-<!-- Codigo JavaScript para abrir el modal y poder insertar un nuevo juego.
-     Para ello, el formulario realiza la consulta correspondiente y redirecciona
-     a la vista para administrar los juegos, lo que actualiza la tabla de juegos
-     incluyendo los juegos recien agregados.
--->
-            <script>
-                var modal = document.getElementById("modalInsert");
-                var modal2 = document.getElementById("modalModify");
 
-                function openInsert(){
-                    modal.style.display = "block";
-                }
-
-                function openModify(){
-                    modal2.style.display = "block";
-                }
-
-                function closeSpanInsert(){
-                    modal.style.display = "none";
-                }
-
-                function closeSpanModify(){
-                    modal2.style.display = "none";
-                }
-
-                window.onclick = function(event) {
-                    if (event.target == modal || event.target == modal2) {
-                        modal.style.display = "none";
-                        modal2.style.display = "none";
-                    }
-                }
-    
-            </script>
             
     </body>
 

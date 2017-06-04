@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="css/crudStyle.css">
         <link rel="stylesheet" href="css/modalStyle.css">
         <link rel="stylesheet" href="css/listGamesStyle.css">
+        <script type="text/javascript" src="js/modal.js"> </script>
     </head>
 
     <body>
@@ -38,6 +39,7 @@
                         <li><a href="" class="administrar"> Manage </a>
                             <ul>
                                 <li><a href="listGamesView.jsp" class="juegos"> Games</a></li>
+                                <li><a href="listRequestView.jsp" class="request"> Request </a></li>
                                 <li><a href="" class="materias"> Subjects </a></li>
                                 <li><a href="" class="estudiantes"> Students </a></li>
                                 <li><a href="" class="usuarios"> Users </a></li>
@@ -52,13 +54,11 @@
 
             <div class="instrucciones">
                 <p class="text"> A continuacion se muestra un listado de los juegos incluidos en el catalogo
-                    del CAADI.
+                    del CAADI. Tiene la opcion de agregar un nuevo juego, modificar o eliminarlo.
                 </p>
+                <button id="btnInsert" onclick="openInsert()"> Add new game </button>
             </div>
 
-            <button id="btnInsert" onclick="openInsert()"> Add new game </button>
-            <button id="btnModify" onclick="openModify()"> Modify </button>
-            <button class="btnDelete" onclick="openDelete()"> Delete </button>
             <% ConnectionModel connect = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw); %>
             <% Statement querySelect = connect.connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); %>
             <% String query = "SELECT Material.idMaterial, Material.Material_Nombre, Juego.Juego_Idioma, Material.Material_Habilidad, Material.Material_Disponible, Juego.Juego_NumeroParticipantes, Juego.Juego_TiempoSugerido, Juego.Juego_EtiquetasVocabulario, Juego.Juego_Descripcion, Juego.Juego_InstruccionesUso FROM Material INNER JOIN Juego ON Material.idMaterial = Juego.Material_idMaterial;"; %>
@@ -67,8 +67,8 @@
             <% while( selectGames.next() ){ %>
                 <table id="tableGames">
                     <tr>
-                        <th rowspan="4" id="imageGame">
-                            <img src="images/game2.jpg" height="250" width="230">
+                        <th rowspan="4">
+                            <img src="images/game2.jpg" height="250" width="230" id="imageGame">
                         </th>
                         <td align="left" id="ide"> ID: <%= selectGames.getString(1) %> </td>
                         <td align="left" id="nameGame"> Name: <%= selectGames.getString(2) %> </td>
@@ -86,16 +86,16 @@
                         <td align="left" id="vocabularyGame"> Vocabulary: <%= selectGames.getString(8) %> </td>
                     </tr>
                     <tr>
-                        <th colspan="3" align="left" id="descriptionGame"> Description: <%= selectGames.getString(9) %> </th>
+                        <td colspan="3" align="left" id="descriptionGame"> Description: <%= selectGames.getString(9) %> </th>
                     </tr>
                     <tr>
-                        <th colspan="3" align="left" id="instructionsGame"> Instructions: <%= selectGames.getString(10) %> </th>
+                        <td colspan="3" align="left" id="instructionsGame"> Instructions: <%= selectGames.getString(10) %> </th>
                     </tr>
                     <tr>
-                        <th>
+                        <td colspan="3">
                             <button id="btnModify" onclick="openModify()"> Modify </button>
                             <button class="btnDelete" onclick="openDelete()"> Delete </button>
-                        </th>
+                        </td>
                     </tr>
                 </table>
             <% }%>
@@ -107,8 +107,8 @@
               <!-- Contenido del modal -->
               <div class="modalInsert-content">
                 <div class="modalInsert-header" align="center">
-                  <span class="close" onclick="closeSpanInsert()">&times;</span>
-                  <h2> Add the values of the games to insert </h2>
+                  <span class="close" onclick="closeSpan1()">&times;</span>
+                  <h2> Llena todos los campos con los valores permitidos </h2>
                 </div>
                 <div class="modalInsert-body">
                 <!-- Comienza el formulario para agregar un nuevo juego -->
@@ -197,7 +197,7 @@
               <!-- Contenido del modal -->
               <div class="modalModify-content">
                 <div class="modalModify-header" align="center">
-                    <span class="close" onclick="closeSpanModify()">&times;</span>
+                    <span class="close" onclick="closeSpan2()">&times;</span>
                   <h2> Modify the values of the games</h2>
                 </div>
                 <div class="modalModify-body">
@@ -287,7 +287,7 @@
               <!-- Contenido del modal -->
               <div class="modalDelete-content">
                 <div class="modalDelete-header" align="center">
-                    <span class="close" onclick="closeSpanDelete()">&times;</span>
+                    <span class="close" onclick="closeSpan3()">&times;</span>
                     <h3 align="center"> Delete a game </h3>
                 </div>
                 <div class="modalDelete-body">
@@ -310,44 +310,6 @@
      a la vista para administrar los juegos, lo que actualiza la tabla de juegos
      incluyendo los juegos recien agregados.
 -->
-            <script>
-                var modal = document.getElementById("modalInsert");
-                var modal2 = document.getElementById("modalModify");
-                var modal3 = document.getElementById("modalDelete");
-
-                function openInsert(){
-                    modal.style.display = "block";
-                }
-
-                function openModify(){
-                    modal2.style.display = "block";
-                }
-                
-                function openDelete(){
-                    modal3.style.display = "block";                    
-                }
-
-                function closeSpanModify(){
-                    modal2.style.display = "none";
-                }
-
-                function closeSpanInsert(){
-                    modal.style.display = "none";
-                }
-
-                function closeSpanDelete(){
-                    modal3.style.display = "none";
-                }
-
-                window.onclick = function(event) {
-                    if (event.target == modal || event.target == modal2 || event.target == modal3) {
-                        modal.style.display = "none";
-                        modal2.style.display = "none";
-                        modal3.style.display = "none";
-                    }
-                }
-    
-            </script>
 
     </body>
 
