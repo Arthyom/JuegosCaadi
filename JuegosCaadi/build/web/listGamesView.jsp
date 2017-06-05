@@ -53,8 +53,8 @@
 <!--CAMBIAR EL id Y class DE LOS DOS DIV PARA PODER HACER SUS PROPIOS ESTILOS -->
 
             <div class="instrucciones">
-                <p class="text"> A continuacion se muestra un listado de los juegos incluidos en el catalogo
-                    del CAADI. Tiene la opcion de agregar un nuevo juego, modificar o eliminarlo.
+                <p class="text"> A continuaci&oacute;n se muestra un listado de los juegos incluidos en el catalogo
+                    del CAADI. Tiene la opci&oacute;n de agregar un nuevo juego, modificar o eliminarlo.
                 </p>
                 <button id="btnInsert" onclick="openInsert()"> Add new game </button>
             </div>
@@ -63,41 +63,63 @@
             <% Statement querySelect = connect.connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); %>
             <% String query = "SELECT Material.idMaterial, Material.Material_Nombre, Juego.Juego_Idioma, Material.Material_Habilidad, Material.Material_Disponible, Juego.Juego_NumeroParticipantes, Juego.Juego_TiempoSugerido, Juego.Juego_EtiquetasVocabulario, Juego.Juego_Descripcion, Juego.Juego_InstruccionesUso FROM Material INNER JOIN Juego ON Material.idMaterial = Juego.Material_idMaterial;"; %>
             <% ResultSet selectGames = querySelect.executeQuery(query); %>
-            
+
+            <% int count = 0; %>
             <% while( selectGames.next() ){ %>
-                <table id="tableGames">
+                <table id="tableGames" class="count">
                     <tr>
-                        <th rowspan="4">
+                        <th rowspan="5">
                             <img src="images/game2.jpg" height="250" width="230" id="imageGame">
                         </th>
-                        <td align="left" id="ide"> ID: <%= selectGames.getString(1) %> </td>
-                        <td align="left" id="nameGame"> Name: <%= selectGames.getString(2) %> </td>
+                        <td align="left" id="ide"> ID:
+                            <input type="text" disabled="true" class="textValue" id="id_<%=count%>" value="  <%= selectGames.getString(1) %>">
+                        </td>
+                        <td align="left" id="nameGame"> Name: 
+                            <input type="text" disabled="true" class="textValue" id="name_<%=count%>" value="  <%= selectGames.getString(2) %>">
+                        </td>
                     </tr>
                     <tr>
-                        <td align="left" id="lenguageGame"> Lenguage: <%= selectGames.getString(3) %> </td>
-                        <td align="left" id="skillsGame"> Skills: <%= selectGames.getString(4) %> </td>
+                        <td align="left" id="lenguageGame"> Lenguage:
+                            <input type="text" disabled="true" class="textValue" id="lenguage_<%=count%>" value="  <%= selectGames.getString(3) %>">
+                        </td>
+                        <td align="left" id="skillsGame"> Skills:
+                            <input type="text" disabled="true" class="textValue" id="skills_<%=count%>" value="  <%= selectGames.getString(4) %>">
+                        </td>
                     </tr>
                     <tr>
-                        <td align="left" id="availableGame"> Games available: <%= selectGames.getString(5) %> </td>
-                        <td align="left" id="gamersNum"> Number of gamers: <%= selectGames.getString(6) %> </td>
+                        <td align="left" id="availableGame"> Games available:
+                            <input type="text" disabled="true" class="textValue" id="availableGame_<%=count%>" value="  <%= selectGames.getString(5) %>">
+                        </td>
+                        <td align="left" id="gamersNum"> In stock:
+                            <input type="text" disabled="true" class="textValue" id="gamersNum_<%=count%>" value="  <%= selectGames.getString(6) %>">
+                        </td>
                     </tr>
                     <tr>
-                        <td align="left" id="timeGame"> Suggested time: <%= selectGames.getString(7) %> </td>
-                        <td align="left" id="vocabularyGame"> Vocabulary: <%= selectGames.getString(8) %> </td>
+                        <td align="left" id="timeGame"> Suggested time:
+                            <input type="text" disabled="true" class="textValue" id="timeGame_<%=count%>" value="  <%= selectGames.getString(7) %>">
+                        </td>
+                        <td align="left" id="vocabularyGame"> Vocabulary:
+                            <input type="text" disabled="true" class="textValue" id="vocabularyGame_<%=count%>" value="  <%= selectGames.getString(8) %>">
+                        </td>
                     </tr>
                     <tr>
-                        <td colspan="3" align="left" id="descriptionGame"> Description: <%= selectGames.getString(9) %> </th>
+                        <td colspan="3" align="left" id="descriptionGame"> Description:
+                            <textarea disabled="true" class="textValueEspecial" id="descriptionGame_<%=count%>"> <%= selectGames.getString(9) %> </textarea>
+                        </td>
                     </tr>
                     <tr>
-                        <td colspan="3" align="left" id="instructionsGame"> Instructions: <%= selectGames.getString(10) %> </th>
+                        <td colspan="3" align="left" id="instructionsGame"> Instructions:
+                            <textarea disabled="true" class="textValueEspecial" id="instructionsGame_<%=count%>" align="left">  <%= selectGames.getString(10) %> </textarea>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="3">
-                            <button id="btnModify" onclick="openModify()"> Modify </button>
+                            <button id="btnModify" onclick="modify(<%=count%>)"> Modify </button>
                             <button class="btnDelete" onclick="openDelete()"> Delete </button>
                         </td>
                     </tr>
                 </table>
+                <% count++; %>
             <% }%>
 
 <!-- COMIENZA EL MODAL DONDE SE MUESTRA EL FORMULARIO PARA INSERTAR UN NUEVO JUEGO -->
@@ -208,63 +230,63 @@
                             <tr>
                                 <td>
                                     <h5 id="num" > ID </h5>
-                                    <input type="text" class="num" name="IdMaterial" value="" size="25" />                                        
+                                    <input type="text" id="ID" class="num" name="IdMaterial" value="" size="25" />
                                 </td>
                                 <td>
                                     <h5 id="name"> Nombre </h5>
-                                    <input type="text" class="name" name="Nombre" value="" size="25" />                                        
+                                    <input type="text" id="NAME" class="name" name="Nombre" value="" size="25" />                                        
                                 </td>
                                 <td>
                                     <h5 id="class"> Clase </h5>
-                                    <input type="text" class="clase" name="Clase" value="" size="25" />                                        
+                                    <input type="text" id="CLASE" class="clase" name="Clase" value="" size="25" />                                        
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5 id="exist"> Existencia </h5>
-                                    <input type="text" class="existencia" name="Existencia" value="" size="25" />                                        
+                                    <input type="text" id="EXIST" class="existencia" name="Existencia" value="" size="25" />                                        
                                 </td>
                                 <td>
                                     <h5 id="able"> Disponible </h5>
-                                    <input type="text" class="disponible" name="Disponible" value="" size="25" />                                        
+                                    <input type="text" id="ABLE" class="disponible" name="Disponible" value="" size="25" />                                        
                                 </td>
                                 <td>
                                     <h5 id="skills"> Habilidades </h5>
-                                    <input type="text" class="habilidad" name="Habilidad" value="" size="25" />                                        
+                                    <input type="text" id="SKILLS" class="habilidad" name="Habilidad" value="" size="25" />                                        
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5 id="lenguage"> Idioma </h5>
-                                    <input type="text" class="idioma" name="Idioma" value="" size="25" />                                        
+                                    <input type="text" id="LENGUAGE" class="idioma" name="Idioma" value="" size="25" />                                        
                                 </td>
                                 <td>
                                     <h5 id="numPart"> Numero de participantes </h5>
-                                    <input type="text" class="numeroParticipantes" name="NumeroParticipantes" value="" size="25" />                                        
+                                    <input type="text" id="NUMPART" class="numeroParticipantes" name="NumeroParticipantes" value="" size="25" />                                        
                                 </td>
                                 <td>
                                     <h5 id="time"> Tiempo sugerido </h5>
-                                    <input type="text" class="time" name="TiempoSugerido" value="" size="25" />                                        
+                                    <input type="text" id="TIME" class="time" name="TiempoSugerido" value="" size="25" />                                        
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5 id="vocabulary"> Vocabulario </h5>
-                                    <input type="text" class="vocabulario" name="EtiquetasVocabulario" value="" size="25" />
+                                    <input type="text" id="VOCABULARY" class="vocabulario" name="EtiquetasVocabulario" value="" size="25" />
                                 </td>
                                 <td>
                                     <h5 id="material"> Material adicional </h5>
-                                    <input type="text" class="materialAdicional" name="MaterialAdicional" value="" size="25" />    
+                                    <input type="text" id="MATERIAL" class="materialAdicional" name="MaterialAdicional" value="" size="25" />    
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5 id="instrucciones"> Instrucciones de uso </h5>
-                                    <textarea class="instructions" name="InstruccionesUso" rows="4" cols="25" > </textarea>
+                                    <textarea id="INSTRUCTIONS" class="instructions" name="InstruccionesUso" rows="4" cols="25" > </textarea>
                                 </td>
                                 <td>
                                     <h5 id="description"> Descripcion </h5>
-                                    <textarea class="description" name="Description" rows="4" cols="25" > </textarea>                                    
+                                    <textarea id="DESCRIPTION" class="description" name="Description" rows="4" cols="25" > </textarea>                                    
                                 </td>
                             </tr>
                             <tr>

@@ -52,3 +52,33 @@ function show(){
     
     alert(objeto.toString());
 };
+
+function modify(num){
+    var id = document.getElementById("id_"+num).getAttribute("value");
+    var name = document.getElementById("name_"+num).getAttribute("value");
+    var lenguage = document.getElementById("lenguage_"+num).getAttribute("value");
+    var skills = document.getElementById("skills_"+num).getAttribute("value");
+    var availableGame = document.getElementById("availableGame_"+num).getAttribute("value");
+    var gamersNum = document.getElementById("gamersNum_"+num).getAttribute("value");
+    var timeGame = document.getElementById("timeGame_"+num).getAttribute("value");
+    var vocabularyGame = document.getElementById("vocabularyGame_"+num).getAttribute("value");
+    var descriptionGame = document.getElementById("descriptionGame_"+num).getAttribute("value");
+    var instructionGame = document.getElementById("instructionsGame_"+num).getAttribute("value");
+
+    document.getElementById("ID").setAttribute("value",id);
+    document.getElementById("NAME").setAttribute("value",name);
+    document.getElementById("ABLE").setAttribute("value",availableGame);
+    document.getElementById("SKILLS").setAttribute("value",skills);
+    document.getElementById("LENGUAGE").setAttribute("value",lenguage);
+    document.getElementById("NUMPART").setAttribute("value",gamersNum);
+    document.getElementById("TIME").setAttribute("value",timeGame);
+    document.getElementById("VOCABULARY").setAttribute("value",vocabularyGame);
+    document.getElementById("INSTRUCTIONS").setAttribute("value",instructionGame);
+    document.getElementById("DESCRIPTION").setAttribute("value",descriptionGame);
+    
+    openModify();
+//    alert("id = "+ id +"\n name = "+ name +"\n lenguage = "+ lenguage +"\n skills = "+ skills +"\n availableGame = "+ availableGame +"\n gamersNum = "+ gamersNum +"\n timeGame = "+ timeGame +"\n vocabularyGame = "+ vocabularyGame +"\n descriptionGame = "+ descriptionGame +"\n instructionGame = "+ instructionGame);
+};
+
+
+/*getAttribute("value")*/

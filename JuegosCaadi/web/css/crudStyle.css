@@ -21,6 +21,7 @@
     margin: 10px 2px 2px 3px;
     font-size: 17px;
     border-radius: 5px !important;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2),0 1px 2px 0 rgba(0,0,0,0.1);
 }
 
 #btnAccept:hover, #btnSolicitar:hover,
@@ -39,6 +40,7 @@
     margin: -45px 2px 0px 85%;
     font-size: 17px;
     border-radius: 5px !important;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2),0 1px 2px 0 rgba(0,0,0,0.1);
 }
 
 #btnInsert:hover, #btnInsert:focus{
@@ -52,11 +54,11 @@
     color: orange;
     border: 1px solid orange;
     border-radius: 5px !important;
-    height: 30px;
-    width: 140px;
+    height: 25px;
+    width: 90px;
     font-size: 17px;
-    margin: 10px 2px 2px 72%;
-    bottom: 3px;
+    margin: 5px 2px 2px 81%;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2),0 1px 2px 0 rgba(0,0,0,0.1);
 }
 
 .btnDelete{
@@ -64,11 +66,12 @@
     color: red;
     border: 1px solid red;
     border-radius: 5px !important;
-    height: 30px;
-    width: 140px;
+    height: 25px;
+    width: 90px;
     font-size: 17px;
     margin: 10px 2px 2px 3px;
     bottom: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2),0 1px 2px 0 rgba(0,0,0,0.1);
 }
 
 .btnDelete:hover, .btnDelete:focus{

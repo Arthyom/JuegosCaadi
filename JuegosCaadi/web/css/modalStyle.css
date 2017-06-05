@@ -266,6 +266,7 @@ a eliminar */
     font-size: 15px;
     margin: 2px 0px 7px 0px;
     font-family: Gandhi Serif;
+    color: gray;
 }
 
 /* Se da formato a las cajas de texto
@@ -273,19 +274,28 @@ a eliminar */
 .num, .name, .clase, .existencia, .disponible, .habilidad,
 .idioma, .numeroParticipantes, .time, .vocabulario,
 .materialAdicional, .deleteID{
-    border-radius: 5px;
+    font-family: Gandhi Serif;
+    background-color: rgb(248, 248, 248);
+    color: #254167;
+    border: 1px solid lightgray;
+    align-content: flex-start;
+    border-radius: 3px;
     height: 25px;
-    border: 1px solid #7E7E7E;
+    width: 100%;
+    font-size: 16px;
 }
 
 /* Se da formato a las cajas de texto
    para cada identificador */
 .instructions, .description{
-    border-radius: 5px;
+    font-family: Gandhi Serif;
+    background-color: rgb(248, 248, 248);
+    color: #254167;
+    border: 1px solid lightgray;
+    align-content: flex-start;
+    border-radius: 3px;
     height: 70px;
-    border: 1px solid #7E7E7E;
+    width: 100%;
+    font-size: 16px;
 }
-
-
-
 
