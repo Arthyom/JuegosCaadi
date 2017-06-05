@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="css/crudStyle.css">
         <link rel="stylesheet" href="css/modalStyle.css">
         <link rel="stylesheet" href="css/listGamesStyle.css">
+        <script type="text/javascript" src="js/modal.js"> </script>
     </head>
 
     <body>
@@ -38,6 +39,7 @@
                         <li><a href="" class="administrar"> Manage </a>
                             <ul>
                                 <li><a href="listGamesView.jsp" class="juegos"> Games</a></li>
+                                <li><a href="listRequestView.jsp" class="request"> Request </a></li>
                                 <li><a href="" class="materias"> Subjects </a></li>
                                 <li><a href="" class="estudiantes"> Students </a></li>
                                 <li><a href="" class="usuarios"> Users </a></li>
@@ -51,41 +53,77 @@
 <!--CAMBIAR EL id Y class DE LOS DOS DIV PARA PODER HACER SUS PROPIOS ESTILOS -->
 
             <div class="instrucciones">
-                <p class="text"> A continuacion se muestra un listado de los juegos incluidos en el catalogo
-                    del CAADI.
+                <p class="text"> A continuaci&oacute;n se muestra un listado de los juegos incluidos en el catalogo
+                    del CAADI. Tiene la opci&oacute;n de agregar un nuevo juego, modificar o eliminarlo.
                 </p>
+                <button id="btnInsert" onclick="openInsert()"> Add new game </button>
             </div>
 
-            <button id="btnInsert" onclick="openInsert()"> Add new game </button>
-            <button id="btnModify" onclick="openModify()"> Modify </button>
-            <button class="btnDelete" onclick="openDelete()"> Delete </button>
             <% ConnectionModel connect = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw); %>
             <% Statement querySelect = connect.connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); %>
-            <% String query = "SELECT Material.idMaterial, Material.Material_Nombre, Material.Material_Habilidad, Juego.Juego_TiempoSugerido, Juego.Juego_Descripcion FROM Material INNER JOIN Juego ON Material.idMaterial = Juego.Material_idMaterial"; %>
+            <% String query = "SELECT Material.idMaterial, Material.Material_Nombre, Juego.Juego_Idioma, Material.Material_Habilidad, Material.Material_Disponible, Juego.Juego_NumeroParticipantes, Juego.Juego_TiempoSugerido, Juego.Juego_EtiquetasVocabulario, Juego.Juego_Descripcion, Juego.Juego_InstruccionesUso, Material.Material_Clase, Material.Material_Existencia, Juego.Juego_MaterialAdicional FROM Juego INNER JOIN Material ON Material.idMaterial = Juego.Material_idMaterial;"; %>
             <% ResultSet selectGames = querySelect.executeQuery(query); %>
 
-            <table id="tableColumns">
-            <tr>
-                <td align="left" id="ID"> ID </td>
-                <td align="left" id="Nombre"> Nombre </td>
-                <td align="center" id="Habilidades"> Habilidades </td>
-                <td align="center" id="Duracion"> Duracion </td>
-                <td align="center" id="Descripcion"> Descripcion </td>
-            </tr>
-            </table>
-
-            <table id="tableGames">
+            <% int count = 0; %>
             <% while( selectGames.next() ){ %>
-                <tr>
-                    <td align="center" id="ide"> <%= selectGames.getString(1) %> </td>
-                    <td> <%= selectGames.getString(2) %> </td>
-                    <% String value = selectGames.getString(1); %>
-                    <td> <%= selectGames.getString(3) %> </td>
-                    <td> <%= selectGames.getString(4) %> </td>
-                    <td> <%= selectGames.getString(5) %> </td>
-                </tr>
+                <table id="tableGames" class="count">
+                    <tr>
+                        <th rowspan="5">
+                            <img src="images/game2.jpg" height="250" width="230" id="imageGame">
+                        </th>
+                        <td align="left" id="ide"> ID:
+                            <input type="text" disabled="true" class="textValue" id="id_<%=count%>" value="<%= selectGames.getString(1) %>">
+                        </td>
+                        <td align="left" id="nameGame"> Name: 
+                            <input type="text" disabled="true" class="textValue" id="name_<%=count%>" value="<%= selectGames.getString(2) %>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" id="lenguageGame"> Lenguage:
+                            <input type="text" disabled="true" class="textValue" id="lenguage_<%=count%>" value="<%= selectGames.getString(3) %>">
+                        </td>
+                        <td align="left" id="skillsGame"> Skills:
+                            <input type="text" disabled="true" class="textValue" id="skills_<%=count%>" value="<%= selectGames.getString(4) %>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" id="availableGame"> Games available:
+                            <input type="text" disabled="true" class="textValue" id="availableGame_<%=count%>" value="<%= selectGames.getString(5) %>">
+                        </td>
+                        <td align="left" id="gamersNum"> In stock:
+                            <input type="text" disabled="true" class="textValue" id="gamersNum_<%=count%>" value="<%= selectGames.getString(6) %>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" id="timeGame"> Suggested time:
+                            <input type="text" disabled="true" class="textValue" id="timeGame_<%=count%>" value="<%= selectGames.getString(7) %>">
+                        </td>
+                        <td align="left" id="vocabularyGame"> Vocabulary:
+                            <input type="text" disabled="true" class="textValue" id="vocabularyGame_<%=count%>" value="<%= selectGames.getString(8) %>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="left" id="descriptionGame"> Description:
+                            <textarea disabled="true" class="textValueEspecial" id="descriptionGame_<%=count%>"><%= selectGames.getString(9) %> </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="left" id="instructionsGame"> Instructions:
+                            <textarea disabled="true" class="textValueEspecial" id="instructionsGame_<%=count%>" align="left"><%= selectGames.getString(10) %> </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <button id="btnModify" onclick="modify(<%=count%>)"> Modify </button>
+                            <button class="btnDelete" onclick="Delete(<%=count%>)"> Delete </button>
+                        </td>
+                    </tr>
+                    <input type="text" style="display: none" class="textValue" id="clase_<%=count%>" value="<%= selectGames.getString(11) %>">
+                    <input type="text" style="display: none" class="textValue" id="existencia_<%=count%>" value="<%= selectGames.getString(12) %>">
+                    <input type="text" style="display: none" class="textValue" id="adicional_<%=count%>" value="<%= selectGames.getString(13) %>">
+                </table>
+                <% count++; %>
             <% }%>
-            </table>
 
 <!-- COMIENZA EL MODAL DONDE SE MUESTRA EL FORMULARIO PARA INSERTAR UN NUEVO JUEGO -->
             <!-- Contenedor del modal -->
@@ -94,8 +132,8 @@
               <!-- Contenido del modal -->
               <div class="modalInsert-content">
                 <div class="modalInsert-header" align="center">
-                  <span class="close" onclick="closeSpanInsert()">&times;</span>
-                  <h2> Add the values of the games to insert </h2>
+                  <span class="close" onclick="closeSpan1()">&times;</span>
+                  <h2> Llena todos los campos con los valores permitidos </h2>
                 </div>
                 <div class="modalInsert-body">
                 <!-- Comienza el formulario para agregar un nuevo juego -->
@@ -105,63 +143,63 @@
                             <tr>
                                 <td>
                                     <h5 id="num" > ID </h5>
-                                    <input type="text" class="num" name="IdMaterial" value="" size="25" placeholder="  Solo numeros" />                                        
+                                    <input type="text" class="num" name="IdMaterial" value="" size="25" placeholder="Solo numeros" />
                                 </td>
                                 <td>
                                     <h5 id="name"> Nombre </h5>
-                                    <input type="text" class="name" name="Nombre" value="" size="25" placeholder="  Nombre del juego" />
+                                    <input type="text" class="name" name="Nombre" value="" size="25" placeholder="Nombre del juego" />
                                 </td>
                                 <td>
                                     <h5 id="class"> Clase de juego a la que pertenece  </h5>
-                                    <input type="text" class="clase" name="Clase" value="" size="25" placeholder=" e.g. Juego de roles, memorizacion" />
+                                    <input type="text" class="clase" name="Clase" value="" size="25" placeholder="e.g. Juego de roles, memorizacion" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5 id="exist"> Numero de juegos en existencia </h5>
-                                    <input type="text" class="existencia" name="Existencia" value="" size="25" placeholder=" Cantidad de juegos en existencia" />
+                                    <input type="text" class="existencia" name="Existencia" value="" size="25" placeholder="Cantidad de juegos en existencia" />
                                 </td>
                                 <td>
-                                    <h5 id="able"> NUmero de juegos disponibles </h5>
-                                    <input type="text" class="disponible" name="Disponible" value="" size="25" placeholder="  Cantidad de juegos disponibles" />
+                                    <h5 id="able"> Numero de juegos disponibles </h5>
+                                    <input type="text" class="disponible" name="Disponible" value="" size="25" placeholder="Cantidad de juegos disponibles" />
                                 </td>
                                 <td>
                                     <h5 id="skills"> Habilidades que se practican </h5>
-                                    <input type="text" class="habilidad" name="Habilidad" value="" size="25" placeholder="  e.g. Speaking, Writting" />
+                                    <input type="text" class="habilidad" name="Habilidad" value="" size="25" placeholder="e.g. Speaking, Writting" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5 id="lenguage"> Idioma que se practica </h5>
-                                    <input type="text" class="idioma" name="Idioma" value="" size="25" placeholder=" e.g. Ingles, Frances " />                          
+                                    <input type="text" class="idioma" name="Idioma" value="" size="25" placeholder="e.g. Ingles, Frances " />                          
                                 </td>
                                 <td>
                                     <h5 id="numPart"> Numero de participantes </h5>
-                                    <input type="text" class="numeroParticipantes" name="NumeroParticipantes" value="" size="25" placeholder="  e.g. 4, 5 " />
+                                    <input type="text" class="numeroParticipantes" name="NumeroParticipantes" value="" size="25" placeholder="e.g. 4, 5 " />
                                 </td>
                                 <td>
                                     <h5 id="time"> Tiempo sugerido </h5>
-                                    <input type="text" class="time" name="TiempoSugerido" value="" size="25" placeholder="  e.g. 15 minutos. " />
+                                    <input type="text" class="time" name="TiempoSugerido" value="" size="25" placeholder="e.g. 15 minutos. " />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5 id="vocabulary"> Vocabulario que incluye </h5>
-                                    <input type="text" class="vocabulario" name="EtiquetasVocabulario" value="" size="25" placeholder="  Vocabulario que incluye el juego " />
+                                    <input type="text" class="vocabulario" name="EtiquetasVocabulario" value="" size="25" placeholder="Vocabulario que incluye el juego " />
                                 </td>
                                 <td>
                                     <h5 id="material"> Material adicional al juego </h5>
-                                    <input type="text" class="materialAdicional" name="MaterialAdicional" value="" size="25" placeholder="  e.g.  Dados, libro de instrucciones " />
+                                    <input type="text" class="materialAdicional" name="MaterialAdicional" value="" size="25" placeholder="e.g.  Dados, libro de instrucciones " />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5 id="instrucciones"> Instrucciones de uso </h5>
-                                    <textarea class="instructions" name="InstruccionesUso" rows="4" cols="28" placeholder="  Breve descripcion de como se utiliza el juego." > </textarea>
+                                    <textarea class="instructions" name="InstruccionesUso" rows="4" cols="28" placeholder="Breve descripcion de como se utiliza el juego." > </textarea>
                                 </td>
                                 <td>
                                     <h5 id="description"> Descripcion del juego </h5>
-                                    <textarea class="description" name="Description" rows="4" cols="28" placeholder="  En que consiste el juego y su dinamica. " > </textarea>
+                                    <textarea class="description" name="Description" rows="4" cols="28" placeholder="En que consiste el juego y su dinamica. " > </textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -184,8 +222,8 @@
               <!-- Contenido del modal -->
               <div class="modalModify-content">
                 <div class="modalModify-header" align="center">
-                    <span class="close" onclick="closeSpanModify()">&times;</span>
-                  <h2> Modify the values of the games</h2>
+                    <span class="close" onclick="closeSpan2()">&times;</span>
+                  <h2> </h2>
                 </div>
                 <div class="modalModify-body">
                 <!-- Comienza el formulario para agregar un nuevo juego -->
@@ -195,68 +233,68 @@
                             <tr>
                                 <td>
                                     <h5 id="num" > ID </h5>
-                                    <input type="text" class="num" name="IdMaterial" value="" size="25" />                                        
+                                    <input type="text" id="ID" class="num" name="IdMaterial" value="" size="25" disabled="true" />
                                 </td>
                                 <td>
                                     <h5 id="name"> Nombre </h5>
-                                    <input type="text" class="name" name="Nombre" value="" size="25" />                                        
+                                    <input type="text" id="NAME" class="name" name="Nombre" value="" size="25" />                                        
                                 </td>
                                 <td>
                                     <h5 id="class"> Clase </h5>
-                                    <input type="text" class="clase" name="Clase" value="" size="25" />                                        
+                                    <input type="text" id="CLASE" class="clase" name="Clase" value="" size="25" />                                        
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5 id="exist"> Existencia </h5>
-                                    <input type="text" class="existencia" name="Existencia" value="" size="25" />                                        
+                                    <input type="text" id="EXIST" class="existencia" name="Existencia" value="" size="25" />                                        
                                 </td>
                                 <td>
                                     <h5 id="able"> Disponible </h5>
-                                    <input type="text" class="disponible" name="Disponible" value="" size="25" />                                        
+                                    <input type="text" id="ABLE" class="disponible" name="Disponible" value="" size="25" />                                        
                                 </td>
                                 <td>
                                     <h5 id="skills"> Habilidades </h5>
-                                    <input type="text" class="habilidad" name="Habilidad" value="" size="25" />                                        
+                                    <input type="text" id="SKILLS" class="habilidad" name="Habilidad" value="" size="25" />                                        
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5 id="lenguage"> Idioma </h5>
-                                    <input type="text" class="idioma" name="Idioma" value="" size="25" />                                        
+                                    <input type="text" id="LENGUAGE" class="idioma" name="Idioma" value="" size="25" />                                        
                                 </td>
                                 <td>
                                     <h5 id="numPart"> Numero de participantes </h5>
-                                    <input type="text" class="numeroParticipantes" name="NumeroParticipantes" value="" size="25" />                                        
+                                    <input type="text" id="NUMPART" class="numeroParticipantes" name="NumeroParticipantes" value="" size="25" />                                        
                                 </td>
                                 <td>
                                     <h5 id="time"> Tiempo sugerido </h5>
-                                    <input type="text" class="time" name="TiempoSugerido" value="" size="25" />                                        
+                                    <input type="text" id="TIME" class="time" name="TiempoSugerido" value="" size="25" />                                        
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5 id="vocabulary"> Vocabulario </h5>
-                                    <input type="text" class="vocabulario" name="EtiquetasVocabulario" value="" size="25" />
+                                    <input type="text" id="VOCABULARY" class="vocabulario" name="EtiquetasVocabulario" value="" size="25" />
                                 </td>
                                 <td>
                                     <h5 id="material"> Material adicional </h5>
-                                    <input type="text" class="materialAdicional" name="MaterialAdicional" value="" size="25" />    
+                                    <input type="text" id="MATERIAL" class="materialAdicional" name="MaterialAdicional" value="" size="25" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5 id="instrucciones"> Instrucciones de uso </h5>
-                                    <textarea class="instructions" name="InstruccionesUso" rows="4" cols="25" > </textarea>
+                                    <textarea id="INSTRUCTIONS" class="instructions" name="InstruccionesUso" rows="4" cols="25" > </textarea>
                                 </td>
                                 <td>
                                     <h5 id="description"> Descripcion </h5>
-                                    <textarea class="description" name="Description" rows="4" cols="25" > </textarea>                                    
+                                    <textarea id="DESCRIPTION" class="description" name="Description" rows="4" cols="25" > </textarea>                                    
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="submit" value="Save game" class="btnModifyGame">                                    
+                                    <input type="submit" value="Save game" class="btnModifyGame">
                                 </td>
                             </tr>
                             </table>
@@ -269,72 +307,34 @@
 
 <!-- COMIENZA EL MODAL DONDE SE MUESTRA EL FORMULARIO PARA ELIMINAR UN NUEVO JUEGO -->
             <!-- Contenedor del modal -->
-            <form action="EliminarJuegoServlet" method="post">
-            <div id="modalDelete" class="modalDelete">
-              <!-- Contenido del modal -->
-              <div class="modalDelete-content">
-                <div class="modalDelete-header" align="center">
-                    <span class="close" onclick="closeSpanDelete()">&times;</span>
-                    <h3 align="center"> Delete a game </h3>
-                </div>
-                <div class="modalDelete-body">
-                <!-- Comienza el formulario para agregar un nuevo juego -->
-                    <div class="mainContainer">
-                        <div class="objetsContainer">
-                            <p class="textDelete" > Type the ID game to delete it </p>
-                            <input type="text" class="deleteID" name="IdMaterialBorrar" id="IdMaterialBorrar">
-                                <button class="btnDeleteM"> Delete game </button>
-                           </form>
-                        </div>
+        <form action="EliminarJuegoServlet" method="post">
+        <div id="modalDelete" class="modalDelete">
+          <!-- Contenido del modal -->
+          <div class="modalDelete-content">
+            <div class="modalDelete-header" align="center">
+                <span class="close" onclick="closeSpan3()">&times;</span>
+            </div>
+            <div class="modalDelete-body">
+            <!-- Comienza el formulario para agregar un nuevo juego -->
+                <div class="mainContainer">
+                    <div class="objetsContainer">
+                        <img src="images/warning.png" class="warningImage">
+                        <p class="textDelete" > Are you sure you want to delete: </p>
+                        <input type="text" class="deleteGame" id="deleteID" value="" disabled="true"/>
+                        <input type="text" class="deleteGame" id="IdMaterialBorrar" name="IdMaterialBorrar" style="display: none"/>
+                            <button class="btnDeleteM"> Delete game </button>
+                       </form>
                     </div>
                 </div>
-              </div>
             </div>
-
+          </div>
+        </div>
 
 <!-- Codigo JavaScript para abrir el modal y poder insertar un nuevo juego.
      Para ello, el formulario realiza la consulta correspondiente y redirecciona
      a la vista para administrar los juegos, lo que actualiza la tabla de juegos
      incluyendo los juegos recien agregados.
 -->
-            <script>
-                var modal = document.getElementById("modalInsert");
-                var modal2 = document.getElementById("modalModify");
-                var modal3 = document.getElementById("modalDelete");
-
-                function openInsert(){
-                    modal.style.display = "block";
-                }
-
-                function openModify(){
-                    modal2.style.display = "block";
-                }
-                
-                function openDelete(){
-                    modal3.style.display = "block";                    
-                }
-
-                function closeSpanModify(){
-                    modal2.style.display = "none";
-                }
-
-                function closeSpanInsert(){
-                    modal.style.display = "none";
-                }
-
-                function closeSpanDelete(){
-                    modal3.style.display = "none";
-                }
-
-                window.onclick = function(event) {
-                    if (event.target == modal || event.target == modal2 || event.target == modal3) {
-                        modal.style.display = "none";
-                        modal2.style.display = "none";
-                        modal3.style.display = "none";
-                    }
-                }
-    
-            </script>
 
     </body>
 

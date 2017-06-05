@@ -3,62 +3,48 @@
     Author     : walter
 */
 
-.instrucciones{
-    background-color: rgb(242, 242, 242);
-    margin: 10px 10px 2px 120px;
-    width: 1115px;
+#txtSolicitar, #txtRequest{
+    border: 1px solid lightgray;
+    height: 30px;
+    width: 140px;
+    margin: 20px 2px 0px 120px;
     font-size: 18px;
-    border-radius: 5px;
+    border-radius: 5px !important;    
 }
 
-.text{
-    padding: 10px 15px 10px 15px;
-}
-
-#tableGames{
-    background-color: white;
-    margin: 10px 2px 2px 120px;
-    font-size: 19px;
-    border: 1px solid #254167;
-    border-bottom-left-radius: 8px !important;
-    border-bottom-right-radius: 8px !important;
-}
-
-#tableColumns{
-    background-color: #254167;
-    margin: 10px 2px 2px 120px;
-    font-size: 19px;
-    border: 1px solid #254167;
-    border-top-left-radius: 8px !important;
-    border-top-right-radius: 8px !important;
-}
-
-#ID, #Nombre, #Habilidades, #Duracion, #Descripcion{
-    background-color: #254167;
+#btnSolicitar, #btnAccept{
+    background-color: #428bca;
     color: white;
-    height: 10px;
-    width: 125px;
+    border: 1px solid #428bca;
+    height: 30px;
+    width: 140px;
+    margin: 10px 2px 2px 3px;
+    font-size: 17px;
+    border-radius: 5px !important;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2),0 1px 2px 0 rgba(0,0,0,0.1);
 }
 
-tr, td{
-    background-color: white;
-    border: 0px;
-    padding: 5px 30px 5px 30px;
+#btnAccept:hover, #btnSolicitar:hover,
+#btnAccept:focus #btnSolicitar:focus{
+    background: #3276b1;
+    color: white;
+    cursor: pointer;
 }
 
 #btnInsert{
-    background-color: white;
-    color: green;
-    border: 1px solid green;
+    background-color: #428bca;
+    color: white;
+    border: 1px solid #428bca;
     height: 30px;
     width: 140px;
-    margin: 10px 2px 2px 120px;
+    margin: -45px 2px 0px 85%;
     font-size: 17px;
     border-radius: 5px !important;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2),0 1px 2px 0 rgba(0,0,0,0.1);
 }
 
 #btnInsert:hover, #btnInsert:focus{
-    background-color: green;
+    background-color: #3276b1;
     color: white;
     cursor: pointer;
 }
@@ -68,27 +54,28 @@ tr, td{
     color: orange;
     border: 1px solid orange;
     border-radius: 5px !important;
-    height: 30px;
-    width: 140px;
+    height: 25px;
+    width: 90px;
     font-size: 17px;
-    margin: 10px 2px 2px 3px;
-    bottom: 3px;
+    margin: 5px 2px 2px 81%;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2),0 1px 2px 0 rgba(0,0,0,0.1);
 }
 
 .btnDelete{
     background-color: white;
-    color: red;
-    border: 1px solid red;
+    color: rgb(200,0,0);
+    border: 1px solid rgb(200,0,0);
     border-radius: 5px !important;
-    height: 30px;
-    width: 140px;
+    height: 25px;
+    width: 90px;
     font-size: 17px;
     margin: 10px 2px 2px 3px;
     bottom: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2),0 1px 2px 0 rgba(0,0,0,0.1);
 }
 
 .btnDelete:hover, .btnDelete:focus{
-    background-color: red;
+    background-color: rgb(200,0,0);
     color: white;
     cursor: pointer;
 }

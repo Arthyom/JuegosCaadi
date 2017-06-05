@@ -57,8 +57,6 @@ ul, ol {
 
 #imageBody{
     height: 350px;
-    position: relative;
-    top: 20px;
     padding-left: 390px;
     padding-bottom: 45px;
 }
@@ -103,7 +101,8 @@ ul, ol {
     font-size: 18px;
 }
 
-.nav .juegos, .materias, .estudiantes, .usuarios {
+.nav .juegos, .materias, .estudiantes,
+.usuarios, .request{
     background-color: #254167;
     color: white;
 

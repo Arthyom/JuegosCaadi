@@ -59,24 +59,4 @@ public class loginModel {
         }
         return "ERROR!";
     }
-    
-    public ResultSet select(){
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            this.connection = DriverManager.getConnection(url, user, pw);
-
-            if( connection != null ){
-                System.out.println("¡LA CONEXION SE HIZO EN EL METODO SELECT!");
-                Statement queryStart = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                ResultSet bdQuery = queryStart.executeQuery("SELECT * FROM Juego;");
-                
-                return bdQuery;
-            }
-
-        }catch(Exception e){
-            System.out.println("ERROR EN EL METODO CONECT");
-        }
-        return null;
     }
-    
-}
