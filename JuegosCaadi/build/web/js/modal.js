@@ -54,31 +54,45 @@ function show(){
 };
 
 function modify(num){
-    var id = document.getElementById("id_"+num).getAttribute("value");
-    var name = document.getElementById("name_"+num).getAttribute("value");
-    var lenguage = document.getElementById("lenguage_"+num).getAttribute("value");
-    var skills = document.getElementById("skills_"+num).getAttribute("value");
-    var availableGame = document.getElementById("availableGame_"+num).getAttribute("value");
-    var gamersNum = document.getElementById("gamersNum_"+num).getAttribute("value");
-    var timeGame = document.getElementById("timeGame_"+num).getAttribute("value");
-    var vocabularyGame = document.getElementById("vocabularyGame_"+num).getAttribute("value");
-    var descriptionGame = document.getElementById("descriptionGame_"+num).getAttribute("value");
-    var instructionGame = document.getElementById("instructionsGame_"+num).getAttribute("value");
+    var id = document.getElementById("id_"+num).value;
+    var name = document.getElementById("name_"+num).value;
+    var lenguage = document.getElementById("lenguage_"+num).value;
+    var skills = document.getElementById("skills_"+num).value;
+    var availableGame = document.getElementById("availableGame_"+num).value;
+    var gamersNum = document.getElementById("gamersNum_"+num).value;
+    var timeGame = document.getElementById("timeGame_"+num).value;
+    var vocabularyGame = document.getElementById("vocabularyGame_"+num).value;
+    var descriptionGame = document.getElementById("descriptionGame_"+num).value;
+    var instructionGame = document.getElementById("instructionsGame_"+num).value;
+    var clase = document.getElementById("clase_"+num).value;
+    var exist = document.getElementById("existencia_"+num).value;
+    var adicional = document.getElementById("adicional_"+num).value;
 
-    document.getElementById("ID").setAttribute("value",id);
-    document.getElementById("NAME").setAttribute("value",name);
-    document.getElementById("ABLE").setAttribute("value",availableGame);
-    document.getElementById("SKILLS").setAttribute("value",skills);
-    document.getElementById("LENGUAGE").setAttribute("value",lenguage);
-    document.getElementById("NUMPART").setAttribute("value",gamersNum);
-    document.getElementById("TIME").setAttribute("value",timeGame);
-    document.getElementById("VOCABULARY").setAttribute("value",vocabularyGame);
-    document.getElementById("INSTRUCTIONS").setAttribute("value",instructionGame);
-    document.getElementById("DESCRIPTION").setAttribute("value",descriptionGame);
+    document.getElementById("ID").value = id;
+    document.getElementById("NAME").value = name;
+    document.getElementById("ABLE").value = availableGame;
+    document.getElementById("SKILLS").value = skills;
+    document.getElementById("LENGUAGE").value = lenguage;
+    document.getElementById("NUMPART").value = gamersNum;
+    document.getElementById("TIME").value = timeGame;
+    document.getElementById("VOCABULARY").value = vocabularyGame;
+    document.getElementById("INSTRUCTIONS").value = descriptionGame;
+    document.getElementById("DESCRIPTION").value = instructionGame;
+    document.getElementById("CLASE").value = clase;
+    document.getElementById("EXIST").value = exist;
+    document.getElementById("MATERIAL").value = adicional;
     
     openModify();
 //    alert("id = "+ id +"\n name = "+ name +"\n lenguage = "+ lenguage +"\n skills = "+ skills +"\n availableGame = "+ availableGame +"\n gamersNum = "+ gamersNum +"\n timeGame = "+ timeGame +"\n vocabularyGame = "+ vocabularyGame +"\n descriptionGame = "+ descriptionGame +"\n instructionGame = "+ instructionGame);
 };
 
+function Delete(num){
+    var id = document.getElementById("id_"+num).value;
+    var name = document.getElementById("name_"+num).value;
 
-/*getAttribute("value")*/
+    document.getElementById("IdMaterialBorrar").value = id;
+    document.getElementById("deleteID").value = name;
+
+    openDelete();
+};
+

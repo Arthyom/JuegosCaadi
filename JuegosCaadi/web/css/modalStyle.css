@@ -3,7 +3,7 @@
     display: none; /* Se oculta por default */
     position: fixed; /* Se mantiene en su lugar */
     z-index: 1; /* Esta al frente de toda la pagina */
-    padding-top: 50px; /* padding superior */
+    padding-top: 30px; /* padding superior */
     left: 0;
     top: 0;
     width: 100%; /* ancho del 100% */
@@ -35,7 +35,7 @@
     display: none; 
     position: fixed;
     z-index: 1;
-    padding-top: 50px;
+    padding-top: 30px;
     left: 0;
     top: 0;
     width: 100%; 
@@ -109,11 +109,12 @@ De su contenido igualmente*/
 
 /* Cruz para cerrar cada uno de los modales */
 .close{
-    padding: 1px 10px 1px 10px; /*se le da forma de cuadrado*/
+    margin: 5px 2px 0px 93%;
+    padding: 0px 8px 0px 8px; /*se le da forma de cuadrado*/
     border-radius: 40px; /*se redondean las esquinas para formar un ciruclo*/
-    background-color: rgb(220,0,0);
-    color: white;
-    float: right;
+    background-color: white;
+    color: rgb(200,200,200);
+    border: 1px solid rgb(200,200,200);
     font-size: 28px;
     font-weight: bold;
 }
@@ -122,7 +123,7 @@ De su contenido igualmente*/
 .close:hover,
 .close:focus {
     color: white;
-    background-color: rgb(200,0,0);
+    background-color: rgb(200,200,200);
     text-decoration: none;
     cursor: pointer;
 }
@@ -145,7 +146,6 @@ De su contenido igualmente*/
 .modalModify-header{
     padding: 5px 16px;
     background-color: orange;
-    color: white;
     border-top-left-radius: 8px !important;
     border-top-right-radius: 8px !important;
 }
@@ -158,7 +158,7 @@ De su contenido igualmente*/
 /* header para cada modal y su configuracion */
 .modalDelete-header{
     padding: 10px 16px;
-    background-color: red;
+    background-color: white;
     color: white;
     border-top-left-radius: 8px !important;
     border-top-right-radius: 8px !important;
@@ -172,20 +172,30 @@ De su contenido igualmente*/
 /* Texto con indicacion dentro del modal para eliminar
 un juego. */
 .textDelete{
-    font-size: 17px;
+    font-size: 24px;
     position: relative;
     left: 75px;
-    margin: 5px 5px 20px 5px;
+    margin: 5px 0px 20px -45px;
 }
 
 /* Boton para recoger el id de la caja de texto y eliminar
 un juego
 */
-.deleteID{
-    position: relative;
-    left: 75px;
-    margin: 5px 5px 20px 5px;    
-    border-radius: 3px;
+.deleteGame{
+    width: 200px;
+    height: 35px;
+    font-size: 23px;
+    margin: 5px 20px 0px 25%;
+    border-radius: 5px !important;
+    border: 1px solid rgb(200, 200, 200);
+    background-color: rgb(240, 240, 240);
+    color: rgb(100, 100, 100);
+}
+
+.warningImage{
+    height: 100px;
+    width: 100px;
+    margin: -30px 10px 10px 130px;
 }
 
 /* tabla que contiene el formulario para llenar los campos
@@ -233,20 +243,20 @@ de cada juego o modificarlos */
 a eliminar */
 .btnDeleteM{
     background-color: white;
-    color: red;
-    border: 1px solid red;
+    color: rgb(200,0,0);
+    border: 1px solid rgb(200,0,0);
     border-radius: 5px !important;
     width: 100px;
     height: 30px;
     font-size: 15px;
-    margin: 5px 30px 5px 80px;
+    margin: 30px 30px 5px 35%;
 }
 
 /* efecto de cambio de color cuando el mouse esta sobre el boton */
 .btnDeleteM:hover{
-    background-color: red;
+    background-color: rgb(200,0,0);
     color: white;
-    border: 1px solid red;
+    border: 1px solid rgb(200,0,0);
     cursor: pointer;
 }
 

@@ -111,7 +111,7 @@ public class Utilidades {
         return estado;
     }
     
-    public static boolean Insert    ( Logic_TablaMaterial NuevoMaterial,            ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
+    public static boolean Insert    ( Logic_TablaMaterial NuevoMaterial, ConnectionModel NuevaConexion, String TablaDestino ) throws SQLException
     {
         String Sql = "INSERT INTO "+ TablaDestino + " ( Material_Nombre,Material_Clase,"
                 + "Material_Existencia,Material_Disponible,Material_Habilidad )"+
