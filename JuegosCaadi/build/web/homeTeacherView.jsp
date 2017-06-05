@@ -17,12 +17,12 @@
 <html>
     <head>
         <title> Solicitar juegos </title>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/listGamesStyle.css">
         <link rel="stylesheet" href="css/crudStyle.css">
         <link rel="stylesheet" href="css/modalStyle.css">
-        <script src="./js/modal.js"></script>
+        <script type="text/javascript" src="js/modal.js"> </script>
     </head>
 
     <body>
@@ -47,44 +47,10 @@
 
             <input type="text" id="txtSolicitar" name="txtSolicitar" value="" placeholder="  ID">
             <button id="btnSolicitar" align="center" onclick="openInsert()"> Solicit </button>
-<!--            <% ConnectionModel connect = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw); %>
-            <% Statement querySelect = connect.connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); %>
-            <% String query = "SELECT Material.idMaterial, Material.Material_Nombre, Juego.Juego_Idioma, Material.Material_Habilidad, Material.Material_Disponible, Juego.Juego_NumeroParticipantes, Juego.Juego_TiempoSugerido, Juego.Juego_EtiquetasVocabulario, Juego.Juego_Descripcion, Juego.Juego_InstruccionesUso FROM Material INNER JOIN Juego ON Material.idMaterial = Juego.Material_idMaterial;"; %>
-            <% ResultSet selectGames = querySelect.executeQuery(query); %>
-            
-            <% while( selectGames.next() ){ %>
-                <table id="tableGames">
-                    <tr>
-                        <th rowspan="4" id="imageGame">
-                            <img src="images/noimage1.png" height="250" width="230">
-                        </th>
-                        <td align="left" id="ide"> ID: <%= selectGames.getString(1) %> </td>
-                        <td align="left" id="nameGame"> Name: <%= selectGames.getString(2) %> </td>
-                    </tr>
-                    <tr>
-                        <td align="left" id="lenguageGame"> Lenguage: <%= selectGames.getString(3) %> </td>
-                        <td align="left" id="skillsGame"> Skills: <%= selectGames.getString(4) %> </td>
-                    </tr>
-                    <tr>
-                        <td align="left" id="availableGame"> Games available: <%= selectGames.getString(5) %> </td>
-                        <td align="left" id="gamersNum"> Number of gamers: <%= selectGames.getString(6) %> </td>
-                    </tr>
-                        <td align="left" id="timeGame"> Suggested time: <%= selectGames.getString(7) %> </td>
-                        <td align="left" id="vocabularyGame"> Vocabulary: <%= selectGames.getString(8) %> </td>
-                    <tr> 
-                    <tr>
-                        <th colspan="3" align="left" id="descriptionGame"> Description: <%= selectGames.getString(9) %> </th>
-                    </tr>
-                    <tr>
-                        <th colspan="3" align="left" id="instructionsGame"> Instructions: <%= selectGames.getString(10) %> </th>
-                    </tr>
-                </table>
-            <% }%>
--->
+
 <!-- COMIENZA EL MODAL DONDE SE MUESTRA EL FORMULARIO PARA INSERTAR UN NUEVO JUEGO -->
             <!-- Contenedor del modal -->
-            <form action="InsertJuegoServlet" method="post">
-            <div id="modalInsert" class="modalInsert">
+            <div id="modalInsert" class="modalInsert" name='modal'>
               <!-- Contenido del modal -->
               <div class="modalInsert-content">
                 <div class="modalInsert-header" align="center">
@@ -101,7 +67,6 @@
                 </div>
               </div>
             </div>
-            </form>
             
     </body>
 
