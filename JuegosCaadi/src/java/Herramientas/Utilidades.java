@@ -22,7 +22,7 @@ import java.io.*;
 public class Utilidades {
     
     //public static String pw = "kike";
-    public static String pw = "UtnCboV1";
+    public static String pw = "";
     //public static String pw = "";
 
     /*
@@ -270,11 +270,19 @@ public class Utilidades {
         return Resultado;
     }
     
+    
+    
+    
+    
+    /*
+        crear un nuevo objeto tipo juego
+    */
     public static Logic_TablaJuegos CrearJuego ( HttpServletRequest req )
     {
         Logic_TablaJuegos jn = new Logic_TablaJuegos();
         
-        jn.IdMaterial = Integer.parseInt( req.getParameter("IdMaterial"));
+        String id =  req.getParameter("IdMaterial");
+        jn.IdMaterial = Integer.parseInt(id);
         jn.Nombre =  req.getParameter("Nombre");
         jn.Clase = req.getParameter("Clase");
         jn.Existencia = Integer.parseInt( req.getParameter("Existencia"));
@@ -291,6 +299,17 @@ public class Utilidades {
         jn.EtiquetasVocabulario = req.getParameter("EtiquetasVocabulario");
         
         return jn;
+    }
+    
+    
+    /*
+        crear un nuevo objeto tipo solicitud
+    */
+    public static Logic_Solcitud    CrearSolicitud ( HttpServletRequest req )
+    {
+        Logic_Solcitud sn = new Logic_Solcitud();
+        
+        return sn;
     }
     
     public static void InicarDb () 
