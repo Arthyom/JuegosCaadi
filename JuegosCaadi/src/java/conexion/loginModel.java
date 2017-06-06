@@ -17,7 +17,7 @@ public class loginModel {
     public String user = "root";
     
     //public String pw = "UtnCboV1";
-    public String pw = "kike";
+    public String pw = "";
     //public String pw = "";
     
     public Connection connection;
