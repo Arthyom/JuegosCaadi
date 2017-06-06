@@ -26,8 +26,8 @@ import java.util.logging.Logger;
 @WebServlet(name = "InsertJuegoServlet", urlPatterns = {"/InsertJuegoServlet"})
 public class InsertJuegoServlet extends HttpServlet {
 
-    //public String pw = "";
-    public String pw = "UtnCboV1";
+    public String pw = "kike";
+    //public String pw = "UtnCboV1";
     //public String pw = "";
     
     /**

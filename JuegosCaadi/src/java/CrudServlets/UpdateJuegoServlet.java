@@ -26,6 +26,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "UpdateJuegoServlet", urlPatterns = {"/UpdateJuegoServlet"})
 public class UpdateJuegoServlet extends HttpServlet {
 
+    public String pw = "kike";
+    //public String pw = "UtnCboV1";
+    //public String pw = "";
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -64,7 +68,7 @@ public class UpdateJuegoServlet extends HttpServlet {
 
         try 
         {
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "UtnCboV1");
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw);
             Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
             cn.connection.setAutoCommit(false);
             try
