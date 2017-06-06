@@ -21,8 +21,13 @@ import java.io.*;
 
 public class Utilidades {
     
+<<<<<<< HEAD
     //public static String pw = "kike";
     public static String pw = "";
+=======
+    public static String pw = "kike";
+    //public static String pw = "UtnCboV1";
+>>>>>>> KikeVistas
     //public static String pw = "";
 
     /*

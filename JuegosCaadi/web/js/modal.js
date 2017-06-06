@@ -20,6 +20,24 @@ function openDelete(){
     modal.style.display = "block";
 };
 
+function openRequest(){
+    var modal = document.getElementById("modalRequest");
+    
+    modal.style.display = "block";
+};
+
+function openAprov(){
+    var modal = document.getElementById("modalAprov");
+    
+    modal.style.display = "block";
+};
+
+function openRech(){
+    var modal = document.getElementById("modalRech");
+    
+    modal.style.display = "block";
+};
+
 function closeSpan1(){
     var modal = document.getElementById("modalInsert");
     modal.style.display = "none";
@@ -35,15 +53,36 @@ function closeSpan3(){
     modal.style.display = "none";
 }
 
+function closeSpan4(){
+    var modal = document.getElementById("modalRequest");
+    modal.style.display = "none";
+}
+
+function closeSpan5(){
+    var modal = document.getElementById("modalAprov");
+    modal.style.display = "none";
+}
+
+function closeSpan6(){
+    var modal = document.getElementById("modalRech");
+    modal.style.display = "none";
+}
+
 window.onclick = function(event) {
     var modal = document.getElementById("modalInsert");
     var modal2 = document.getElementById("modalModify");
     var modal3 = document.getElementById("modalDelete");
+    var modal4 = document.getElementById("modalRequest");
+    var modal5 = document.getElementById("modalAprov");
+    var modal6 = document.getElementById("modalRech");
     
-    if (event.target === modal || event.target === modal2 || event.target === modal3) {
+    if (event.target === modal || event.target === modal2 || event.target === modal3 || event.target === modal4 || event.target === modal5 || event.target === modal6) {
         modal.style.display = "none";
         modal2.style.display = "none";
         modal3.style.display = "none";
+        modal4.style.display = "none";
+        modal5.style.display = "none";
+        modal6.style.display = "none";
     }
 };
 
@@ -96,3 +135,32 @@ function Delete(num){
     openDelete();
 };
 
+function Request(num){
+    var id = document.getElementById("id_"+num).value;
+    var name = document.getElementById("name_"+num).value;
+
+    document.getElementById("IdMaterialSolicitado").value = id;
+    document.getElementById("requestID").value = name;
+
+    openRequest();
+};
+
+function Aprov(num){
+    var id = document.getElementById("id_"+num).value;
+    var name = document.getElementById("name_"+num).value;
+
+    document.getElementById("IdMaterialAprov").value = id;
+    document.getElementById("aprovID").value = name;
+
+    openAprov();
+};
+
+function Rech(num){
+    var id = document.getElementById("id_"+num).value;
+    var name = document.getElementById("name_"+num).value;
+
+    document.getElementById("IdMaterialRech").value = id;
+    document.getElementById("rechID").value = name;
+
+    openRech();
+};
