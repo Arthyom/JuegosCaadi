@@ -13,7 +13,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%--String pw = "";--%>
-<%String pw = "UtnCboV1";%>
+<%String pw = "";%>
 
 ﻿<!DOCTYPE html>
 <html>
