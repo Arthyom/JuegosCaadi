@@ -68,11 +68,7 @@ public class UpdateJuegoServlet extends HttpServlet {
 
         try 
         {
-<<<<<<< HEAD
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
-=======
             ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw);
->>>>>>> KikeVistas
             Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
             cn.connection.setAutoCommit(false);
             try
