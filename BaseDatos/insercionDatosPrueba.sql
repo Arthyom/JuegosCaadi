@@ -18,3 +18,8 @@ INSERT INTO `mydb`.`Juego` (`Juego_Idioma`, `Juego_EnlaceDigital`, `Juego_Instru
 
 INSERT INTO `mydb`.`Administrador` (`Administrador_NivelIngles`, `Usuario_idUsuario`) VALUES ('10', '5');
 INSERT INTO `mydb`.`Administrador` (`Administrador_NivelIngles`, `Usuario_idUsuario`) VALUES ('100', '1');
+
+INSERT INTO `mydb`.`solicitud` (`Observaciones_Salida`, `Observaciones_Entrada`, `Fecha_Peticion`, `Fecha_Respuesta`, `Fecha_Terminacion`, `Profesor_IdProfesor`) VALUES ('no', 'no', '12-05-2010', '13-06-2010', '15-06-2010', '3');
+INSERT INTO `mydb`.`solicitud` (`Observaciones_Salida`, `Observaciones_Entrada`, `Fecha_Peticion`, `Fecha_Respuesta`, `Fecha_Terminacion`, `Profesor_IdProfesor`) VALUES ('faltan cartas', 'cartas rotas', '02-03-2011', '04-03-2011', '05-05-2011', '3');
+INSERT INTO `mydb`.`solicitud` (`Observaciones_Salida`, `Observaciones_Entrada`, `Fecha_Peticion`, `Fecha_Respuesta`, `Fecha_Terminacion`, `Profesor_IdProfesor`) VALUES ('no', 'no', '30-08-2011', '01-09-2011', '05-09-2011', '03');
+INSERT INTO `mydb`.`solicitud` (`Observaciones_Salida`, `Observaciones_Entrada`, `Fecha_Peticion`, `Fecha_Respuesta`, `Fecha_Terminacion`, `Profesor_IdProfesor`) VALUES ('juego roto', 'faltan 10 fichas', '20-02-2012', '21-02-2012', '27-02-2012', '3');
