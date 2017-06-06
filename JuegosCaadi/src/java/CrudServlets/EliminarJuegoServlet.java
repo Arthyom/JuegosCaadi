@@ -70,7 +70,7 @@ public class EliminarJuegoServlet extends HttpServlet {
         String direccionamiento = "/private/listGamesView.jsp";
         try 
         {
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw);
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
             Logic_TablaJuegos j1 = new Logic_TablaJuegos();
             
             try 

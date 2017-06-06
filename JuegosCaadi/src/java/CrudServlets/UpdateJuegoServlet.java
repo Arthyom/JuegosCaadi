@@ -64,7 +64,7 @@ public class UpdateJuegoServlet extends HttpServlet {
 
         try 
         {
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "UtnCboV1");
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
             Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
             cn.connection.setAutoCommit(false);
             try
