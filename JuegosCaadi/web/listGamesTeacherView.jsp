@@ -11,8 +11,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%String pw = "";%>
-<%--String pw = "UtnCboV1";--%>
+<%--String pw = "";--%>
+<%String pw = "UtnCboV1";%>
 <%--String pw = "";--%>
 
 ﻿<!DOCTYPE html>
@@ -44,7 +44,7 @@
 <!--CAMBIAR EL id Y class DE LOS DOS DIV PARA PODER HACER SUS PROPIOS ESTILOS -->
 
             <div class="instrucciones">
-                <p class="text"> A continuacion se muestra un listado de los juegos incluidos en el catalogo
+                <p class="text-teacher"> A continuacion se muestra un listado de los juegos incluidos en el catalogo
                     del CAADI. Tienes la opcion de solicitar un juego existente.
                 </p>
             </div>

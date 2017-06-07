@@ -26,8 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "UpdateJuegoServlet", urlPatterns = {"/UpdateJuegoServlet"})
 public class UpdateJuegoServlet extends HttpServlet {
 
-    public String pw = "kike";
-    //public String pw = "UtnCboV1";
+    //public String pw = "kike";
+    public String pw = "UtnCboV1";
     //public String pw = "";
     
     /**

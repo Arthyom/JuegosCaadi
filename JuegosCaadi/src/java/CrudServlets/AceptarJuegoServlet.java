@@ -25,6 +25,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "AceptarJuegoServlet", urlPatterns = {"/AceptarJuegoServlet"})
 public class AceptarJuegoServlet extends HttpServlet {
 
+    public String pw = "UtnCboV1";
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -68,7 +70,7 @@ public class AceptarJuegoServlet extends HttpServlet {
         
         try {
             // crear conexiones y ejecutar consulta
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw);
             
              Statement consulta = cn.connection.createStatement();
              Boolean estado = consulta.execute(Sql);

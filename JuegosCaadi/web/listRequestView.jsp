@@ -10,8 +10,8 @@
 <%@page import="ConnectionModel.ConnectionModel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%String pw = "";%>
-<%--String pw = "UtnCboV1";--%>
+<%--String pw = "";--%>
+<%String pw = "UtnCboV1";%>
 <%--String pw = "";--%>
 
 
@@ -54,16 +54,16 @@
 <!--CAMBIAR EL id Y class DE LOS DOS DIV PARA PODER HACER SUS PROPIOS ESTILOS -->
 
             <div class="instrucciones">
-                <p class="text"> La siguiente tabla muestra las solicitudes de juegos que han sido realizadas
+                <p class="text-request"> La siguiente tabla muestra las solicitudes de juegos que han sido realizadas
                                  por parte de los profesores registrados en el sistema. Para aceptar una solicitud
                                   presione en el botón "Approve" correspondiente a cada juego. En su defecto para
-                                  rechazar dicho prestamo pulse en "Desapprove" del respectivo juego.
+                                  rechazar dicho prestamo pulse en "Disapprove" del respectivo juego.
                 </p>
             </div>
 
             <% ConnectionModel connect = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw); %>
             <% Statement querySelect = connect.connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); %>
-            <% String query = "SELECT * FROM Solicitud WHERE Status = 'Pendiente';"; %> <%--WHERE Fecha_Respuesta = 'NO'--%>
+            <% String query = "SELECT * FROM Solicitud;"; %> <%--WHERE Fecha_Respuesta = 'NO'--%>
             <% ResultSet selectGames = querySelect.executeQuery(query); %>
             
             <% int count = 0; %>
