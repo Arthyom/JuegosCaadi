@@ -86,3 +86,59 @@
     cursor: pointer;
 }
 
+.btnRequest{
+    background-color: white;
+    color: rgb(0,0,200);
+    border: 1px solid rgb(0,0,200);
+    border-radius: 5px !important;
+    height: 25px;
+    width: 90px;
+    font-size: 17px;
+    margin: 5px 2px 2px 81%;
+    bottom: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2),0 1px 2px 0 rgba(0,0,0,0.1);
+}
+
+.btnRequest:hover, .btnRequest:focus{
+    background-color: rgb(0,0,200);
+    color: white;
+    cursor: pointer;
+}
+
+.btnAprov{
+    background-color: white;
+    color: rgb(0,200,0);
+    border: 1px solid rgb(0,200,0);
+    border-radius: 5px !important;
+    height: 25px;
+    width: 90px;
+    font-size: 17px;
+    margin: 5px 2px 2px 73%;
+    bottom: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2),0 1px 2px 0 rgba(0,0,0,0.1);
+}
+
+.btnAprov:hover, .btnAprov:focus{
+    background-color: rgb(0,200,0);
+    color: white;
+    cursor: pointer;
+}
+
+.btnRech{
+    background-color: white;
+    color: rgb(200,0,0);
+    border: 1px solid rgb(200,0,0);
+    border-radius: 5px !important;
+    height: 25px;
+    width: 100px;
+    font-size: 17px;
+    margin: 5px 2px 2px 5px;
+    bottom: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2),0 1px 2px 0 rgba(0,0,0,0.1);
+}
+
+.btnRech:hover, .btnRech:focus{
+    background-color: rgb(200,0,0);
+    color: white;
+    cursor: pointer;
+}

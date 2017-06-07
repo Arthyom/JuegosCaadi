@@ -1,4 +1,3 @@
-<%-- 
     Document   : listGamesStudentsView
     Created on : 18/05/2017, 07:00:35 PM
     Author     : Iron-kike
@@ -11,13 +10,13 @@
 <%@page import="ConnectionModel.ConnectionModel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%--String pw = "kike";--%>
-<%String pw = "UtnCboV1";%>
+<%String pw = "";%>
+<%--String pw = "UtnCboV1";--%>
+<%--String pw = "";--%>
 
 ﻿<!DOCTYPE html>
 <html>
     <head>
-        <title> Administrador de juegos LEI </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/listGamesStyle.css">

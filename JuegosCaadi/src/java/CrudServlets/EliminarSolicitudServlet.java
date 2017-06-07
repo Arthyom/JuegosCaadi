@@ -12,25 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import ConnectionModel.ConnectionModel;
-import Logic_ObjetosBaseDatos.*;
-import Herramientas.*;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author frodo
  */
-@WebServlet(name = "InsertJuegoServlet", urlPatterns = {"/InsertJuegoServlet"})
-public class InsertJuegoServlet extends HttpServlet {
+@WebServlet(name = "EliminarSolicitudServlet", urlPatterns = {"/EliminarSolicitudServlet"})
+public class EliminarSolicitudServlet extends HttpServlet {
 
-    //public String pw = "";
-    public String pw = "";
-
-    //public String pw = "";
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -48,10 +37,10 @@ public class InsertJuegoServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet InsertJuegoServlet</title>");            
+            out.println("<title>Servlet EliminarSolicitudServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet InsertJuegoServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EliminarSolicitudServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -68,33 +57,9 @@ public class InsertJuegoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // processRequest(request, response);
-
-        try 
-        {
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw);
-            Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
-            try 
-            {
-               cn.connection.setAutoCommit(false);
-               Utilidades.Insert(jn, cn, "Juego");
-               cn.connection.commit();
-            }
-            catch ( Exception ex )
-            {     
-                cn.connection.rollback();
-            }
-             cn.connection.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(InsertJuegoServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";

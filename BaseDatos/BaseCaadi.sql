@@ -92,7 +92,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Material` (
   `Material_Existencia` TINYINT NOT NULL,
   `Material_Disponible` TINYINT NOT NULL,
   `Material_Habilidad` VARCHAR(45) NOT NULL,
-  UNIQUE INDEX `idMaterial_UNIQUE` (`idMaterial` ASC))
+  `Material_Observaciones` TEXT(120) NULL,
+  UNIQUE INDEX `idMaterial_UNIQUE` (`idMaterial` ASC),
+  PRIMARY KEY (`idMaterial`))
 ENGINE = InnoDB;
 
 
@@ -350,6 +352,222 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Materia_Define_Material` (
   CONSTRAINT `fk_Material_has_Materia_Materia1`
     FOREIGN KEY (`Materia_idMateria`)
     REFERENCES `mydb`.`Materia` (`idMateria`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Solicitud`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Solicitud` (
+  `idSolicitud` INT NOT NULL AUTO_INCREMENT,
+  `Observaciones_Salida` VARCHAR(45) NULL,
+  `Observaciones_Entrada` VARCHAR(45) NULL,
+  `Fecha_Peticion` VARCHAR(45) NOT NULL,
+  `Fecha_Respuesta` VARCHAR(45) NULL,
+  `Fecha_Terminacion` VARCHAR(45) NULL,
+  `Profesor_IdProfesor` INT NOT NULL,
+  `Material_IdMaterial` INT NOT NULL,
+  `Status` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idSolicitud`),
+  UNIQUE INDEX `idSolicitud_UNIQUE` (`idSolicitud` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Profesor_hace_Solicitud`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Profesor_hace_Solicitud` (
+  `Profesor_Usuario_idUsuario` INT NOT NULL,
+  `Solicitud_idSolicitud` INT NOT NULL,
+  PRIMARY KEY (`Profesor_Usuario_idUsuario`, `Solicitud_idSolicitud`),
+  INDEX `fk_Profesor_has_Solicitud_Solicitud1_idx` (`Solicitud_idSolicitud` ASC),
+  INDEX `fk_Profesor_has_Solicitud_Profesor1_idx` (`Profesor_Usuario_idUsuario` ASC),
+  CONSTRAINT `fk_Profesor_has_Solicitud_Profesor1`
+    FOREIGN KEY (`Profesor_Usuario_idUsuario`)
+    REFERENCES `mydb`.`Profesor` (`Usuario_idUsuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Profesor_has_Solicitud_Solicitud1`
+    FOREIGN KEY (`Solicitud_idSolicitud`)
+    REFERENCES `mydb`.`Solicitud` (`idSolicitud`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Solicitud_has_Solicitud`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Solicitud_has_Solicitud` (
+  `Solicitud_idSolicitud` INT NOT NULL,
+  `Solicitud_idSolicitud1` INT NOT NULL,
+  PRIMARY KEY (`Solicitud_idSolicitud`, `Solicitud_idSolicitud1`),
+  INDEX `fk_Solicitud_has_Solicitud_Solicitud2_idx` (`Solicitud_idSolicitud1` ASC),
+  INDEX `fk_Solicitud_has_Solicitud_Solicitud1_idx` (`Solicitud_idSolicitud` ASC),
+  CONSTRAINT `fk_Solicitud_has_Solicitud_Solicitud1`
+    FOREIGN KEY (`Solicitud_idSolicitud`)
+    REFERENCES `mydb`.`Solicitud` (`idSolicitud`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Solicitud_has_Solicitud_Solicitud2`
+    FOREIGN KEY (`Solicitud_idSolicitud1`)
+    REFERENCES `mydb`.`Solicitud` (`idSolicitud`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Solicitud_has_Solicitud1`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Solicitud_has_Solicitud1` (
+  `Solicitud_idSolicitud` INT NOT NULL,
+  `Solicitud_idSolicitud1` INT NOT NULL,
+  PRIMARY KEY (`Solicitud_idSolicitud`, `Solicitud_idSolicitud1`),
+  INDEX `fk_Solicitud_has_Solicitud1_Solicitud2_idx` (`Solicitud_idSolicitud1` ASC),
+  INDEX `fk_Solicitud_has_Solicitud1_Solicitud1_idx` (`Solicitud_idSolicitud` ASC),
+  CONSTRAINT `fk_Solicitud_has_Solicitud1_Solicitud1`
+    FOREIGN KEY (`Solicitud_idSolicitud`)
+    REFERENCES `mydb`.`Solicitud` (`idSolicitud`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Solicitud_has_Solicitud1_Solicitud2`
+    FOREIGN KEY (`Solicitud_idSolicitud1`)
+    REFERENCES `mydb`.`Solicitud` (`idSolicitud`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Solicitud_has_Solicitud2`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Solicitud_has_Solicitud2` (
+  `Solicitud_idSolicitud` INT NOT NULL,
+  `Solicitud_idSolicitud1` INT NOT NULL,
+  PRIMARY KEY (`Solicitud_idSolicitud`, `Solicitud_idSolicitud1`),
+  INDEX `fk_Solicitud_has_Solicitud2_Solicitud2_idx` (`Solicitud_idSolicitud1` ASC),
+  INDEX `fk_Solicitud_has_Solicitud2_Solicitud1_idx` (`Solicitud_idSolicitud` ASC),
+  CONSTRAINT `fk_Solicitud_has_Solicitud2_Solicitud1`
+    FOREIGN KEY (`Solicitud_idSolicitud`)
+    REFERENCES `mydb`.`Solicitud` (`idSolicitud`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Solicitud_has_Solicitud2_Solicitud2`
+    FOREIGN KEY (`Solicitud_idSolicitud1`)
+    REFERENCES `mydb`.`Solicitud` (`idSolicitud`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Solicitud_has_Estudiante`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Solicitud_has_Estudiante` (
+  `Solicitud_idSolicitud` INT NOT NULL,
+  `Estudiante_idEstudiante` INT NOT NULL,
+  PRIMARY KEY (`Solicitud_idSolicitud`, `Estudiante_idEstudiante`),
+  INDEX `fk_Solicitud_has_Estudiante_Estudiante1_idx` (`Estudiante_idEstudiante` ASC),
+  INDEX `fk_Solicitud_has_Estudiante_Solicitud1_idx` (`Solicitud_idSolicitud` ASC),
+  CONSTRAINT `fk_Solicitud_has_Estudiante_Solicitud1`
+    FOREIGN KEY (`Solicitud_idSolicitud`)
+    REFERENCES `mydb`.`Solicitud` (`idSolicitud`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Solicitud_has_Estudiante_Estudiante1`
+    FOREIGN KEY (`Estudiante_idEstudiante`)
+    REFERENCES `mydb`.`Estudiante` (`idEstudiante`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Solicitud_has_Solicitud3`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Solicitud_has_Solicitud3` (
+  `Solicitud_idSolicitud` INT NOT NULL,
+  `Solicitud_idSolicitud1` INT NOT NULL,
+  PRIMARY KEY (`Solicitud_idSolicitud`, `Solicitud_idSolicitud1`),
+  INDEX `fk_Solicitud_has_Solicitud3_Solicitud2_idx` (`Solicitud_idSolicitud1` ASC),
+  INDEX `fk_Solicitud_has_Solicitud3_Solicitud1_idx` (`Solicitud_idSolicitud` ASC),
+  CONSTRAINT `fk_Solicitud_has_Solicitud3_Solicitud1`
+    FOREIGN KEY (`Solicitud_idSolicitud`)
+    REFERENCES `mydb`.`Solicitud` (`idSolicitud`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Solicitud_has_Solicitud3_Solicitud2`
+    FOREIGN KEY (`Solicitud_idSolicitud1`)
+    REFERENCES `mydb`.`Solicitud` (`idSolicitud`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Solicitud_requiere_Material`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Solicitud_requiere_Material` (
+  `Solicitud_idSolicitud` INT NOT NULL,
+  `Material_idMaterial` INT NOT NULL,
+  PRIMARY KEY (`Solicitud_idSolicitud`, `Material_idMaterial`),
+  INDEX `fk_Solicitud_has_Material_Material1_idx` (`Material_idMaterial` ASC),
+  INDEX `fk_Solicitud_has_Material_Solicitud1_idx` (`Solicitud_idSolicitud` ASC),
+  CONSTRAINT `fk_Solicitud_has_Material_Solicitud1`
+    FOREIGN KEY (`Solicitud_idSolicitud`)
+    REFERENCES `mydb`.`Solicitud` (`idSolicitud`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Solicitud_has_Material_Material1`
+    FOREIGN KEY (`Material_idMaterial`)
+    REFERENCES `mydb`.`Material` (`idMaterial`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Solicitud_has_Administrador`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Solicitud_has_Administrador` (
+  `Solicitud_idSolicitud` INT NOT NULL,
+  `Administrador_Usuario_idUsuario` INT NOT NULL,
+  PRIMARY KEY (`Solicitud_idSolicitud`, `Administrador_Usuario_idUsuario`),
+  INDEX `fk_Solicitud_has_Administrador_Administrador1_idx` (`Administrador_Usuario_idUsuario` ASC),
+  INDEX `fk_Solicitud_has_Administrador_Solicitud1_idx` (`Solicitud_idSolicitud` ASC),
+  CONSTRAINT `fk_Solicitud_has_Administrador_Solicitud1`
+    FOREIGN KEY (`Solicitud_idSolicitud`)
+    REFERENCES `mydb`.`Solicitud` (`idSolicitud`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Solicitud_has_Administrador_Administrador1`
+    FOREIGN KEY (`Administrador_Usuario_idUsuario`)
+    REFERENCES `mydb`.`Administrador` (`Usuario_idUsuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Administrador_contesta_Solicitud`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Administrador_contesta_Solicitud` (
+  `Administrador_Usuario_idUsuario` INT NOT NULL,
+  `Solicitud_idSolicitud` INT NOT NULL,
+  PRIMARY KEY (`Administrador_Usuario_idUsuario`, `Solicitud_idSolicitud`),
+  INDEX `fk_Administrador_has_Solicitud_Solicitud1_idx` (`Solicitud_idSolicitud` ASC),
+  INDEX `fk_Administrador_has_Solicitud_Administrador1_idx` (`Administrador_Usuario_idUsuario` ASC),
+  CONSTRAINT `fk_Administrador_has_Solicitud_Administrador1`
+    FOREIGN KEY (`Administrador_Usuario_idUsuario`)
+    REFERENCES `mydb`.`Administrador` (`Usuario_idUsuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Administrador_has_Solicitud_Solicitud1`
+    FOREIGN KEY (`Solicitud_idSolicitud`)
+    REFERENCES `mydb`.`Solicitud` (`idSolicitud`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

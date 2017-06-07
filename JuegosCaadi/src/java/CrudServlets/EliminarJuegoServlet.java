@@ -25,8 +25,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "EliminarJuegoServlet", urlPatterns = {"/EliminarJuegoServlet"})
 public class EliminarJuegoServlet extends HttpServlet {
 
-    //public String pw = "kike";
-    public String pw = "UtnCboV1";
+    public String pw = "kike";
+    //public String pw = "UtnCboV1";
     //public String pw = "";
     
     /**
@@ -70,7 +70,7 @@ public class EliminarJuegoServlet extends HttpServlet {
         String direccionamiento = "/private/listGamesView.jsp";
         try 
         {
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw);
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
             Logic_TablaJuegos j1 = new Logic_TablaJuegos();
             
             try 

@@ -12,8 +12,8 @@
 <%@page import="ConnectionModel.ConnectionModel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%--String pw = "";--%>
-<%String pw = "UtnCboV1";%>
+
+<%String pw = "";%>
 
 ﻿<!DOCTYPE html>
 <html>
@@ -233,7 +233,7 @@
                             <tr>
                                 <td>
                                     <h5 id="num" > ID </h5>
-                                    <input type="text" id="ID" class="num" name="IdMaterial" value="" size="25" disabled="true" />
+                                    <input type="text" id="ID" class="num" name="IdMaterial" value="" size="25" style="visibility:hidden;" />
                                 </td>
                                 <td>
                                     <h5 id="name"> Nombre </h5>
