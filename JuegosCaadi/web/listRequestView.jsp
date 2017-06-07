@@ -11,8 +11,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%--String pw = "";--%>
-<%String pw = "UtnCboV1";%>
-<%--String pw = "";--%>
+<%--String pw = "UtnCboV1";--%>
+<%String pw = "";%>
 
 
 
@@ -63,7 +63,7 @@
 
             <% ConnectionModel connect = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw); %>
             <% Statement querySelect = connect.connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); %>
-            <% String query = "SELECT * FROM Solicitud;"; %> <%--WHERE Fecha_Respuesta = 'NO'--%>
+            <% String query = "SELECT * FROM Solicitud WHERE status = 'Pendiente';"; %> <%--WHERE Fecha_Respuesta = 'NO'--%>
             <% ResultSet selectGames = querySelect.executeQuery(query); %>
             
             <% int count = 0; %>

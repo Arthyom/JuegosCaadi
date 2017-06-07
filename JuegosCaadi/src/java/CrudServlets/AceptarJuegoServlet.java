@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "AceptarJuegoServlet", urlPatterns = {"/AceptarJuegoServlet"})
 public class AceptarJuegoServlet extends HttpServlet {
 
-    public String pw = "UtnCboV1";
+    public String pw = "";
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -66,7 +66,7 @@ public class AceptarJuegoServlet extends HttpServlet {
         // actualizar el status de la consulta para que diga aceptada 
         String Sql = " UPDATE Solicitud SET "+            
                 "Status = '"+ Logic_ObjetosBaseDatos.Logic_Solcitud.SOL_Actp + "'"
-                + " WHERE  idSolicitud = " + request.getParameter("aprovID") ;
+                + " WHERE  idSolicitud = " + request.getParameter("IdMaterialAprov") ;
         
         try {
             // crear conexiones y ejecutar consulta
