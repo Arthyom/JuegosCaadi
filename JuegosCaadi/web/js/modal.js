@@ -147,20 +147,12 @@ function Request(num){
 
 function Aprov(num){
     var id = document.getElementById("id_"+num).value;
-    var name = document.getElementById("name_"+num).value;
-
     document.getElementById("IdMaterialAprov").value = id;
-    document.getElementById("aprovID").value = name;
-
     openAprov();
 };
 
 function Rech(num){
     var id = document.getElementById("id_"+num).value;
-    var name = document.getElementById("name_"+num).value;
-
     document.getElementById("IdMaterialRech").value = id;
-    document.getElementById("rechID").value = name;
-
     openRech();
 };

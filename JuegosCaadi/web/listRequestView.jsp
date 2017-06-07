@@ -74,31 +74,31 @@
                             <img src="images/game2.jpg" height="250" width="230" id="imageGame">
                         </th>
                         <td align="left" id="ide"> idSolicitud:
-                            <input type="text" disabled="true" class="textValue" id="id_<%=count%>" value="  <%= selectGames.getString(1) %>">
+                            <input type="text" class="textValue" id="id_<%=count%>" value="<%= selectGames.getString(1)%>">
                         </td>
                         <td align="left" id="nameGame"> Observaciones de salida: 
-                            <input type="text" disabled="true" class="textValue" id="name_<%=count%>" value="  <%= selectGames.getString(2) %>">
+                            <input type="text" disabled="true" class="textValue" id="name_<%=count%>" value="<%= selectGames.getString(2) %>">
                         </td>
                     </tr>
                     <tr>
                         <td align="left" id="lenguageGame"> Observaciones de entrada:
-                            <input type="text" disabled="true" class="textValue" id="lenguage_<%=count%>" value="  <%= selectGames.getString(3) %>">
+                            <input type="text" disabled="true" class="textValue" id="lenguage_<%=count%>" value="<%= selectGames.getString(3) %>">
                         </td>
                         <td align="left" id="skillsGame"> Fecha de petición:
-                            <input type="text" disabled="true" class="textValue" id="skills_<%=count%>" value="  <%= selectGames.getString(4) %>">
+                            <input type="text" disabled="true" class="textValue" id="skills_<%=count%>" value="<%= selectGames.getString(4) %>">
                         </td>
                     </tr>
                     <tr>
                         <td align="left" id="availableGame"> Fecha de respuesta:
-                            <input type="text" disabled="true" class="textValue" id="availableGame_<%=count%>" value="  <%= selectGames.getString(5) %>">
+                            <input type="text" disabled="true" class="textValue" id="availableGame_<%=count%>" value="<%= selectGames.getString(5) %>">
                         </td>
                         <td align="left" id="gamersNum"> Fecha de terminación:
-                            <input type="text" disabled="true" class="textValue" id="gamersNum_<%=count%>" value="  <%= selectGames.getString(6) %>">
+                            <input type="text" disabled="true" class="textValue" id="gamersNum_<%=count%>" value="<%= selectGames.getString(6) %>">
                         </td>
                     </tr>
                     <tr>
                         <td align="left" id="timeGame"> Profesor al que fue prestado:
-                            <input type="text" disabled="true" class="textValue" id="timeGame_<%=count%>" value="  <%= selectGames.getString(7) %>">
+                            <input type="text" disabled="true" class="textValue" id="timeGame_<%=count%>" value="<%= selectGames.getString(7) %>">
                         </td>
                     </tr>
                     <tr>
@@ -124,10 +124,9 @@
                     <div class="mainContainer">
                         <div class="objetsContainer">
                             <img src="images/Question.png" class="warningImage">
-                            <p class="textDelete" > Are you sure you want to approve: </p>
-                            <input type="text" class="aprovGame" id="aprovID" value="" disabled="false"/>
-                            <input type="text" class="aprovtGame" id="IdMaterialAprov" name="IdMaterialAprov" style="display: none"/>
-                                <button class="btnAprovM"> Approve </button>
+                            <p class="textAprov" > Confirm the request </p>
+                            <input type="text" class="aprovGame" id="IdMaterialAprov" name="IdMaterialAprov" style="display: none"/>
+                            <button class="btnAprovM"> Confirm </button>
                            </form>
                         </div>
                     </div>
@@ -149,9 +148,8 @@
                     <div class="mainContainer">
                         <div class="objetsContainer">
                             <img src="images/Question.png" class="warningImage">
-                            <p class="textDelete" > Are you sure you want to desapprove: </p>
-                            <input type="text" class="rechGame" id="rechID" value="" disabled="false"/>
-                            <input type="text" class="rechGame" id="IdMaterialRech" name="IdMaterialRech" style="display: none"/>
+                            <p class="textDisapprove" > Disapprove the request </p>
+                            <input type="text" class="aprovGame" id="IdMaterialRech" name="IdMaterialAprov" style="display: none"/>
                                 <button class="btnRechM"> Disapprove </button>
                            </form>
                         </div>

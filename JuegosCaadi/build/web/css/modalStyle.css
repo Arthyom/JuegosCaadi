@@ -456,20 +456,20 @@ un juego
 
 .btnAprovM{
     background-color: white;
-    color: rgb(0,200,0);
-    border: 1px solid rgb(0,200,0);
+    color: green;
+    border: 1px solid green;
     border-radius: 5px !important;
     width: 100px;
     height: 30px;
     font-size: 15px;
-    margin: 30px 30px 5px 35%;
+    margin: 5px 30px 5px 35%;
 }
 
 /* efecto de cambio de color cuando el mouse esta sobre el boton */
 .btnAprovM:hover{
-    background-color: rgb(0,200,0);
+    background-color: green;
     color: white;
-    border: 1px solid rgb(0,200,0);
+    border: 1px solid green;
     cursor: pointer;
 }
 
@@ -493,7 +493,7 @@ un juego
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 32%;
+    width: 30%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -515,12 +515,15 @@ un juego
     padding: 20px 20px 20px 20px;
 }
 
-.textRequest{
+.textRequest, .textAprov, .textDisapprove{
     font-size: 24px;
     position: relative;
     left: 75px;
     margin: 5px 0px 20px -45px;
 }
+
+.textAprov{ margin: 20px 0px 20px 5px; }
+.textDisapprove{ margin: 20px 0px 20px 0px; }
 
 /* Boton para recoger el id de la caja de texto y eliminar
 un juego
@@ -544,7 +547,7 @@ un juego
     width: 100px;
     height: 30px;
     font-size: 15px;
-    margin: 30px 30px 5px 35%;
+    margin: 5px 30px 5px 35%;
 }
 
 /* efecto de cambio de color cuando el mouse esta sobre el boton */
@@ -554,3 +557,4 @@ un juego
     border: 1px solid rgb(200,0,0);
     cursor: pointer;
 }
+
