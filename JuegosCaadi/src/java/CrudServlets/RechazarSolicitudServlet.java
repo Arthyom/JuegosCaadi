@@ -65,7 +65,7 @@ public class RechazarSolicitudServlet extends HttpServlet {
         // actualizar el status de la consulta para que diga aceptada 
         String Sql = " UPDATE Solicitud SET "+            
                 "Status = '"+ Logic_ObjetosBaseDatos.Logic_Solcitud.SOL_Regt + "'"
-                + " WHERE  idSolicitud = " + request.getParameter("rechID") ;
+                + " WHERE  idSolicitud = " + request.getParameter("IdMaterialRech") ;
         
         try {
             // crear conexiones y ejecutar consulta
