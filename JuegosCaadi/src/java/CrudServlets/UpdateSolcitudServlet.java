@@ -5,14 +5,8 @@
  */
 package CrudServlets;
 
-import ConnectionModel.ConnectionModel;
-import Herramientas.Utilidades;
-import Logic_ObjetosBaseDatos.Logic_TablaJuegos;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,13 +17,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author frodo
  */
-@WebServlet(name = "UpdateJuegoServlet", urlPatterns = {"/UpdateJuegoServlet"})
-public class UpdateJuegoServlet extends HttpServlet {
+@WebServlet(name = "UpdateSolcitudServlet", urlPatterns = {"/UpdateSolcitudServlet"})
+public class UpdateSolcitudServlet extends HttpServlet {
 
-    public String pw = "kike";
-    //public String pw = "UtnCboV1";
-    //public String pw = "";
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -47,52 +37,30 @@ public class UpdateJuegoServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UpdateJuegoServlet</title>");            
+            out.println("<title>Servlet UpdateSolcitudServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet UpdateJuegoServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UpdateSolcitudServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
+ 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+  
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        try 
-        {
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw);
-            Logic_TablaJuegos jn = Utilidades.CrearJuego(request);
-            cn.connection.setAutoCommit(false);
-            try
-            {
-                Utilidades.Update(jn, cn, "Juego");
-                cn.connection.commit();
-            }
-            catch(Exception ex )
-            {    
-                cn.connection.rollback();
-                cn.connection.close();
-            }
-            
-        } catch (SQLException ex) {
-          
-            Logger.getLogger(InsertJuegoServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+
     @Override
     public String getServletInfo() {
         return "Short description";
