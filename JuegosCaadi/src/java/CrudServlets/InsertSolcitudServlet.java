@@ -64,7 +64,7 @@ public class InsertSolcitudServlet extends HttpServlet {
 
         try {
             // ejecutar la consulta de incercion
-            Herramientas.Utilidades.Insert( sn, new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "") );
+            Herramientas.Utilidades.Insert( sn, new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "UtnCboV1") );
         } catch (SQLException ex) {
             Logger.getLogger(InsertSolcitudServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

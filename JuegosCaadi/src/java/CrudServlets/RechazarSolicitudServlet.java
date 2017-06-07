@@ -69,7 +69,7 @@ public class RechazarSolicitudServlet extends HttpServlet {
         
         try {
             // crear conexiones y ejecutar consulta
-            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "");
+            ConnectionModel cn = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "UtnCboV1");
             
              Statement consulta = cn.connection.createStatement();
              Boolean estado = consulta.execute(Sql);

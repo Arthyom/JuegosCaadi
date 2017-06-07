@@ -13,7 +13,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<%String pw = "";%>
+<%String pw = "UtnCboV1";%>
 
 ﻿<!DOCTYPE html>
 <html>
@@ -53,7 +53,7 @@
 <!--CAMBIAR EL id Y class DE LOS DOS DIV PARA PODER HACER SUS PROPIOS ESTILOS -->
 
             <div class="instrucciones">
-                <p class="text"> A continuaci&oacute;n se muestra un listado de los juegos incluidos en el catalogo
+                <p class="text-games"> A continuaci&oacute;n se muestra un listado de los juegos incluidos en el catalogo
                     del CAADI. Tiene la opci&oacute;n de agregar un nuevo juego, modificar o eliminarlo.
                 </p>
                 <button id="btnInsert" onclick="openInsert()"> Add new game </button>

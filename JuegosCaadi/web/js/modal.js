@@ -73,23 +73,23 @@ window.onclick = function(event) {
     var modal2 = document.getElementById("modalModify");
     var modal3 = document.getElementById("modalDelete");
     var modal4 = document.getElementById("modalRequest");
-    var modal5 = document.getElementById("modalAprov");
-    var modal6 = document.getElementById("modalRech");
     
-    if (event.target === modal || event.target === modal2 || event.target === modal3 || event.target === modal4 || event.target === modal5 || event.target === modal6) {
+    if (event.target === modal || event.target === modal2 || event.target === modal3 || event.target === modal4 ) {
         modal.style.display = "none";
         modal2.style.display = "none";
         modal3.style.display = "none";
         modal4.style.display = "none";
-        modal5.style.display = "none";
-        modal6.style.display = "none";
     }
 };
 
-function show(){
-    var objeto = document.getElementsByClassName("num");
+window.onclick = function(event) {
+    var modal5 = document.getElementById("modalAprov");
+    var modal6 = document.getElementById("modalRech");
     
-    alert(objeto.toString());
+    if (event.target === modal5 || event.target === modal6 ) {
+        modal5.style.display = "none";
+        modal6.style.display = "none";
+    }
 };
 
 function modify(num){

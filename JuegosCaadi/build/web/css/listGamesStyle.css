@@ -164,9 +164,11 @@ ul, ol {
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 1px 10px 0 rgba(0,0,0,0.19);
 }
 
-.text{
-    margin: 10px 350px 10px 15px;
-}
+.text{ margin: 10px 350px 10px 15px; }
+.text-request{ margin: 10px 15px 10px 15px; }
+.text-games{ margin: 10px 20% 10px 15px; }
+.text-stundent{ margin: 10px 20% 10px 15px; }
+.text-teacher{ margin: 10px 15px 10px 15px; }
 
 #tableGames{
     background-color: white;
