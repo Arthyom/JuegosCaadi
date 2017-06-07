@@ -42,6 +42,15 @@ ul, ol {
     list-style: none;
 }
 
+.numberRequest{
+    margin: -24px -20px 0px 70px;
+    padding: 3px 3px 3px 3px;
+    height: 20px;
+    width: 20px;
+    border-radius: 30px !important;
+    background-color: orange;
+}
+
 .welcomeMessages{
     padding: 15px;
     margin: 40px 250px 25px;
@@ -57,7 +66,7 @@ ul, ol {
 
 #imageBody{
     height: 350px;
-    padding-left: 390px;
+    padding-left: 370px;
     padding-bottom: 45px;
 }
 

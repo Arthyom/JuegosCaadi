@@ -85,7 +85,7 @@ public class logInServletControler extends HttpServlet {
 
         switch (tipoUsuario) {
             case "administrador":
-                direccionamiento = "/private/homeAdministratorView.html";
+                direccionamiento = "/private/homeAdministratorView.jsp";
                 correct = true;
                 break;
             case "profesor":

@@ -30,6 +30,15 @@ html, body{
     padding:0px;
 }
 
+.numRequest{
+    margin: -24px -20px 0px 70px;
+    padding: 3px 3px 3px 3px;
+    height: 20px;
+    width: 20px;
+    border-radius: 30px !important;
+    background-color: orange;
+}
+
 .header, .header-teacher {
     height: 50px;
     width: 540px;
@@ -181,14 +190,16 @@ ul, ol {
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 1px 10px 0 rgba(0,0,0,0.19);
 }
 
-#imageGame{
+#imageGame, #imageGameRequest{
     width: 95%;
     height: 25%;
     border-radius: 5px;
     margin: 5px 3px 3px 3px;
 }
 
-.textValue{
+#imageGameRequest{ width: 83%; height: 25%; }
+    
+.textValue, .textValue2{
     font-family: Gandhi Serif;
     background-color: rgb(248, 248, 248);
     color: #254167;
@@ -207,29 +218,27 @@ ul, ol {
     border: 1px solid rgb(248, 248, 248);
     align-content: flex-start;
     border-radius: 3px;
-    height: 40px;
+    height: 80px;
     width: 100%;
     font-size: 16px;
 }
 /*
 tr, td, th{ border: 1px solid gray;}
 */
-#ide, #lenguageGame, #availableGame, #timeGame{
-    width: 290px;
+.framImage{
+    width: 25%;
+}
+
+#nameGame, #skillsGame, #vocabularyGame,
+#descriptionGame, #aditionalMaterial{
+    width: 35%;
     font-family: Gandhi Serif;
     font-size: 14px;
     color: gray;
 }
 
-#nameGame, #skillsGame, #gamersNum,
-#vocabularyGame{
-    font-family: Gandhi Serif;
-    width: 450px;
-    font-size: 14px;
-    color: gray;
-}
-
-#descriptionGame, #instructionsGame{
+#lenguageGame, #availableGame, #gamersNum, #timeGame, #instructionsGame{
+    width: 35%;
     font-family: Gandhi Serif;
     font-size: 14px;
     color: gray;
@@ -237,12 +246,10 @@ tr, td, th{ border: 1px solid gray;}
 
 tr, td{
     background-color: white;
-    padding: 5px 30px 5px 5px;
+    padding: 3px 40px 3px 5px;
 }
 
-th{
-    padding: 2px 2px 2px 2px;
-}
+th{ padding: 2px 2px 2px 2px; }
 
 footer{
     width: 100%;

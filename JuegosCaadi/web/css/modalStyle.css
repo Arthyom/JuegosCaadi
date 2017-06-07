@@ -3,7 +3,7 @@
     display: none; /* Se oculta por default */
     position: fixed; /* Se mantiene en su lugar */
     z-index: 1; /* Esta al frente de toda la pagina */
-    padding-top: 30px; /* padding superior */
+    padding-top: 55px; /* padding superior */
     left: 0;
     top: 0;
     width: 100%; /* ancho del 100% */
@@ -35,7 +35,7 @@
     display: none; 
     position: fixed;
     z-index: 1;
-    padding-top: 30px;
+    padding-top: 55px;
     left: 0;
     top: 0;
     width: 100%; 
@@ -130,8 +130,8 @@ De su contenido igualmente*/
 
 /* header para cada modal y su configuracion */
 .modalInsert-header{
-    padding: 5px 16px;
-    background-color: #428bca;
+    padding: 5px 0px 5px 10px;
+    background-color: #3276b1;
     color: white;
     border-top-left-radius: 8px !important;
     border-top-right-radius: 8px !important;
@@ -144,7 +144,7 @@ De su contenido igualmente*/
 
 /* header para cada modal y su configuracion */
 .modalModify-header{
-    padding: 5px 16px;
+    padding: 5px 0px 5px 10px;
     background-color: orange;
     border-top-left-radius: 8px !important;
     border-top-right-radius: 8px !important;
@@ -182,10 +182,10 @@ un juego. */
 un juego
 */
 .deleteGame{
-    width: 200px;
+    width: 350px;
     height: 35px;
     font-size: 23px;
-    margin: 5px 20px 0px 25%;
+    margin: 5px 20px 0px 2%;
     border-radius: 5px !important;
     border: 1px solid rgb(200, 200, 200);
     background-color: rgb(240, 240, 240);
@@ -270,8 +270,8 @@ a eliminar */
 
 /* Se da formato a los identificadores
    de cada caja de texto */
-#num, #name, #class, #exist, #able, #skills, #lenguage,
-#numPart, #time, #vocabulary, #material, #instrucciones,
+#num, #name, #clase, #exist, #able, #skills, #lenguage,
+#numPart, #time, #vocabulary, #material, #instructions,
 #description{
     font-size: 15px;
     margin: 2px 0px 7px 0px;
@@ -362,10 +362,10 @@ a eliminar */
 un juego
 */
 .requestGame{
-    width: 200px;
+    width: 350px;
     height: 35px;
     font-size: 23px;
-    margin: 5px 20px 0px 25%;
+    margin: 5px 20px 0px 2%;
     border-radius: 5px !important;
     border: 1px solid rgb(200, 200, 200);
     background-color: rgb(240, 240, 240);
@@ -374,8 +374,8 @@ un juego
 
 .btnRequestM{
     background-color: white;
-    color: rgb(0,0,200);
-    border: 1px solid rgb(0,0,200);
+    color: #3276b1;
+    border: 1px solid #3276b1;
     border-radius: 5px !important;
     width: 100px;
     height: 30px;
@@ -385,9 +385,9 @@ un juego
 
 /* efecto de cambio de color cuando el mouse esta sobre el boton */
 .btnRequestM:hover{
-    background-color: rgb(0,0,200);
+    background-color: #3276b1;
     color: white;
-    border: 1px solid rgb(0,0,200);
+    border: 1px solid #3276b1;
     cursor: pointer;
 }
 

@@ -51,55 +51,53 @@
 
             <% ConnectionModel connect = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw); %>
             <% Statement querySelect = connect.connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); %>
-            <% String query = "SELECT Material.idMaterial, Material.Material_Nombre, Juego.Juego_Idioma, Material.Material_Habilidad, Material.Material_Disponible, Juego.Juego_NumeroParticipantes, Juego.Juego_TiempoSugerido, Juego.Juego_EtiquetasVocabulario, Juego.Juego_Descripcion, Juego.Juego_InstruccionesUso FROM Material INNER JOIN Juego ON Material.idMaterial = Juego.Material_idMaterial;"; %>
+            <% String query = "SELECT Material.idMaterial, Material.Material_Nombre, Juego.Juego_Idioma, Material.Material_Habilidad, Material.Material_Disponible, Juego.Juego_NumeroParticipantes, Juego.Juego_TiempoSugerido, Juego.Juego_EtiquetasVocabulario, Juego.Juego_Descripcion, Juego.Juego_InstruccionesUso, Material.Material_Clase, Material.Material_Existencia, Juego.Juego_MaterialAdicional FROM Juego INNER JOIN Material ON Material.idMaterial = Juego.Material_idMaterial;"; %>
             <% ResultSet selectGames = querySelect.executeQuery(query); %>
-            
+
             <% int count = 0; %>
             <% while( selectGames.next() ){ %>
                 <table id="tableGames" class="count">
                     <tr>
-                        <th rowspan="5">
+                        <th rowspan="5" class="framImage">
                             <img src="images/game2.jpg" height="250" width="230" id="imageGame">
                         </th>
-                        <td align="left" id="ide"> ID:
-                            <input type="text" disabled="true" class="textValue" id="id_<%=count%>" value="  <%= selectGames.getString(1) %>">
+                        <td align="left" id="nameGame"> Name:
+                            <input type="text" disabled="true" class="textValue" id="name_<%=count%>" value="<%= selectGames.getString(2) %>">
                         </td>
-                        <td align="left" id="nameGame"> Name: 
-                            <input type="text" disabled="true" class="textValue" id="name_<%=count%>" value="  <%= selectGames.getString(2) %>">
-                        </td>
-                    </tr>
-                    <tr>
                         <td align="left" id="lenguageGame"> Lenguage:
-                            <input type="text" disabled="true" class="textValue" id="lenguage_<%=count%>" value="  <%= selectGames.getString(3) %>">
+                            <input type="text" disabled="true" class="textValue2" id="lenguage_<%=count%>" value="<%= selectGames.getString(3) %>">
                         </td>
+                    </tr>
+                    <tr>
                         <td align="left" id="skillsGame"> Skills:
-                            <input type="text" disabled="true" class="textValue" id="skills_<%=count%>" value="  <%= selectGames.getString(4) %>">
+                            <input type="text" disabled="true" class="textValue" id="skills_<%=count%>" value="<%= selectGames.getString(4) %>">
                         </td>
-                    </tr>
-                    <tr>
                         <td align="left" id="availableGame"> Games available:
-                            <input type="text" disabled="true" class="textValue" id="availableGame_<%=count%>" value="  <%= selectGames.getString(5) %>">
-                        </td>
-                        <td align="left" id="gamersNum"> In stock:
-                            <input type="text" disabled="true" class="textValue" id="gamersNum_<%=count%>" value="  <%= selectGames.getString(6) %>">
+                            <input type="text" disabled="true" class="textValue2" id="availableGame_<%=count%>" value="<%= selectGames.getString(5) %>">
                         </td>
                     </tr>
                     <tr>
-                        <td align="left" id="timeGame"> Suggested time:
-                            <input type="text" disabled="true" class="textValue" id="timeGame_<%=count%>" value="  <%= selectGames.getString(7) %>">
-                        </td>
                         <td align="left" id="vocabularyGame"> Vocabulary:
-                            <input type="text" disabled="true" class="textValue" id="vocabularyGame_<%=count%>" value="  <%= selectGames.getString(8) %>">
+                            <input type="text" disabled="true" class="textValue" id="vocabularyGame_<%=count%>" value="<%= selectGames.getString(8) %>">
+                        </td>
+                        <td align="left" id="gamersNum"> Number of gamers:
+                            <input type="text" disabled="true" class="textValue2" id="gamersNum_<%=count%>" value="<%= selectGames.getString(6) %>">
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3" align="left" id="descriptionGame"> Description:
-                            <textarea disabled="true" class="textValueEspecial" id="descriptionGame_<%=count%>"> <%= selectGames.getString(9) %> </textarea>
+                        <td align="left" id="aditionalMaterial"> Additional material
+                            <input type="text" class="textValue" id="adicional_<%=count%>" value="<%= selectGames.getString(13) %>">
+                        </td>
+                        <td align="left" id="timeGame"> Suggested time:
+                            <input type="text" disabled="true" class="textValue2" id="timeGame_<%=count%>" value="<%= selectGames.getString(7) %>">
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3" align="left" id="instructionsGame"> Instructions:
-                            <textarea disabled="true" class="textValueEspecial" id="instructionsGame_<%=count%>" align="left">  <%= selectGames.getString(10) %> </textarea>
+                        <td align="left" id="descriptionGame"> Description:
+                            <textarea disabled="true" class="textValueEspecial" id="descriptionGame_<%=count%>"><%= selectGames.getString(9) %> </textarea>
+                        </td>
+                        <td align="left" id="instructionsGame"> Instructions:
+                            <textarea disabled="true" class="textValueEspecial" id="instructionsGame_<%=count%>" align="left"><%= selectGames.getString(10) %> </textarea>
                         </td>
                     </tr>
                     <tr>
@@ -107,6 +105,9 @@
                             <button class="btnRequest" onclick="Request(<%=count%>)"> Request </button>
                         </td>
                     </tr>
+                    <input type="text" style="display: none" disabled="true" class="textValue" id="id_<%=count%>" value="<%= selectGames.getString(1) %>">
+                    <input type="text" style="display: none" class="textValue" id="clase_<%=count%>" value="<%= selectGames.getString(11) %>">
+                    <input type="text" style="display: none" class="textValue" id="existencia_<%=count%>" value="<%= selectGames.getString(12) %>">
                 </table>
                 <% count++; %>
             <% }%>

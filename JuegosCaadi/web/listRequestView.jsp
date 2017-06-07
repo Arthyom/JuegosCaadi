@@ -14,8 +14,6 @@
 <%String pw = "UtnCboV1";%>
 <%--String pw = "";--%>
 
-
-
 ﻿<!DOCTYPE html>
 <html>
     <head>
@@ -33,14 +31,15 @@
 	        <div class="imageBanner">
 	          <img src="images/escudo.jpg" alt="Escudo UG" width="112" height="42" title="Escudo de la Universidad de Guanajuato">  
 	 	</div>
-                
+
+                <% int numberRequest=0; %>
                 <div class="header">
                     <ul class="nav">
-                        <li><a href="homeAdministratorView.html" class="inicio"> Home </a></li>
+                        <li><a href="homeAdministratorView.jsp" class="inicio"> Home </a></li>
                         <li><a href="" class="administrar"> Manage </a>
                             <ul>
                                 <li><a href="listGamesView.jsp" class="juegos"> Games</a></li>
-                                <li><a href="listRequestView.jsp" class="request"> Request </a></li>
+                                <li><a href="listRequestView.jsp" class="request"> Request <p class="numRequest" align="center"><%=numberRequest %></p></a></li>
                                 <li><a href="" class="materias"> Subjects </a></li>
                                 <li><a href="" class="estudiantes"> Students </a></li>
                                 <li><a href="" class="usuarios"> Users </a></li>
@@ -71,7 +70,7 @@
                 <table id="tableGames" class="count">
                     <tr>
                         <th rowspan="5">
-                            <img src="images/game2.jpg" height="250" width="230" id="imageGame">
+                            <img src="images/game2.jpg" height="250" width="230" id="imageGameRequest">
                         </th>
                         <td align="left" id="ide"> idSolicitud:
                             <input type="text" class="textValue" id="id_<%=count%>" value="<%= selectGames.getString(1)%>">
@@ -133,9 +132,8 @@
                 </div>
               </div>
             </div>
-                
-                
-                <!-- COMIENZA EL MODAL DONDE SE MUESTRA LA DESAPROVACION DE UNA SOLICITUD DE UN JUEGO -->
+
+            <!-- COMIENZA EL MODAL DONDE SE MUESTRA LA DESAPROVACION DE UNA SOLICITUD DE UN JUEGO -->
             <!-- Contenedor del modal -->
             <form action="RechazarSolicitudServlet" method="post">
             <div id="modalRech" class="modalRech">
