@@ -18,7 +18,14 @@ public class Logic_Solcitud {
    public String  FechaPeticion;
    public String  FechaRespuesta;
    public String  FechaTerminacion;
+   public String  EstadoSolicitud;
    public int     Prf_IdProfesor; 
+   public int     Id_Material;
+   
+   public static String SOL_Actp = "Aceptado";
+   public static String SOL_Regt = "Rechazado";
+   public static String SOL_Pndt = "Pendiente";
+   
 
    // constructor por defecto
    public Logic_Solcitud(){}

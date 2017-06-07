@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import conexion.*;
+import javax.servlet.ServletContext;
 import javax.swing.JOptionPane;
 
 /**
@@ -74,8 +75,13 @@ public class logInServletControler extends HttpServlet {
         // crear una conexion
         loginModel login = new loginModel();
         String tipoUsuario = login.logIn(usuario, password);
+        int idUsuario = login.idUsuario(usuario, password);
         boolean correct = false;
         String direccionamiento = "/private/logInView.html";
+        
+        // almacenar el idusuario en el nivel de aplicacion
+        ServletContext contxtAplication = getServletConfig().getServletContext();
+        contxtAplication.setAttribute("IdUsuarioConectado", idUsuario);
 
         switch (tipoUsuario) {
             case "administrador":

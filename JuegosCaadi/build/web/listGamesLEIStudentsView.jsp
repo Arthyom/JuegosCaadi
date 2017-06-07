@@ -10,7 +10,7 @@
 <%@page import="ConnectionModel.ConnectionModel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%String pw = "kike";%>
+<%String pw = "";%>
 <%--String pw = "UtnCboV1";--%>
 <%--String pw = "";--%>
 

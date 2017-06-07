@@ -12,11 +12,7 @@
 <%@page import="ConnectionModel.ConnectionModel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%--String pw = "";--%>
-<<<<<<< HEAD
-=======
-<%--String pw = "UtnCboV1";--%>
->>>>>>> KikeVistas
+
 <%String pw = "";%>
 
 ﻿<!DOCTYPE html>

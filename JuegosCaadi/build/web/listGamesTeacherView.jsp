@@ -8,6 +8,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="ConnectionModel.ConnectionModel"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%String pw = "";%>
@@ -112,7 +113,7 @@
             
             <!-- COMIENZA EL MODAL DONDE SE MUESTRA LA CONFIRMACIÓN DE UNA SOLICITUD DE UN JUEGO -->
             <!-- Contenedor del modal -->
-            <form action="" method="">
+            <form action="InsertSolcitudServlet" method="post">
             <div id="modalRequest" class="modalRequest">
               <!-- Contenido del modal -->
               <div class="modalRequest-content">

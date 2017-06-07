@@ -13,10 +13,8 @@
 <%String pw = "";%>
 <%--String pw = "UtnCboV1";--%>
 <%--String pw = "";--%>
-<<<<<<< HEAD
-<%String pw = "";%>
-=======
->>>>>>> KikeVistas
+
+
 
 ﻿<!DOCTYPE html>
 <html>
@@ -65,7 +63,7 @@
 
             <% ConnectionModel connect = new ConnectionModel("jdbc:mysql://localhost/mydb", "root", pw); %>
             <% Statement querySelect = connect.connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); %>
-            <% String query = "SELECT * FROM solicitud WHERE Fecha_Respuesta = 'NO';"; %> <%--WHERE Fecha_Respuesta = 'NO'--%>
+            <% String query = "SELECT * FROM Solicitud WHERE Status = 'Pendiente';"; %> <%--WHERE Fecha_Respuesta = 'NO'--%>
             <% ResultSet selectGames = querySelect.executeQuery(query); %>
             
             <% int count = 0; %>
@@ -115,7 +113,7 @@
             
             <!-- COMIENZA EL MODAL DONDE SE MUESTRA LA APROVACIÓN DE UNA SOLICITUD DE UN JUEGO -->
             <!-- Contenedor del modal -->
-            <form action="" method="">
+            <form action="AceptarJuegoServlet" method="post">
             <div id="modalAprov" class="modalAprov">
               <!-- Contenido del modal -->
               <div class="modalAprov-content">
@@ -127,7 +125,7 @@
                         <div class="objetsContainer">
                             <img src="images/Question.png" class="warningImage">
                             <p class="textDelete" > Are you sure you want to approve: </p>
-                            <input type="text" class="aprovGame" id="aprovID" value="" disabled="true"/>
+                            <input type="text" class="aprovGame" id="aprovID" value="" disabled="false"/>
                             <input type="text" class="aprovtGame" id="IdMaterialAprov" name="IdMaterialAprov" style="display: none"/>
                                 <button class="btnAprovM"> Approve </button>
                            </form>
@@ -140,7 +138,7 @@
                 
                 <!-- COMIENZA EL MODAL DONDE SE MUESTRA LA DESAPROVACION DE UNA SOLICITUD DE UN JUEGO -->
             <!-- Contenedor del modal -->
-            <form action="" method="">
+            <form action="RechazarSolicitudServlet" method="post">
             <div id="modalRech" class="modalRech">
               <!-- Contenido del modal -->
               <div class="modalRech-content">
@@ -152,7 +150,7 @@
                         <div class="objetsContainer">
                             <img src="images/Question.png" class="warningImage">
                             <p class="textDelete" > Are you sure you want to desapprove: </p>
-                            <input type="text" class="rechGame" id="rechID" value="" disabled="true"/>
+                            <input type="text" class="rechGame" id="rechID" value="" disabled="false"/>
                             <input type="text" class="rechGame" id="IdMaterialRech" name="IdMaterialRech" style="display: none"/>
                                 <button class="btnRechM"> Disapprove </button>
                            </form>

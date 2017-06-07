@@ -368,6 +368,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Solicitud` (
   `Fecha_Respuesta` VARCHAR(45) NULL,
   `Fecha_Terminacion` VARCHAR(45) NULL,
   `Profesor_IdProfesor` INT NOT NULL,
+  `Material_IdMaterial` INT NOT NULL,
+  `Status` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idSolicitud`),
   UNIQUE INDEX `idSolicitud_UNIQUE` (`idSolicitud` ASC))
 ENGINE = InnoDB;

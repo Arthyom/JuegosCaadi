@@ -18,16 +18,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ConnectionModel.*;
 import java.io.*;
+import java.util.Date;
+import javax.print.attribute.standard.DateTimeAtCompleted;
 
 public class Utilidades {
     
-<<<<<<< HEAD
-    //public static String pw = "kike";
     public static String pw = "";
-=======
-    public static String pw = "kike";
-    //public static String pw = "UtnCboV1";
->>>>>>> KikeVistas
+
     //public static String pw = "";
 
     /*
@@ -133,6 +130,37 @@ public class Utilidades {
         Boolean estado = consulta.execute(Sql);
         consulta.close();
         return estado;
+    }
+    
+    public static boolean Insert    ( Logic_Solcitud NuevaSolicitud, ConnectionModel NuevaConexion ) throws SQLException{
+        
+        String Sql = "INSERT INTO Solicitud ("+
+                "Observaciones_Salida,"+
+                "Observaciones_Entrada,"+ 
+                "Fecha_Peticion,"+
+                "Fecha_Respuesta,"+
+                "Fecha_Terminacion,"+
+                "Profesor_IdProfesor,"+
+                "Material_IdMaterial,"+
+                "Status"+
+            ") "
+         +  "VALUES ("+
+                "'" + NuevaSolicitud.ObsvSalida + "',"+
+                "'" + NuevaSolicitud.ObsvEntrada + "',"+
+                "'" + NuevaSolicitud.FechaPeticion + "',"+
+                "'" + NuevaSolicitud.FechaRespuesta + "',"+
+                "'" + NuevaSolicitud.FechaTerminacion + "',"+
+                "" + NuevaSolicitud.Prf_IdProfesor + ","+
+                "" + NuevaSolicitud.Id_Material + ","+
+                "'" + NuevaSolicitud.EstadoSolicitud + "'"+
+                
+            ");";
+        
+        Statement consulta = NuevaConexion.connection.createStatement();
+        Boolean estado = consulta.execute(Sql);
+        consulta.close();
+        return estado;
+        
     }
     
     /*
@@ -310,10 +338,14 @@ public class Utilidades {
     /*
         crear un nuevo objeto tipo solicitud
     */
-    public static Logic_Solcitud    CrearSolicitud ( HttpServletRequest req )
+    public static Logic_Solcitud    CrearSolicitud ( HttpServletRequest req, int idProf )
     {
         Logic_Solcitud sn = new Logic_Solcitud();
-        
+        sn.FechaPeticion = "hoy";
+        sn.EstadoSolicitud = "Pendiente";
+        String f = req.getParameter("IdMaterialSolicitado").trim();
+        sn.Id_Material = Integer.parseInt(f);
+        sn.Prf_IdProfesor = idProf;
         return sn;
     }
     

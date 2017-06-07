@@ -5,8 +5,13 @@
  */
 package CrudServlets;
 
+import ConnectionModel.ConnectionModel;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,7 +52,22 @@ public class InsertSolcitudServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
+        
+        /* insertar una nueva solicitud en la base de datos */
+        
+        // conseguir el id del profesor que acaba de entrar al servlet
+        ServletContext contxtAplication = getServletConfig().getServletContext();
+        int idProf = (int) contxtAplication.getAttribute("IdUsuarioConectado");
+        
+        // crear un nuevo objeto solicitud e iniciarlo con valores definidos en el request
+        Logic_ObjetosBaseDatos.Logic_Solcitud sn = Herramientas.Utilidades.CrearSolicitud(request,  idProf);
+
+        try {
+            // ejecutar la consulta de incercion
+            Herramientas.Utilidades.Insert( sn, new ConnectionModel("jdbc:mysql://localhost/mydb", "root", "") );
+        } catch (SQLException ex) {
+            Logger.getLogger(InsertSolcitudServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
