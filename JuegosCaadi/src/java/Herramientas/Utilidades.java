@@ -253,7 +253,7 @@ public class Utilidades {
     {
         String Sql = "UPDATE " + TablaDestino + 
                 " SET  " + 
-                    "idMaterial          =   " +MaterialActual.IdMaterial + "    ,"+ 
+//                    "idMaterial          =   " +MaterialActual.IdMaterial + "    ,"+ 
                     "Material_Nombre     = ' " +MaterialActual.Nombre       + " ',"+ 
                     "Material_Clase =      ' " +MaterialActual.Clase        + " ',"+ 
                     "Material_Existencia =   " +MaterialActual.Existencia   + "  ,"+ 
@@ -313,8 +313,8 @@ public class Utilidades {
     {
         Logic_TablaJuegos jn = new Logic_TablaJuegos();
         
-        String id =  req.getParameter("IdMaterial");
-        jn.IdMaterial = Integer.parseInt(id);
+//        String id =  req.getParameter("IdMaterial");
+//        jn.IdMaterial = Integer.parseInt(id);
         jn.Nombre =  req.getParameter("Nombre");
         jn.Clase = req.getParameter("Clase");
         jn.Existencia = Integer.parseInt( req.getParameter("Existencia"));

@@ -230,7 +230,7 @@
                         <div class="objetsContainer">
                             <table class="tableInsert">
                             <tr>
-                                    <input style="display: none" type="text" id="ID" class="num" name="IdMaterial" value="" size="25" style="visibility:hidden;" />
+                                <input style="display: none" type="text" id="ID" class="num" name="IdMaterial" value="" size="25" style="visibility:hidden;" />
                                 <td>
                                     <h5 id="name"> Nombre </h5>
                                     <input type="text" id="NAME" class="name" name="Nombre" value="" size="25" />                                        

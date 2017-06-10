@@ -24,7 +24,7 @@
             <% int number = 0; %>
             <div class="header">
                 <ul class="nav">
-                    <li><a href="homeAdministratorView.html" class="inicio"> Home </a></li>
+                    <li><a href="homeAdministratorView.jsp" class="inicio"> Home </a></li>
                     <li><a href="" class="administrar"> Manage </a>
                         <ul>
                             <li><a href="listGamesView.jsp" class="juegos"> Games</a></li>
